@@ -1,0 +1,43 @@
+Final User Stories for Iteration 1:
+
+Story 1:
+- User Story: I want to <log in> so that <I can access the seperate areas and functionalities available only to the specific user>.
+- Acceptance Test 1: Given that <I am not logged into the app> when <I enter my correct user credentials only> then <I should be logged into the app>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 2:
+- User Story: I want to <log out> so that <I can access the seperate areas and functionalities available only to the specific user>.
+- Acceptance Test 1: Given that <I am logged into the app> when <I press the log out button> then <I should be logged out of the app>.
+- Priority: Critical
+- Effort: 2 points -> 4 hours.
+
+Story 3:
+- User Story: As a <user>, I want to <register for an account> so that <all of my information will be saved for future visits and I can get access to all features and functions>.
+- Acceptance Test 1: Given that <I am not registered yet> when <I want to use the app> then <I can enter my personal information and create a unique username and password>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 4:
+- User Story: As a <provider>, I want to <submit used goods with necessary details> so that <I can declare the goods that I want to exchange with others>.
+- Acceptance Test 1: Given that <I'm logged in as a provider and in possession of a used good> when <I fill the form and click submit> then <the used good should be posted to the app>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 5:
+- User Story: As a <receiver>, I want to <search for used goods> so that <I can find other used goods that I can possibly exchange with my own goods>.
+- Acceptance Test 1: Given that <I'm logged in as a receiver and I have my own used goods> when <I search for a used good(s) by name> then <a list of used goods should be displayed>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 6:
+- User Story: I want to <view and store my preferences in a profile page> so that <I can get alerted if potentially exchangable goods are posted to the app>.
+- Acceptance Test 1: Given that <I'm logged in> and <when I enter my preference information and click submit> then <my good(s) preferences should appear under my profile>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 7:
+- User Story: I want to <view a list of used goods> so that <I can browse all the used goods that are posted to the app>.
+- Acceptance Test 1: Given that <I'm logged in> when <I enter the app> then <I will be able to see all the used goods that have been posted by providers>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
