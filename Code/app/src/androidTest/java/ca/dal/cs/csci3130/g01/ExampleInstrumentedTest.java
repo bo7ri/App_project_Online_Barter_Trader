@@ -1,4 +1,4 @@
-package com.example.group01app;
+package ca.dal.cs.csci3130.g01;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.group01app", appContext.getPackageName());
+        assertEquals("ca.dal.cs.csci3130.g01", appContext.getPackageName());
     }
 }

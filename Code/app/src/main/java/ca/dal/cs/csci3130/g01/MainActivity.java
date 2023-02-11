@@ -1,4 +1,4 @@
-package com.example.group01app;
+package ca.dal.cs.csci3130.g01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
