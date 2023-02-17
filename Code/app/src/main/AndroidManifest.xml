@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CSCI3130Project"
         tools:targetApi="31">
+        <activity android:name=".RegisterPage"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
