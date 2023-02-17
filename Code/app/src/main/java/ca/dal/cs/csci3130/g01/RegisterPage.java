@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,21 +45,27 @@ public class RegisterPage extends AppCompatActivity {
                     boolean errorFlag = false;
                     if (inputUsername.length() < 3) {
                         errorFlag = true;
+                        setRegisterStatus("Invalid! Username needs to contain at least three characters.");
                         Toast.makeText(RegisterPage.this, "Invalid! Username needs to contain at least three characters.", Toast.LENGTH_LONG).show();
                     } else if (inputPassword.length() < 3) {
                         errorFlag = true;
+                        setRegisterStatus("Invalid! Password needs to contain at least three characters.");
                         Toast.makeText(RegisterPage.this, "Invalid! Password needs to contain at least three characters.", Toast.LENGTH_LONG).show();
                     } else if (inputFirstName.length() < 3) {
                         errorFlag = true;
+                        setRegisterStatus("Invalid! First name needs to contain at least three characters.");
                         Toast.makeText(RegisterPage.this, "Invalid! First name needs to contain at least three characters.", Toast.LENGTH_LONG).show();
                     } else if (inputLastName.length() < 3) {
                         errorFlag = true;
+                        setRegisterStatus("Invalid! Last name needs to contain at least three characters.");
                         Toast.makeText(RegisterPage.this, "Invalid! Last name needs to contain at least three characters.", Toast.LENGTH_LONG).show();
                     } else if (isValidEmailAddress(inputEmailAddress) == false) {
                         errorFlag = true;
+                        setRegisterStatus("Invalid! Email address contains invalid length or characters.");
                         Toast.makeText(RegisterPage.this, "Invalid! Email address contains invalid length or characters.", Toast.LENGTH_LONG).show();
                     } else if (isValidUserType(inputUserType) == false) {
                         errorFlag = true;
+                        setRegisterStatus("Invalid! Must be 'Provider' or 'Receiver' exactly.");
                         Toast.makeText(RegisterPage.this, "Invalid! Must be 'Provider' or 'Receiver' exactly.", Toast.LENGTH_LONG).show();
                     }
 
@@ -76,6 +83,7 @@ public class RegisterPage extends AppCompatActivity {
                         cloudDatabase.collection("UserList").add(registeredUser);
 
                         // Switching back to login page.
+                        setRegisterStatus("Registration successful!");
                         Toast.makeText(RegisterPage.this, "Registration successful!", Toast.LENGTH_LONG).show();
                         switchToLoginPage();
                     }
@@ -83,6 +91,7 @@ public class RegisterPage extends AppCompatActivity {
                 } else {
 
                     // Empty fields error message.
+                    setRegisterStatus("One or more fields are empty!");
                     Toast.makeText(RegisterPage.this, "One or more fields are empty!", Toast.LENGTH_LONG).show();
 
                 }
@@ -124,7 +133,7 @@ public class RegisterPage extends AppCompatActivity {
 
     // Getting user type from field.
     protected String getUserType() {
-        EditText registerUserType = findViewById(R.id.regsiterUserTypeField);
+        EditText registerUserType = findViewById(R.id.registerUserTypeField);
         return registerUserType.getText().toString().trim();
     }
 
@@ -201,6 +210,12 @@ public class RegisterPage extends AppCompatActivity {
         // Return true if valid, false if invalid.
         return resultFlag;
 
+    }
+
+    // Used to run and check tests.
+    protected void setRegisterStatus(String errorMessage) {
+        TextView statusLabel = findViewById(R.id.registerationTestMessage);
+        statusLabel.setText(errorMessage.trim());
     }
 
 }
