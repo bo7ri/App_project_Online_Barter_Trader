@@ -61,9 +61,30 @@ public class ExampleInstrumentedTest {
     }
 
     /**
+     * AT-6
+     */
+    @Test
+    public void searchGoodByNameIsAvailable(){
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Chair"), pressImeActionButton());
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
+    }
+
+    @Test
+    public void searchGoodByNameIsNotAvailable(){
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Wooden chair"), pressImeActionButton());
+
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(0)));
+    }
+
+
+    /**
      * AT-7
      */
-
     /**
      * This Tests if the recyclers contents are displayed
      */
@@ -85,25 +106,5 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.productDesp)).check(matches(isDisplayed()));
     }
 
-    /**
-     * AT-6
-     */
-    @Test
-    public void searchGoodByNameIsAvailable(){
-
-        onView(withId(R.id.search)).perform(click());
-        onView(withId(androidx.appcompat.R.id.search_src_text))
-                .perform(typeText("Chair"), pressImeActionButton());
-        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
-    }
-
-    @Test
-    public void searchGoodByNameIsNotAvailable(){
-        onView(withId(R.id.search)).perform(click());
-        onView(withId(androidx.appcompat.R.id.search_src_text))
-                .perform(typeText("Wooden chair"), pressImeActionButton());
-
-        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(0)));
-    }
 
 }
