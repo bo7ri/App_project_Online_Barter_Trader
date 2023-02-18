@@ -1,29 +1,31 @@
 package ca.dal.cs.csci3130.g01;
 
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
 import android.content.Context;
-import android.view.View;
+import android.widget.SearchView;
 
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.test.espresso.UiController;
-import androidx.test.espresso.ViewAction;
+import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 
-
-import org.hamcrest.Matcher;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -59,14 +61,14 @@ public class ExampleInstrumentedTest {
     }
 
     /**
-     * UAT-7
+     * AT-7
      */
 
     /**
      * This Tests if the recyclers contents are displayed
      */
     @Test
-    public void testRecyclerIsDisplayed(){
+    public void testContentsAreDisplayed(){
 
         onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
     }
@@ -77,34 +79,31 @@ public class ExampleInstrumentedTest {
     @Test
     public void testItemDetails(){
 
-        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, clickChild(R.id.viewItem)));
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
 
         onView(withId(R.id.productTitle)).check(matches(isDisplayed()));
         onView(withId(R.id.productDesp)).check(matches(isDisplayed()));
     }
 
-    // DO NOT TOUCH
     /**
-     * This method is for creating a custom click action on recycler view
-     * @param id the button ID
-     * @return The customized click action
+     * AT-6
      */
-    private static ViewAction clickChild (int id){
-        return new ViewAction() {
-            @Override
-            public String getDescription() {
-                return "Click on child at position";
-            }
+    @Test
+    public void searchGoodByNameIsAvailable(){
 
-            @Override
-            public Matcher<View> getConstraints() {
-                return allOf(isAssignableFrom(RecyclerView.class), isDisplayed());
-            }
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                view.findViewById(id).performClick();
-            }
-        };
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Chair"), pressImeActionButton());
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
     }
+
+    @Test
+    public void searchGoodByNameIsNotAvailable(){
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Wooden chair"), pressImeActionButton());
+
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(0)));
+    }
+
 }

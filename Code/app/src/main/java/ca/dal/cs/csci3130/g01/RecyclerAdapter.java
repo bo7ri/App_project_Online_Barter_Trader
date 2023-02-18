@@ -66,13 +66,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView item;
-        private Button viewItemBtn;
         private ImageView itemImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             item = itemView.findViewById(R.id.listItemID);
-            viewItemBtn = itemView.findViewById(R.id.viewItem);
             itemImage = itemView.findViewById(R.id.productImage);
         }
     }
@@ -105,13 +103,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         Product itemName = productList.get(position);
         holder.item.setText(itemName.getTitle());
 
-        holder.viewItemBtn.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 onClickRecyclerView.onClick(holder.getAdapterPosition());
             }
         });
+
     }
 
     /**

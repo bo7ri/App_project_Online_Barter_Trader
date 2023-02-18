@@ -9,21 +9,11 @@
         android:id="@+id/listItemID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="48dp"
         android:text="TITLE"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/productImage"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/viewItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="20dp"
-        android:text="View"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="28sp"
+        app:layout_constraintStart_toEndOf="@id/productImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
