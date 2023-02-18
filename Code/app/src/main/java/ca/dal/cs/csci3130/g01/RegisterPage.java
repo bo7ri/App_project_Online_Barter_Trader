@@ -139,7 +139,7 @@ public class RegisterPage extends AppCompatActivity {
 
     // Switching back to login page.
     protected void switchToLoginPage() {
-        Intent switchToLoginIntent = new Intent(RegisterPage.this, MainActivity.class);
+        Intent switchToLoginIntent = new Intent(RegisterPage.this, LoginPage.class);
         RegisterPage.this.startActivity(switchToLoginIntent);
     }
 

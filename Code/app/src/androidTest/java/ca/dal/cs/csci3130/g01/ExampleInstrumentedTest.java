@@ -36,8 +36,11 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> myRule = new ActivityScenarioRule<>(MainActivity.class);
-    public IntentsTestRule<MainActivity> myIntentRule = new IntentsTestRule<>(MainActivity.class);
+    //public ActivityScenarioRule<MainActivity> myRule = new ActivityScenarioRule<>(MainActivity.class);
+    //public IntentsTestRule<MainActivity> myIntentRule = new IntentsTestRule<>(MainActivity.class);
+
+    public ActivityScenarioRule<LoginPage> myLoginRule = new ActivityScenarioRule<>(LoginPage.class);
+    public IntentsTestRule<LoginPage> myLoginIntentRule = new IntentsTestRule<>(LoginPage.class);
 
     @BeforeClass
     public static void setup() {
@@ -60,7 +63,7 @@ public class ExampleInstrumentedTest {
     // Checks if fields are not empty and submits correctly.
     @Test
     public void checkIfFieldsNotEmpty() {
-        onView(withId(R.id.registerPageButton)).perform(click());
+        onView(withId(R.id.RegisterButton)).perform(click());
         onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
         onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
         onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
@@ -68,13 +71,13 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.registerEmailField)).perform(replaceText("blabla@orange.com"));
         onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
         onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.registerPageButton)).check(matches(isDisplayed()));
+        onView(withId(R.id.RegisterButton)).check(matches(isDisplayed()));
     }
 
     // Checks if one field is empty and doesn't move to another page.
     @Test
     public void checkIfFieldsAreEmpty() {
-        onView(withId(R.id.registerPageButton)).perform(click());
+        onView(withId(R.id.RegisterButton)).perform(click());
         onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
         onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
         onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
@@ -88,8 +91,22 @@ public class ExampleInstrumentedTest {
     // Checks if switches correctly to register page after button is clicked.
     @Test
     public void checkIfSwitchedToRegisterPage() {
-        onView(withId(R.id.registerPageButton)).perform(click());
+        onView(withId(R.id.RegisterButton)).perform(click());
         intended(hasComponent(RegisterPage.class.getName()));
     }
 
+
+/*    @Test
+    public void checkIfSwitchedToListPage() {
+        onView(withId(R.id.Login)).perform(click());
+        intended(hasComponent(ProvidersListings.class.getName()));
+    }*/
+
+    @Test
+    public void checkIfIncorrectLogin() {
+        onView(withId(R.id.Username)).perform(replaceText("admin"));
+        onView(withId(R.id.Password)).perform(replaceText("123"));
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.LoginStatusText)).check(matches(withText("Invalid Login!")));
+    }
 }
