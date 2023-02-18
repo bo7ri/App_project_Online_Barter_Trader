@@ -1,7 +1,10 @@
 package ca.dal.cs.csci3130.g01;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +13,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -26,6 +34,8 @@ import java.util.List;
  */
 public class ProvidersListings extends AppCompatActivity implements RecyclerAdapter.onClickRecyclerView{
 
+
+    Toolbar toolbar;
     List<Product> productList;
     FirebaseFirestore database;
     RecyclerView recyclerView;
@@ -41,6 +51,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
         recyclerView = findViewById(R.id.recyclerView);
         emptyList = findViewById(R.id.listIsEmpty);
+        toolbar = findViewById(R.id.myToolbar);
+
 
         // Data base set up
         database = FirebaseFirestore.getInstance();
@@ -132,5 +144,47 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         Intent itemDetails = new Intent(getApplicationContext(), ItemDetails.class);
         itemDetails.putExtra("product", product);
         startActivity(itemDetails);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Type here to search..");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.search:
+                Toast.makeText(this, "Search bar clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.profile:
+                Toast.makeText(this, "Profile bar clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menu:
+                Toast.makeText(this, "Logout bar clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
