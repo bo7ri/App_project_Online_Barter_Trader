@@ -17,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -40,6 +39,9 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     FirebaseFirestore database;
     RecyclerView recyclerView;
     TextView emptyList;
+    List<Product> filteredList;
+
+    RecyclerAdapter adapter;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -48,10 +50,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         setContentView(R.layout.activity_providers_listings);
 
         productList = new ArrayList<>();
+        filteredList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerView);
         emptyList = findViewById(R.id.listIsEmpty);
-        toolbar = findViewById(R.id.myToolbar);
+        toolbar = findViewById(R.id.toolBar);
 
 
         // Data base set up
@@ -64,7 +67,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 //        uploadData();
 
         // adapter set up
-        RecyclerAdapter adapter = new RecyclerAdapter(productList);
+        adapter = new RecyclerAdapter(productList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -73,8 +76,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
         // Set data from DB
 //        setupDataDB(adapter);
+        //adapter.notifyDataSetChanged();
 
-        adapter.notifyDataSetChanged();
 
     }
 
@@ -111,10 +114,16 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-        for (int i = 1; i <= 5; i++) {
 
-            productList.add(new Product("title" + i,"desc" + i));
-        }
+
+        productList.add(new Product("Chair","desc" + 1));
+        productList.add(new Product("Table","desc" + 1));
+        productList.add(new Product("TV","desc" + 1));
+        productList.add(new Product("Phone","desc" + 1));
+        productList.add(new Product("Wooden chair","desc" + 1));
+        productList.add(new Product("laptop","desc" + 1));
+        productList.add(new Product("lamp","desc" + 1));
+
     }
 
     /**
@@ -146,6 +155,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         startActivity(itemDetails);
     }
 
+    /**
+     * Inflates the toolbar with search functionality
+     * @param menu the menu that has the items
+     * @return super onCreateOptionsMenu result
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -164,27 +178,43 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             @Override
             public boolean onQueryTextChange(String newText) {
 
-                return false;
+                filteredList.clear();
+                emptyList.setText(R.string.EMPTY_STRING);
+
+                for (Product product : productList) {
+                    String titleLowerCase = product.getTitle().toLowerCase();
+                    if(titleLowerCase.contains(newText.toLowerCase())){
+                        filteredList.add(product);
+                    }
+                }
+
+                if(filteredList.size() > 0){
+                    adapter.setProductList(filteredList);
+                    adapter.notifyDataSetChanged();
+                    return true;
+
+                } else{
+                    emptyList.setText(R.string.EMPTY_LIST);
+                    return false;
+                }
             }
         });
+
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.search:
-                Toast.makeText(this, "Search bar clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.profile:
-                Toast.makeText(this, "Profile bar clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu:
-                Toast.makeText(this, "Logout bar clicked", Toast.LENGTH_SHORT).show();
-                break;
 
+        if(item.getItemId() == R.id.profile){
+            // TODO
+            // transfer to profile activity
         }
+        if(item.getItemId() == R.id.logout){
+            // TODO
+            // transfer to login page
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

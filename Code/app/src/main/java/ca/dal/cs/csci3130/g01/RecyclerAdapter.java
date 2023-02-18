@@ -36,6 +36,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.productList = productList;
     }
 
+    /**
+     * A method for setting new data on adapter
+     * @param productList A new list of items
+     */
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
     // DO NOT TOUCH THIS
     /**
      * An interface for onCLick listener for recycler view

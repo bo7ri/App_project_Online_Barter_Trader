@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Search"
+        android:title="@string/search"
         android:icon="@drawable/baseline_search_24"
         android:id="@+id/search"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
     <item
-        android:title="Profile"
+        android:title="@string/profile"
         android:icon="@drawable/baseline_person_24"
         android:id="@+id/profile"
         app:showAsAction="ifRoom"/>
     <item
-        android:title="Logout"
+        android:title="@string/logout"
         android:icon="@drawable/baseline_power_settings_new_24"
-        android:id="@+id/menu"
+        android:id="@+id/logout"
         app:showAsAction="ifRoom"/>
 </menu>

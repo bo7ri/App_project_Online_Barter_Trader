@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">CSCI3130Project</string>
     <string name="EMPTY_LIST">No products found</string>
+    <string name="EMPTY_STRING">""</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
 </resources>

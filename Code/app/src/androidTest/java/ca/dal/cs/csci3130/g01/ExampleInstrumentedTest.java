@@ -59,7 +59,7 @@ public class ExampleInstrumentedTest {
     }
 
     /**
-     * UAT-7 1
+     * UAT-7
      */
 
     /**
@@ -84,7 +84,6 @@ public class ExampleInstrumentedTest {
     }
 
     // DO NOT TOUCH
-
     /**
      * This method is for creating a custom click action on recycler view
      * @param id the button ID

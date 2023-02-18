@@ -7,18 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.firebase.database.core.Tag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,17 +34,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details);
 
-        toolbar = findViewById(R.id.myToolbar);
-        listView = (ListView) findViewById(R.id.listview);
+        toolbar = findViewById(R.id.toolBar);
+        //listView = (ListView) findViewById(R.id.listview);
 
-        list.add("Item1");
-        list.add("Item2");
-        list.add("Item3");
-        list.add("Item4");
+        //
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list);
-        listView.setAdapter(adapter);
-        registerForContextMenu(listView);
+        //listView.setAdapter(adapter);
+        //registerForContextMenu(listView);
 
     }
 
@@ -88,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.profile:
                 Toast.makeText(this, "Profile bar clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.menu:
+            case R.id.logout:
                 Toast.makeText(this, "Logout bar clicked", Toast.LENGTH_SHORT).show();
                 break;
 
