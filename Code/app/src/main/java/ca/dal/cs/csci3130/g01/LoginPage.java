@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,6 +66,9 @@ public class LoginPage extends AppCompatActivity {
 //                                LoginPage.this.startActivity(moveToListPage);
                              }
                              else {
+                                 TextView loginStatus = findViewById(R.id.LoginStatusText);
+                                 String validity = "Invalid Login!";
+                                 loginStatus.setText(validity.trim());
                                  Toast.makeText(LoginPage.this, "Invalid Login", Toast.LENGTH_SHORT).show();
                              }
 
