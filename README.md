@@ -8,4 +8,4 @@ Topic Title: Online Barter Trader
 - Group Member 4: Jaifar Salim Nasser Al-Musalhi, jf490907@dal.ca, B00858881
 - Group Member 5: Al-Julanda Salim Nasser Al-Musalhi, al739332@dal.ca, B00858871
 - Group Member 6: Akram Saleh, Akram.Saleh@dal.ca, B00826500
-- Group Member 7: Ahmed Elghamriny, ah447535@dal.ca, B00XXXXXX
+- Group Member 7: Ahmed Elghamriny, ah447535@dal.ca, B00882532
