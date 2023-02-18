@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -57,11 +59,21 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         toolbar = findViewById(R.id.toolBar);
 
 
+        ImageButton ProductAddPageButton = findViewById(R.id.prductAddBtn);
+        ProductAddPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent movingToListPageIntent = new Intent(getApplicationContext(), ListPage.class);
+                startActivity(movingToListPageIntent);
+            }
+        });
+
+
         // Data base set up
         database = FirebaseFirestore.getInstance();
 
         // set data Locally
-        setData();
+        //setData();
 
         // upload data to firebase
 //        uploadData();
@@ -75,8 +87,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         adapter.setOnClickRecyclerView(this);
 
         // Set data from DB
-//        setupDataDB(adapter);
-        //adapter.notifyDataSetChanged();
+        setupDataDB(adapter);
+        adapter.notifyDataSetChanged();
 
 
     }

@@ -61,7 +61,7 @@ public class ExampleInstrumentedTest {
     }
 
     /**
-     * AT-6
+     * AT-5
      */
     @Test
     public void searchGoodByNameIsAvailable(){
