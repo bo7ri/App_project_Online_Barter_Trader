@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CSCI3130Project</string>
+    <string name="EMPTY_LIST">No products found</string>
 </resources>

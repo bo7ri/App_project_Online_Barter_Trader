@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 /**
  * @author Mohamed Al-Maimani
+ * This class desplays the item's titles and description.
  */
 public class ItemDetails extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class ItemDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details);
 
+        // Get the TextView
         TextView productTitle = findViewById(R.id.productTitle);
         TextView productDescription = findViewById(R.id.productDesp);
 

@@ -18,7 +18,6 @@ public class Product implements Parcelable {
     private String title;
     private String description;
 
-
     /**
      * A basic product constructor
      * @param title The title of the product
@@ -30,14 +29,17 @@ public class Product implements Parcelable {
 
     }
 
+    // This is part of Parcelable interface
     public Product() {
     }
 
+    // This is part of Parcelable interface
     protected Product(Parcel in) {
         title = in.readString();
         description = in.readString();
     }
 
+// This is part of Parcelable interface
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
         public Product createFromParcel(Parcel in) {
@@ -50,8 +52,7 @@ public class Product implements Parcelable {
         }
     };
 
-
-
+    // This is part of Parcelable interface
     @Override
     public int describeContents() {
         return 0;
