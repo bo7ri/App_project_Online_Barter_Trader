@@ -15,4 +15,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/PrdctAddBtn"
+        android:layout_width="68dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/add_product" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
