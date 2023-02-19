@@ -12,10 +12,10 @@
         android:theme="@style/Theme.CSCI3130Project"
         tools:targetApi="31">
         <activity
-            android:name=".profile"
+            android:name=".NullMainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Profile"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
