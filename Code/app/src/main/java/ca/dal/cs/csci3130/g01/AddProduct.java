@@ -18,12 +18,17 @@ public class AddProduct extends AppCompatActivity {
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
     private Button SubmitPrdct;
 
+
+    FirebaseFirestore cloudDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         // Loading in the layout.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
+
+        cloudDatabase = FirebaseFirestore.getInstance();
 
         PrdctTitle = findViewById(R.id.addProductTitle);
         PrdctDescription = findViewById(R.id.addProductDescription);
@@ -68,7 +73,7 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
-        FirebaseFirestore cloudDatabase = FirebaseFirestore.getInstance();
+
 
         Product newProduct = new Product(ProductName,ProductDescription);
 

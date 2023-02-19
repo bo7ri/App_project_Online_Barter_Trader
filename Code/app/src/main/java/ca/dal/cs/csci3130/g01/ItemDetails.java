@@ -12,6 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 /**
  * @author Mohamed Al-Maimani
  * This class desplays the item's titles and description.
@@ -20,10 +22,15 @@ public class ItemDetails extends AppCompatActivity {
 
     Toolbar toolbar;
 
+    FirebaseFirestore database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details);
+
+        database = FirebaseFirestore.getInstance();
+
 
         // Get the TextView
         TextView productTitle = findViewById(R.id.productTitle);
@@ -36,8 +43,11 @@ public class ItemDetails extends AppCompatActivity {
         Product product = getIntent().getParcelableExtra("product");
 
         // set product title and desc.
-        productTitle.setText(product.getTitle());
-        productDescription.setText(product.getDescription());
+        if(product != null){
+            productTitle.setText(product.getTitle());
+            productDescription.setText(product.getDescription());
+        }
+
 
     }
 

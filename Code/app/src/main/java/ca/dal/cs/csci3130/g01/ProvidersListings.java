@@ -42,8 +42,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     RecyclerView recyclerView;
     TextView emptyList;
     List<Product> filteredList;
-
     RecyclerAdapter adapter;
+    List<Product> databaseListProduct;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -54,9 +54,9 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         // Data base set up
         database = FirebaseFirestore.getInstance();
 
-
         productList = new ArrayList<>();
         filteredList = new ArrayList<>();
+        databaseListProduct = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerView);
         emptyList = findViewById(R.id.listIsEmpty);
@@ -81,7 +81,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         setData();
 
         // upload data to firebase
-//        uploadData();
+        //uploadData();
 
         // adapter set up
         adapter = new RecyclerAdapter(productList);
@@ -103,6 +103,9 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * @param adapter takes the recycler view adapter
      */
     protected void setupDataDB(RecyclerAdapter adapter) {
+
+        databaseListProduct.clear();
+
         database.collection("ProductList").get().addOnSuccessListener(queryDocumentSnapshots -> {
 
             if (queryDocumentSnapshots.isEmpty()){
@@ -116,10 +119,10 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             for (DocumentSnapshot document: snapshotList) {
                 Product product = document.toObject(Product.class);
 
-                if (product != null) productList.add(product);
+                if (product != null) databaseListProduct.add(product);
             }
 
-            for (int i = 0; i < productList.size(); i++) {
+            for (int i = 0; i < databaseListProduct.size(); i++) {
                 adapter.notifyItemChanged(i);
             }
 

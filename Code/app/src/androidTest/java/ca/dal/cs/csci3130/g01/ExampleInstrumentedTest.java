@@ -21,15 +21,13 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
-import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
-import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 
 import org.checkerframework.common.returnsreceiver.qual.This;
@@ -61,17 +59,19 @@ import org.junit.runner.RunWith;
 @LargeTest
 public class ExampleInstrumentedTest {
 
+
     @Rule
     public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
-//    @Rule
-//    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
-//    @Rule
-//    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
-//    @Rule
-//    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
+    @Rule
+    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
+    @Rule
+    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
+    @Rule
+    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
 
     @BeforeClass
     public static void setup() {
+        FirebaseApp.initializeApp(getInstrumentation().getTargetContext());
         Intents.init();
     }
 
@@ -83,7 +83,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Context appContext = getInstrumentation().getTargetContext();
         assertEquals("ca.dal.cs.csci3130.g01", appContext.getPackageName());
     }
 

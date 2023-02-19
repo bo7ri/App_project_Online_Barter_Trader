@@ -16,11 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -31,6 +27,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
 
     Toolbar toolbar;
 
+    FirebaseFirestore database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +37,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
         toolbar = findViewById(R.id.toolBar);
 
         // Get the instance of the Firebase
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        database = FirebaseFirestore.getInstance();
 
         // Declaration of DocumentReference variables
-        DocumentReference document = firestore.collection("users").document("user1");
+        DocumentReference document = database.collection("usersList").document("");
 
         // Add a listener to the document to get its value
         document.addSnapshotListener((snapshot, e) -> {
