@@ -51,6 +51,10 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_providers_listings);
 
+        // Data base set up
+        database = FirebaseFirestore.getInstance();
+
+
         productList = new ArrayList<>();
         filteredList = new ArrayList<>();
 
@@ -72,9 +76,6 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
                 startActivity(movingToListPageIntent);
             }
         });
-
-        // Data base set up
-        database = FirebaseFirestore.getInstance();
 
         // set data Locally
         setData();
