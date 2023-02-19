@@ -1,54 +1,44 @@
 package ca.dal.cs.csci3130.g01;
 
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.is;
+
 import static org.junit.Assert.assertEquals;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.intent.Intents.intended;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import android.content.Context;
-import android.widget.SearchView;
 
 
-import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
-import androidx.test.platform.app.InstrumentationRegistry;
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
 import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 
-import org.checkerframework.common.returnsreceiver.qual.This;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
-
-import androidx.test.espresso.Espresso;
-import androidx.test.espresso.action.ViewActions;
-import androidx.test.espresso.assertion.ViewAssertions;
-import androidx.test.espresso.matcher.ViewMatchers;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
-
+import androidx.test.espresso.intent.rule.IntentsTestRule;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -61,22 +51,23 @@ public class ExampleInstrumentedTest {
 
 
     @Rule
-    public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
-    @Rule
-    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
-    @Rule
-    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
-    @Rule
-    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
+    public ActivityScenarioRule<LoginPage> longinRule = new ActivityScenarioRule<>(LoginPage.class);
+//    @Rule
+//    public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
+//    @Rule
+//    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
+//    @Rule
+//    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
+//    @Rule
+//    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
 
     @BeforeClass
     public static void setup() {
-        FirebaseApp.initializeApp(getInstrumentation().getTargetContext());
         Intents.init();
     }
 
     @AfterClass
-    public static void destroy() {
+    public static void tearDown() {
         System.gc();
     }
 
@@ -86,7 +77,6 @@ public class ExampleInstrumentedTest {
         Context appContext = getInstrumentation().getTargetContext();
         assertEquals("ca.dal.cs.csci3130.g01", appContext.getPackageName());
     }
-
     /**
      * AT-5
      */
@@ -151,7 +141,54 @@ public class ExampleInstrumentedTest {
     }
 
     @Test
-    public void testProfileInputs() {
+    public void testProfileInputs() {}
 
+    // Checks if fields are not empty and submits correctly.
+    @Test
+    public void checkIfFieldsNotEmpty() {
+        onView(withId(R.id.RegisterButton)).perform(click());
+        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
+        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
+        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
+        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
+        onView(withId(R.id.registerEmailField)).perform(replaceText("blabla@orange.com"));
+        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
+        onView(withId(R.id.registerSubmitButton)).perform(click());
+        onView(withId(R.id.RegisterButton)).check(matches(isDisplayed()));
+    }
+
+    // Checks if one field is empty and doesn't move to another page.
+    @Test
+    public void checkIfFieldsAreEmpty() {
+        onView(withId(R.id.RegisterButton)).perform(click());
+        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
+        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
+        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
+        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
+        onView(withId(R.id.registerEmailField)).perform(replaceText(" "));
+        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
+        onView(withId(R.id.registerSubmitButton)).perform(click());
+        onView(withId(R.id.registerationTestMessage)).check(matches(withText("One or more fields are empty!")));
+    }
+
+    // Checks if switches correctly to register page after button is clicked.
+    @Test
+    public void checkIfSwitchedToRegisterPage() {
+        onView(withId(R.id.RegisterButton)).perform(click());
+        intended(hasComponent(RegisterPage.class.getName()));
+    }
+
+    @Test
+    public void checkIfSwitchedToListPage() {
+        onView(withId(R.id.Login)).perform(click());
+        intended(hasComponent(ProvidersListings.class.getName()));
+    }
+
+    @Test
+    public void checkIfIncorrectLogin() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("123"));
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.LoginStatusText)).check(matches(withText("Invalid Login!")));
     }
 }

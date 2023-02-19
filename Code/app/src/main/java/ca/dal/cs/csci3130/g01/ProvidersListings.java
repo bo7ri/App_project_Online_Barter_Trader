@@ -44,6 +44,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     List<Product> filteredList;
     RecyclerAdapter adapter;
     List<Product> databaseListProduct;
+    private String username;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -67,6 +68,9 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         if(newProduct != null){
             productList.add(newProduct);
         }
+
+        // Get Extra username
+        username = getIntent().getStringExtra("username");
 
         ImageButton ProductAddPageButton = findViewById(R.id.prductAddBtn);
         ProductAddPageButton.setOnClickListener(new View.OnClickListener() {
@@ -134,8 +138,6 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-
-
         productList.add(new Product("Chair","desc" + 1));
         productList.add(new Product("Table","desc" + 1));
         productList.add(new Product("TV","desc" + 1));
@@ -143,7 +145,6 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         productList.add(new Product("Wooden chair","desc" + 1));
         productList.add(new Product("laptop","desc" + 1));
         productList.add(new Product("lamp","desc" + 1));
-
     }
 
     /**
@@ -229,11 +230,13 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         if(item.getItemId() == R.id.profile){
             // transfer to profile activity
             Intent profilePage = new Intent(getApplicationContext(), Profile.class);
+            if(username != null) profilePage.putExtra("username", username);
             startActivity(profilePage);
         }
         if(item.getItemId() == R.id.logout){
-            // TODO
             // transfer to login page
+            Intent logout = new Intent(getApplicationContext(), LoginPage.class);
+            startActivity(logout);
         }
 
         return super.onOptionsItemSelected(item);

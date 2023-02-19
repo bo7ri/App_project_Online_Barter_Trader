@@ -18,13 +18,7 @@
         android:theme="@style/Theme.CSCI3130Project"
         tools:targetApi="s">
         <activity
-            android:name=".ItemDetails"
-            android:exported="false" />
-        <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".ProvidersListings"
+            android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+        android:name=".ProvidersListings"
+        android:exported="false" />
+        <activity
+            android:name=".ItemDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterPage"
+            android:exported="false"/>
         <activity
             android:name=".AddProduct"
             android:exported="false">

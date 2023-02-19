@@ -80,8 +80,9 @@ public class ItemDetails extends AppCompatActivity {
             startActivity(profilePage);
         }
         if(item.getItemId() == R.id.logout){
-            // TODO
             // transfer to login page
+            Intent logout = new Intent(getApplicationContext(), LoginPage.class);
+            startActivity(logout);
         }
 
         return super.onOptionsItemSelected(item);
