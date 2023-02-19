@@ -65,8 +65,9 @@ public class ItemDetails extends AppCompatActivity {
 
 
         if(item.getItemId() == R.id.profile){
-            // TODO
             // transfer to profile activity
+            Intent profilePage = new Intent(getApplicationContext(), Profile.class);
+            startActivity(profilePage);
         }
         if(item.getItemId() == R.id.logout){
             // TODO

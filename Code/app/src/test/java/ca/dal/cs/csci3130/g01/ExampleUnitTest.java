@@ -23,6 +23,7 @@ public class ExampleUnitTest {
         providersListings = new ProvidersListings();
     }
 
+<<<<<<< HEAD
     @AfterClass
     public static void tearDown() {
         System.gc();
@@ -36,4 +37,6 @@ public class ExampleUnitTest {
 
 
 
+=======
+>>>>>>> Mundhir
 }

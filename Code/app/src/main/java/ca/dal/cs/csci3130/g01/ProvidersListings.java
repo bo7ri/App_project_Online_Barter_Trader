@@ -223,8 +223,9 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(item.getItemId() == R.id.profile){
-            // TODO
             // transfer to profile activity
+            Intent profilePage = new Intent(getApplicationContext(), Profile.class);
+            startActivity(profilePage);
         }
         if(item.getItemId() == R.id.logout){
             // TODO

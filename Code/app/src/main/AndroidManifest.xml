@@ -21,6 +21,9 @@
             android:name=".ItemDetails"
             android:exported="false" />
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".ProvidersListings"
             android:exported="true">
             <intent-filter>

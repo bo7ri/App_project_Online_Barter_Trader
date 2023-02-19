@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 import android.content.Context;
 import android.widget.SearchView;
 
+
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -31,8 +32,22 @@ import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 
+import org.checkerframework.common.returnsreceiver.qual.This;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
+import androidx.test.espresso.Espresso;
+import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.assertion.ViewAssertions;
+import androidx.test.espresso.matcher.ViewMatchers;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
+
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,8 +62,13 @@ import org.junit.runner.RunWith;
 public class ExampleInstrumentedTest {
 
     @Rule
-    public ActivityScenarioRule<ProvidersListings> activityScenarioRule = new ActivityScenarioRule<>(ProvidersListings.class);
-
+    public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
+    @Rule
+    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
+    @Rule
+    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
+    @Rule
+    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
 
     @BeforeClass
     public static void setup() {
@@ -114,4 +134,24 @@ public class ExampleInstrumentedTest {
     }
 
 
+    /**
+     * This will test if the labels information are showed in the profile
+     */
+    @Test
+    public void testProfileLabels() {
+
+        onView(withId(R.id.profile)).perform(click());
+
+//        onView(withId(R.id.last_name_edit_text)).check(matches(isDisplayed()));
+//        onView(withId(R.id.first_name_edit_text)).check(matches(isDisplayed()));
+//        onView(withId(R.id.email_edit_text)).check(matches(isDisplayed()));
+//        onView(withId(R.id.username_edit_text)).check(matches(isDisplayed()));
+//        onView(withId(R.id.goods)).check(matches(isDisplayed()));
+//        onView(withId(R.id.user_type_edit_text)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testProfileInputs() {
+
+    }
 }
