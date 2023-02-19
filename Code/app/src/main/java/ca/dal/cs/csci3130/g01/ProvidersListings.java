@@ -58,22 +58,26 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         emptyList = findViewById(R.id.listIsEmpty);
         toolbar = findViewById(R.id.toolBar);
 
+        // Get Extra
+        Product newProduct = getIntent().getParcelableExtra("new product");
+        if(newProduct != null){
+            productList.add(newProduct);
+        }
 
         ImageButton ProductAddPageButton = findViewById(R.id.prductAddBtn);
         ProductAddPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent movingToListPageIntent = new Intent(getApplicationContext(), ListPage.class);
+                Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
                 startActivity(movingToListPageIntent);
             }
         });
-
 
         // Data base set up
         database = FirebaseFirestore.getInstance();
 
         // set data Locally
-        //setData();
+        setData();
 
         // upload data to firebase
 //        uploadData();
@@ -87,8 +91,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         adapter.setOnClickRecyclerView(this);
 
         // Set data from DB
-        setupDataDB(adapter);
-        adapter.notifyDataSetChanged();
+//        setupDataDB(adapter);
+//        adapter.notifyDataSetChanged();
 
 
     }

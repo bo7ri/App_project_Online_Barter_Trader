@@ -12,11 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
 
-
-public class ListPage extends AppCompatActivity {
+public class AddProduct extends AppCompatActivity {
 
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
     private Button SubmitPrdct;
@@ -26,7 +23,7 @@ public class ListPage extends AppCompatActivity {
 
         // Loading in the layout.
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listpage);
+        setContentView(R.layout.activity_add_product);
 
         PrdctTitle = findViewById(R.id.addProductTitle);
         PrdctDescription = findViewById(R.id.addProductDescription);
@@ -61,11 +58,15 @@ public class ListPage extends AppCompatActivity {
             Toast.makeText(this, "Product Price is required!", Toast.LENGTH_SHORT).show();
             return;
         }
-        
-        productAdd();
+
+//        Product newProduct = new Product(ProductName,ProductDescription);
+//        switchToProviderListings(newProduct);
+
+        // DB
+        addProductToDB();
     }
 
-    private void productAdd() {
+    private void addProductToDB() {
         // Sending the data to firebase.
         FirebaseFirestore cloudDatabase = FirebaseFirestore.getInstance();
 
@@ -77,12 +78,15 @@ public class ListPage extends AppCompatActivity {
         Toast.makeText(this, "Product added successfully!", Toast.LENGTH_LONG).show();
 
         /** Back To Add Product Page */
-        switchToAddPage();
+        switchToProviderListings(newProduct);
     }
 
-    protected void switchToAddPage() {
-        Intent switchToLoginIntent = new Intent(ListPage.this, ProvidersListings.class);
-        ListPage.this.startActivity(switchToLoginIntent);
+    protected void switchToProviderListings(Product newProduct) {
+        Intent switchToProvidersListings = new Intent(AddProduct.this, ProvidersListings.class);
+
+        // Sends new product to productList in ProvidersListings.java
+        switchToProvidersListings.putExtra("new product", newProduct);
+        AddProduct.this.startActivity(switchToProvidersListings);
     }
 
 

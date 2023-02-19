@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListPage"
+            android:name=".AddProduct"
             android:exported="false">
         </activity>
     </application>
