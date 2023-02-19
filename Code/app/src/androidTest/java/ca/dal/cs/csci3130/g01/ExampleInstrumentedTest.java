@@ -63,12 +63,12 @@ public class ExampleInstrumentedTest {
 
     @Rule
     public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
-    @Rule
-    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
-    @Rule
-    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
-    @Rule
-    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
+//    @Rule
+//    public  ActivityScenarioRule<Profile> profileRule = new ActivityScenarioRule<>(Profile.class);
+//    @Rule
+//    public ActivityScenarioRule<AddProduct> addProductRule = new ActivityScenarioRule<>(AddProduct.class);
+//    @Rule
+//    public ActivityScenarioRule<ItemDetails> itemDetailsRule = new ActivityScenarioRule<>(ItemDetails.class);
 
     @BeforeClass
     public static void setup() {
