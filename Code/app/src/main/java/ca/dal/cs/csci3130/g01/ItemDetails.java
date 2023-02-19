@@ -73,12 +73,6 @@ public class ItemDetails extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-
-        if(item.getItemId() == R.id.profile){
-            // transfer to profile activity
-            Intent profilePage = new Intent(getApplicationContext(), Profile.class);
-            startActivity(profilePage);
-        }
         if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
