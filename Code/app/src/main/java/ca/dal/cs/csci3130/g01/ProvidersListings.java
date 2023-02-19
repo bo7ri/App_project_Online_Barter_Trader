@@ -63,52 +63,48 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         emptyList = findViewById(R.id.listIsEmpty);
         toolbar = findViewById(R.id.toolBar);
 
-        // Get Extra
-        Product newProduct = getIntent().getParcelableExtra("new product");
-        if(newProduct != null){
-            productList.add(newProduct);
-        }
+        // Set data from DB
+        setupDataDB();
+
+        // Set up recycler view
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        // adapter set up
+        adapter = new RecyclerAdapter(databaseListProduct);
+        adapter.setOnClickRecyclerView(this);
+        adapter.setFilteredList(databaseListProduct);
+        recyclerView.setAdapter(adapter);
 
         // Get Extra username
         username = getIntent().getStringExtra("username");
 
+        // Add product btn
         ImageButton ProductAddPageButton = findViewById(R.id.prductAddBtn);
         ProductAddPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
+                finish();
                 startActivity(movingToListPageIntent);
             }
         });
 
         // set data Locally
-        setData();
+//        setData();
 
         // upload data to firebase
         //uploadData();
 
-        // adapter set up
-        adapter = new RecyclerAdapter(productList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-        adapter.setOnClickRecyclerView(this);
-
-        // Set data from DB
-//        setupDataDB(adapter);
-//        adapter.notifyDataSetChanged();
 
 
     }
 
     /**
      * Sets data from database
-     * @param adapter takes the recycler view adapter
      */
-    protected void setupDataDB(RecyclerAdapter adapter) {
-
-        databaseListProduct.clear();
+    protected void setupDataDB() {
 
         database.collection("ProductList").get().addOnSuccessListener(queryDocumentSnapshots -> {
 
@@ -125,12 +121,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
                 if (product != null) databaseListProduct.add(product);
             }
+            adapter.notifyDataSetChanged();
 
-            for (int i = 0; i < databaseListProduct.size(); i++) {
-                adapter.notifyItemChanged(i);
-            }
-
-            if (adapter.getItemCount() == 0) emptyList.append("No products found");
         });
     }
 
@@ -159,11 +151,12 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
     /**
      * This is the click interface on RecyclerAdapter.class
-     * @param position the position of the desired content
+     * @param product the position of the desired content
      */
     @Override
-    public void onClick(int position) {
-        viewItemDetails(productList.get(position));
+    public void onClick(Product product) {
+
+        viewItemDetails(product);
     }
 
     /**
@@ -198,26 +191,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
-                filteredList.clear();
-                emptyList.setText(R.string.EMPTY_STRING);
-
-                for (Product product : productList) {
-                    String titleLowerCase = product.getTitle().toLowerCase();
-                    if(titleLowerCase.contains(newText.toLowerCase())){
-                        filteredList.add(product);
-                    }
-                }
-
-                if(filteredList.size() > 0){
-                    adapter.setProductList(filteredList);
-                    adapter.notifyDataSetChanged();
-                    return true;
-
-                } else{
-                    emptyList.setText(R.string.EMPTY_LIST);
-                    return false;
-                }
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
 

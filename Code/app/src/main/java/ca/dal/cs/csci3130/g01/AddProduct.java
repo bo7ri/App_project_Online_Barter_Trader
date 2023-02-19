@@ -83,15 +83,13 @@ public class AddProduct extends AppCompatActivity {
         Toast.makeText(this, "Product added successfully!", Toast.LENGTH_LONG).show();
 
         /** Back To Add Product Page */
-        switchToProviderListings(newProduct);
+        switchToProviderListings();
     }
 
-    protected void switchToProviderListings(Product newProduct) {
-        Intent switchToProvidersListings = new Intent(AddProduct.this, ProvidersListings.class);
-
-        // Sends new product to productList in ProvidersListings.java
-        switchToProvidersListings.putExtra("new product", newProduct);
-        AddProduct.this.startActivity(switchToProvidersListings);
+    protected void switchToProviderListings() {
+        Intent switchToProvidersListings = new Intent(getApplicationContext(), ProvidersListings.class);
+        finish();
+        startActivity(switchToProvidersListings);
     }
 
 

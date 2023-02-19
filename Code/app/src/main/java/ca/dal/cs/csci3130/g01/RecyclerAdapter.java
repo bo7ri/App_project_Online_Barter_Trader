@@ -1,19 +1,18 @@
 package ca.dal.cs.csci3130.g01;
 
-import android.content.Context;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,14 +20,16 @@ import java.util.List;
  * This class create a scrollable items which can be clicked to view its contents
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> implements Filterable {
 
     // Create a list of product
     private List<Product> productList;
+    private List<Product> filteredProduct;
 
     // DO NOT TOUCH THIS
     // Create a on click listener
     private onClickRecyclerView onClickRecyclerView;
+
 
     /**
      * A constructor of recycler view
@@ -39,11 +40,48 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     /**
-     * A method for setting new data on adapter
-     * @param productList A new list of items
+     * A method for setting filtered data
+     * @param filteredProduct A new list of items
      */
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setFilteredList(List<Product> filteredProduct) {
+        this.filteredProduct = filteredProduct;
+    }
+
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                FilterResults results = new FilterResults();
+                if(charSequence == null || charSequence.length() == 0){
+                    results.values = filteredProduct;
+                    results.count = filteredProduct.size();
+
+                } else {
+                    String searchResult = charSequence.toString().toLowerCase();
+                    List<Product> newProductList = new ArrayList<>();
+
+                    for (Product product: filteredProduct) {
+                        String titleLowerCase = product.getTitle().toLowerCase();
+                        if(titleLowerCase.contains(searchResult.toLowerCase())){
+                            newProductList.add(product);
+                        }
+                    }
+
+                    results.values = newProductList;
+                    results.count = newProductList.size();
+                }
+                return results;
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                productList = (ArrayList<Product>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+        return filter;
     }
 
     // DO NOT TOUCH THIS
@@ -51,7 +89,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
      * An interface for onCLick listener for recycler view
      */
     public interface onClickRecyclerView{
-        void onClick(int position);
+        void onClick(Product product);
     }
 
     // DO NOT TOUCH THIS
@@ -108,7 +146,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClickRecyclerView.onClick(holder.getAdapterPosition());
+                onClickRecyclerView.onClick(itemName);
             }
         });
 
