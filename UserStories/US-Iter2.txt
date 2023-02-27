@@ -1,0 +1,50 @@
+Final User Stories for Iteration 2:
+
+Story 1:
+- User Story: As a <receiver and provider>, I want to <enable my location> so that <I can find potentially exchangable goods in the local area>.
+- Acceptance Test 1: Given that <I am logged into the app> when <I click to enable location services> then <I will be able to share my location to the app dynamically>.
+- Acceptance Test 2: Given that <I am not logged into the app and not given permission yet> when <I click to login> then <the application will not be able to detect my location>.
+- Priority: Critical
+- Effort: 4 points -> 8 hours.
+
+Story 2:
+- User Story: As a <receiver>, I want to <rate all users in the app> so that <I can find and distinguish between a good and bad user>.
+- Acceptance Test 1: Given that <I am logged into the app as a receiver> when <I fill in all form fields and click the review button in the product page> then <I will be able to post my review of the user that owns the product>.
+- Acceptance Test 2: Given that <I am logged into the app as a receiver> when <I don't fill in all form fields and click the review button in the product page> then <I will not able to post the review>.
+- Priority: Critical
+- Effort: 4 points -> 8 hours.
+
+Story 3:
+- User Story: As a <receiver and provider>, I want to <communicate with other users> so that <I can barter/negotiate a good deal for a product>.
+- Acceptance Test 1: Given that <I am logged into the app> when <I type in the from/to fields and message in the message field> then <I will be able to send the message to the respective user>.
+- Acceptance Test 2: Given that <I am logged into the app> when <I don't fill in the from/to fields> then <I will not be able to send the message to the respective user>.
+- Priority: Critical
+- Effort: 6 points -> 12 hours.
+
+Story 4:
+- User Story: As a <provider>, I want to <remove/edit the title and description of an already-posted product> so that <I can add and remove product details on demand>.
+- Acceptance Test 1: Given that <I am logged into the app as a provider> when <I click edit on my own product> then <I will be able to change and submit changes about product details>.
+- Acceptance Test 2: Given that <I am logged into the app as a provider> when <I click remove on my own product> then <I will be able to delete the product from the app>.
+- Priority: Critical
+- Effort: 4 points -> 8 hours.
+
+Story 5:
+- User Story: As a <provider and receiver>, I want to <sort the product list according to a preference like A-Z, Z-A etc.> so that <I can find products that suit my preferences more easily>.
+- Acceptance Test 1: Given that <I am logged into the app and typed in the search bar> when <I click a specific search preference> then <I will be able to see the search result list sorted accordingly>.
+- Acceptance Test 2: Given that <I am logged into the app and not typed in the search bar> when <I click a specific search preference> then <I will be able to see all the products in the app sorted accordingly>.
+- Priority: Critical
+- Effort: 4 points -> 8 hours.
+
+Story 6:
+- User Story: As a <receiver>, I want to <bookmark/save my favorite products> so that <I can access them later to conduct a trade>.
+- Acceptance Test 1: Given that <I am logged into the app as a receiver and have not saved a specific product> when <I click a bookmark icon> then <I will be able to see the specific product saved in a seperate bookmark page>.
+- Acceptance Test 2: Given that <I am logged into the app as a receiver and in bookmark page> when <I click a remove bookmark icon> then <I will be able to remove the product from the bookmark page>.
+- Priority: Critical
+- Effort: 4 points -> 8 hours.
+
+Story 7:
+- User Story: As a <receiver and provider>, I want to <send and receive trade requests> so that <I can have a system that enables trading>.
+- Acceptance Test 1: Given that <I am logged into the app as a provider> when <I receive a trade request from a receiver> then <I will see it under a requests list page>.
+- Acceptance Test 2: Given that <I am logged into the app as a receiver and filled in all the form fields> when <I send a trade request for a certain product> then <a trade request will be sent to the provider successfully>.
+- Priority: Critical
+- Effort: 5 points -> 10 hours.
