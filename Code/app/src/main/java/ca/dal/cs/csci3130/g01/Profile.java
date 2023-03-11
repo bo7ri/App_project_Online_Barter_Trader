@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,13 +71,17 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(item.getItemId() == R.id.homeButton){
-            // transfer to login page
+            // transfer to home page
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
             startActivity(home);
         }
+        if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
         if(item.getItemId() == R.id.messageInbox){
-            // transfer to login page
-            Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
+            // transfer message inbox page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
         }
         if(item.getItemId() == R.id.logout){
             // transfer to login page

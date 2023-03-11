@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -207,6 +208,14 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             Intent profilePage = new Intent(getApplicationContext(), Profile.class);
             if(username != null) profilePage.putExtra("username", username);
             startActivity(profilePage);
+        }
+        if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
+        if(item.getItemId() == R.id.messageInbox){
+            // transfer message inbox page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
         }
         if(item.getItemId() == R.id.logout){
             // transfer to login page

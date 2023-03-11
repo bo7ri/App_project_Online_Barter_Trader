@@ -1,5 +1,6 @@
 package ca.dal.cs.csci3130.g01;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,11 +17,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class AddProduct extends AppCompatActivity {
 
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
-    private Button SubmitPrdct;
+    private Button SubmitPrdct, CancelPrdct;
 
 
     FirebaseFirestore cloudDatabase;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -34,11 +36,20 @@ public class AddProduct extends AppCompatActivity {
         PrdctDescription = findViewById(R.id.addProductDescription);
         PrdctPrice = findViewById(R.id.addProductPrice);
         SubmitPrdct = findViewById(R.id.submitAddProduct);
+        CancelPrdct = findViewById(R.id.cancelAddProduct);
 
         SubmitPrdct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addProductData();
+            }
+        });
+
+        CancelPrdct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+                startActivity(home);
             }
         });
     }

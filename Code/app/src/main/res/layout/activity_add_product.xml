@@ -63,5 +63,13 @@
         android:text="Add Product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addProductDescription" />
+    <Button
+        android:id="@+id/cancelAddProduct"
+        android:layout_width="238dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="86dp"
+        android:text="Cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitAddProduct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -73,6 +74,25 @@ public class ItemDetails extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        if(item.getItemId() == R.id.homeButton){
+            // transfer to home pahe
+            Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            startActivity(home);
+        }
+        if(item.getItemId() == R.id.profile){
+            // transfer to profile activity
+            Intent profilePage = new Intent(getApplicationContext(), Profile.class);
+            //if(username != null) profilePage.putExtra("username", username);
+            startActivity(profilePage);
+        }
+        if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
+        if(item.getItemId() == R.id.messageInbox){
+            // transfer message inbox page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
         if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
