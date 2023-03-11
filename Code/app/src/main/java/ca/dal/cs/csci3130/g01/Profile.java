@@ -69,7 +69,15 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-
+        if(item.getItemId() == R.id.homeButton){
+            // transfer to login page
+            Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            startActivity(home);
+        }
+        if(item.getItemId() == R.id.messageInbox){
+            // transfer to login page
+            Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
+        }
         if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
