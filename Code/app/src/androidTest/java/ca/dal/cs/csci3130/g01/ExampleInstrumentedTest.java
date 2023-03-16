@@ -147,45 +147,45 @@ public class ExampleInstrumentedTest {
         intended(hasComponent(RegisterPage.class.getName()));
     }
 
-//    @Test
-//    public void switchToAddProduct() {
-//        onView(withId(R.id.Username)).perform(replaceText("admin"));
-//        onView(withId(R.id.Password)).perform(replaceText("1234"));
-//        onView(withId(R.id.Login)).perform(click());
-//        onView(withId(R.id.prductAddBtn)).perform(click());
-//    }
-//
-//    @Test
-//    public void testToolbarIsDisplayed() {
-//        onView(withId(R.id.Username)).perform(replaceText("admin"));
-//        onView(withId(R.id.Password)).perform(replaceText("1234"));
-//        onView(withId(R.id.Login)).perform(click());
-//        onView(withId(R.id.toolBar)).check(matches(isDisplayed()));
-//    }
-//
-//    @Test
-//    public void testAddProductIsNotEmpty() {
-//        onView(withId(R.id.Username)).perform(replaceText("admin"));
-//        onView(withId(R.id.Password)).perform(replaceText("1234"));
-//        onView(withId(R.id.Login)).perform(click());
-//        onView(withId(R.id.prductAddBtn)).perform(click());
-//        onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
-//        onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
-//        onView(withId(R.id.addProductPrice)).perform(replaceText("101"));
-//        onView(withId(R.id.submitAddProduct)).perform(click());
-//    }
-//
-//    @Test
-//    public void testAddProductIsEmpty() {
-//        onView(withId(R.id.Username)).perform(replaceText("admin"));
-//        onView(withId(R.id.Password)).perform(replaceText("1234"));
-//        onView(withId(R.id.Login)).perform(click());
-//        onView(withId(R.id.prductAddBtn)).perform(click());
-//        onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
-//        onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
-//        onView(withId(R.id.addProductPrice)).perform(replaceText(""));
-//        onView(withId(R.id.submitAddProduct)).perform(click());
-//        onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
-//    }
+    @Test
+    public void switchToAddProduct() {
+        onView(withId(R.id.Username)).perform(replaceText("admin"));
+        onView(withId(R.id.Password)).perform(replaceText("1234"));
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.prductAddBtn)).perform(click());
+    }
+
+    @Test
+    public void testToolbarIsDisplayed() {
+        onView(withId(R.id.Username)).perform(replaceText("admin"));
+        onView(withId(R.id.Password)).perform(replaceText("1234"));
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.toolBar)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testAddProductIsNotEmpty() {
+        onView(withId(R.id.Username)).perform(replaceText("admin"));
+        onView(withId(R.id.Password)).perform(replaceText("1234"));
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.prductAddBtn)).perform(click());
+        onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
+        onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
+        onView(withId(R.id.addProductPrice)).perform(replaceText("101"));
+        onView(withId(R.id.submitAddProduct)).perform(click());
+    }
+
+    @Test
+    public void testAddProductIsEmpty() {
+        onView(withId(R.id.Username)).perform(replaceText("admin"));
+        onView(withId(R.id.Password)).perform(replaceText("1234"));
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.prductAddBtn)).perform(click());
+        onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
+        onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
+        onView(withId(R.id.addProductPrice)).perform(replaceText(""));
+        onView(withId(R.id.submitAddProduct)).perform(click());
+        onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
+    }
 
 }
