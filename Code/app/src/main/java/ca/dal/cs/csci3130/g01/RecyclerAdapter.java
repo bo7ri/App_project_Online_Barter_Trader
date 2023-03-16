@@ -94,9 +94,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     /**
-     *
-     * @param searchResult
-     * @param newProductList
+     * A method that adds items to filtered List
+     * @param searchResult This is the title of the product
+     * @param newProductList A new empty List
      */
     private void filteredList(String searchResult, List<Product> newProductList) {
         for (Product product: filteredProduct) {
