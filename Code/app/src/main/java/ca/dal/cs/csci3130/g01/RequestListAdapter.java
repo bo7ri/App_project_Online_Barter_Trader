@@ -1,5 +1,6 @@
 package ca.dal.cs.csci3130.g01;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,14 @@ public class RequestListAdapter extends ArrayAdapter<RequestItem> {
         inflateRequestListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Item clicked is: " + requestItem.getProductTitle(), Toast.LENGTH_LONG).show();
+                Intent moveToRequestDetailPage = new Intent(view.getContext(), RequestDetailsPage.class);
+                moveToRequestDetailPage.putExtra("ReceiverUsername", requestItem.getReceiverUsername());
+                moveToRequestDetailPage.putExtra("ProviderUsername", requestItem.getProviderUsername());
+                moveToRequestDetailPage.putExtra("ProductTitle", requestItem.getProductTitle());
+                moveToRequestDetailPage.putExtra("ProductDescription", requestItem.getProductDescription());
+                moveToRequestDetailPage.putExtra("RequestMessage", requestItem.getRequestMessage());
+                Toast.makeText(getContext(), "Product clicked is: " + requestItem.getProductTitle(), Toast.LENGTH_LONG).show();
+                view.getContext().startActivity(moveToRequestDetailPage);
             }
         });
 

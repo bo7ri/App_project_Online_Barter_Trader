@@ -50,6 +50,10 @@
             android:name=".RequestListPage"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".RequestDetailsPage"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
