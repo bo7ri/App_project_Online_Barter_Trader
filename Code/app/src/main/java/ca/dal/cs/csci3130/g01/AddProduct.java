@@ -18,6 +18,10 @@ public class AddProduct extends AppCompatActivity {
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
     private Button SubmitPrdct;
 
+    private String username;
+    private Product product;
+    private String usertype;
+
 
     FirebaseFirestore cloudDatabase;
 
@@ -35,6 +39,10 @@ public class AddProduct extends AppCompatActivity {
         PrdctPrice = findViewById(R.id.addProductPrice);
         SubmitPrdct = findViewById(R.id.submitAddProduct);
 
+        // Get Extra username
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
+
         SubmitPrdct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,11 +52,12 @@ public class AddProduct extends AppCompatActivity {
     }
 
     /** Adding product data */
-    private String ProductName, ProductDescription, ProductPrice;
+    private String ProductName, ProductDescription, ProductPrice, currentUsername;
     private void addProductData(){
         ProductName = PrdctTitle.getText().toString().trim();
         ProductDescription = PrdctDescription.getText().toString().trim();
         ProductPrice = PrdctPrice.getText().toString().trim();
+        currentUsername = username.toString().trim();
 
         /** Validating The Data */
         if (TextUtils.isEmpty(ProductName)){
@@ -75,7 +84,8 @@ public class AddProduct extends AppCompatActivity {
         // Sending the data to firebase.
 
 
-        Product newProduct = new Product(ProductName,ProductDescription);
+        Product newProduct = new Product(ProductName,ProductDescription, currentUsername);
+        product = newProduct;
 
         cloudDatabase.collection("ProductList").add(newProduct);
 
@@ -88,6 +98,9 @@ public class AddProduct extends AppCompatActivity {
 
     protected void switchToProviderListings() {
         Intent switchToProvidersListings = new Intent(getApplicationContext(), ProvidersListings.class);
+        switchToProvidersListings.putExtra("username", username);
+        switchToProvidersListings.putExtra("product", product);
+        switchToProvidersListings.putExtra("usertype", usertype);
         finish();
         startActivity(switchToProvidersListings);
     }

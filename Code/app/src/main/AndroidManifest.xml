@@ -42,6 +42,10 @@
             android:name=".AddProduct"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".SendRequestPage"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

@@ -17,16 +17,17 @@ public class Product implements Parcelable {
 
     private String title;
     private String description;
+    private String username;
 
     /**
      * A basic product constructor
      * @param title The title of the product
      * @param description The description of the product
      */
-    public Product(@NonNull String title, @NonNull String description) {
+    public Product(@NonNull String title, @NonNull String description, @NonNull String username) {
         this.title = title;
         this.description = description;
-
+        this.username = username;
     }
 
     // This is part of Parcelable interface
@@ -37,6 +38,7 @@ public class Product implements Parcelable {
     protected Product(Parcel in) {
         title = in.readString();
         description = in.readString();
+        username = in.readString();
     }
 
 // This is part of Parcelable interface
@@ -62,6 +64,7 @@ public class Product implements Parcelable {
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeString(title);
         parcel.writeString(description);
+        parcel.writeString(username);
     }
 
     // setters and getters
@@ -72,6 +75,8 @@ public class Product implements Parcelable {
     public String getDescription() {
         return description;
     }
+
+    public String getUsername() { return username; }
 
     public void setTitle(String title) {
         this.title = title;

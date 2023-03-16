@@ -45,6 +45,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     RecyclerAdapter adapter;
     List<Product> databaseListProduct;
     private String username;
+    private String usertype;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -79,6 +80,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
         // Get Extra username
         username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         // Add product btn
         ImageButton ProductAddPageButton = findViewById(R.id.prductAddBtn);
@@ -86,6 +88,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             @Override
             public void onClick(View view) {
                 Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
+                movingToListPageIntent.putExtra("username", username);
+                movingToListPageIntent.putExtra("usertype", usertype);
                 finish();
                 startActivity(movingToListPageIntent);
             }
@@ -130,13 +134,13 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-        productList.add(new Product("Chair","desc" + 1));
-        productList.add(new Product("Table","desc" + 1));
-        productList.add(new Product("TV","desc" + 1));
-        productList.add(new Product("Phone","desc" + 1));
-        productList.add(new Product("Wooden chair","desc" + 1));
-        productList.add(new Product("laptop","desc" + 1));
-        productList.add(new Product("lamp","desc" + 1));
+        productList.add(new Product("Chair","desc" + 1, username));
+        productList.add(new Product("Table","desc" + 1, username));
+        productList.add(new Product("TV","desc" + 1, username));
+        productList.add(new Product("Phone","desc" + 1, username));
+        productList.add(new Product("Wooden chair","desc" + 1, username));
+        productList.add(new Product("laptop","desc" + 1, username));
+        productList.add(new Product("lamp","desc" + 1, username));
     }
 
     /**
@@ -166,6 +170,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     public void viewItemDetails(Product product){
         Intent itemDetails = new Intent(getApplicationContext(), ItemDetails.class);
         itemDetails.putExtra("product", product);
+        itemDetails.putExtra("username", username);
+        itemDetails.putExtra("usertype", usertype);
         startActivity(itemDetails);
     }
 
