@@ -46,6 +46,10 @@
             android:name=".SendRequestPage"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".RequestListPage"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

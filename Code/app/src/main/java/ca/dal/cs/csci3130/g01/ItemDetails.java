@@ -67,7 +67,11 @@ public class ItemDetails extends AppCompatActivity {
                     moveToRequestPage.putExtra("usertype", usertype);
                     ItemDetails.this.startActivity(moveToRequestPage);
                 } else {
+                    Intent moveBackToListPage = new Intent(ItemDetails.this, ProvidersListings.class);
+                    moveBackToListPage.putExtra("username", username);
+                    moveBackToListPage.putExtra("usertype", usertype);
                     Toast.makeText(ItemDetails.this, "Provider cannot send request!", Toast.LENGTH_LONG).show();
+                    ItemDetails.this.startActivity(moveBackToListPage);
                 }
             }
         });

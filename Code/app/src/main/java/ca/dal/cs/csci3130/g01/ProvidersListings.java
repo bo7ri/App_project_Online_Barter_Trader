@@ -211,7 +211,10 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         if(item.getItemId() == R.id.profile){
             // transfer to profile activity
             Intent profilePage = new Intent(getApplicationContext(), Profile.class);
-            if(username != null) profilePage.putExtra("username", username);
+            if(username != null) {
+                profilePage.putExtra("username", username);
+            }
+            profilePage.putExtra("usertype", usertype);
             startActivity(profilePage);
         }
         if(item.getItemId() == R.id.logout){

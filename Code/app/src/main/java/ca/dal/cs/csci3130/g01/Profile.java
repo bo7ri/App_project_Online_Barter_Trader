@@ -9,7 +9,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,8 +45,31 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
         // Get the instance of the Firebase
         database = FirebaseFirestore.getInstance();
 
+        // Getting intents.
         String username = getIntent().getStringExtra("username");
-        if(username != null) getDataDB(username);
+        String usertype = getIntent().getStringExtra("usertype");
+
+        if(username != null) {
+            getDataDB(username);
+        }
+
+        // Creating a onClick button to move to request list page.
+        Button moveToRequestListBtn = findViewById(R.id.moveToRequestListButton);
+        moveToRequestListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (usertype.equals("Provider")) {
+                    Intent moveToRequestListPage = new Intent(Profile.this, RequestListPage.class);
+                    moveToRequestListPage.putExtra("username", username);
+                    moveToRequestListPage.putExtra("usertype", usertype);
+                    Profile.this.startActivity(moveToRequestListPage);
+                } else {
+                    Toast.makeText(Profile.this, "Only providers can access this page!", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
     }
 
     /**

@@ -50,6 +50,7 @@ public class SendRequestPage extends AppCompatActivity {
                 Intent moveBackToItemListPage = new Intent(SendRequestPage.this, ProvidersListings.class);
                 moveBackToItemListPage.putExtra("username", username);
                 moveBackToItemListPage.putExtra("product", product);
+                moveBackToItemListPage.putExtra("usertype", usertype);
                 SendRequestPage.this.startActivity(moveBackToItemListPage);
             }
         });
