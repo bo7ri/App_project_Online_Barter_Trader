@@ -36,10 +36,6 @@ public class RecyclerViewTest {
     public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
 
 
-//    @Rule
-//    public ActivityScenarioRule<LoginPage> longinRule = new ActivityScenarioRule<>(LoginPage.class);
-
-
     @BeforeClass
     public static void setup() {
 
@@ -62,10 +58,6 @@ public class RecyclerViewTest {
     @Test
     public void searchGoodByNameIsAvailable(){
 
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
-
         onView(withId(R.id.search)).perform(click());
         onView(withId(androidx.appcompat.R.id.search_src_text))
                 .perform(typeText("Chair"), pressImeActionButton());
@@ -74,10 +66,6 @@ public class RecyclerViewTest {
 
     @Test
     public void searchGoodByNameIsNotAvailable(){
-//
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
 
         onView(withId(R.id.search)).perform(click());
         onView(withId(androidx.appcompat.R.id.search_src_text))
@@ -91,10 +79,6 @@ public class RecyclerViewTest {
      */
     @Test
     public void testContentsAreDisplayed(){
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
-
         onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
     }
 
@@ -104,10 +88,6 @@ public class RecyclerViewTest {
     @Test
     public void testItemDetails(){
 
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
-
         onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
 
         onView(withId(R.id.productTitle)).check(matches(isDisplayed()));
@@ -116,9 +96,6 @@ public class RecyclerViewTest {
 
     @Test
     public void SearchSortItems(){
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
 
         onView(withId(R.id.search)).perform(click());
         onView(withId(androidx.appcompat.R.id.search_src_text))
@@ -131,9 +108,6 @@ public class RecyclerViewTest {
 
     @Test
     public void sortItemsAscending(){
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
 
         onView(withId(R.id.sortBtn)).perform(click());
         onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
@@ -142,9 +116,6 @@ public class RecyclerViewTest {
 
     @Test
     public void sortItemsDescending(){
-//        onView(withId(R.id.Username)).perform(typeText("admin"));
-//        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
-//        onView(withId(R.id.Login)).perform(click());
 
         onView(withId(R.id.sortBtn)).perform(click());
         onView(withId(R.id.sortBtn)).perform(click());
