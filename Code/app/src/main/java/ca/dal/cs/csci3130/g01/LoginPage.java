@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,16 +63,16 @@ public class LoginPage extends AppCompatActivity {
 
                              if (pass.equals(timp)){
                                  //Intent to main page here
-                                Intent moveToListPage = new Intent(LoginPage.this, ProvidersListings.class);
+                                Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
                                 moveToListPage.putExtra("username", userName);
-                                LoginPage.this.startActivity(moveToListPage);
+                                startActivity(moveToListPage);
                              }
 
                              else {
                                  TextView loginStatus = findViewById(R.id.LoginStatusText);
-                                 String validity = "Invalid Login!";
-                                 loginStatus.setText(validity.trim());
-                                 Toast.makeText(LoginPage.this, "Invalid Login", Toast.LENGTH_SHORT).show();
+                                 String validity = getResources().getString(R.string.INVALID_LOGIN).trim();
+                                 loginStatus.setText(R.string.INVALID_LOGIN);
+                                 Toast.makeText(LoginPage.this, validity, Toast.LENGTH_SHORT).show();
                              }
 
                          }

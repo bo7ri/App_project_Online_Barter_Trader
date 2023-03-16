@@ -9,15 +9,23 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
     <item
+        android:id="@+id/sortBtn"
+        android:enabled="true"
+        android:icon="@drawable/baseline_sort_by_alpha_24"
+        android:title="@string/sort"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/profile"
         android:enabled="true"
         android:icon="@drawable/baseline_person_24"
         android:title="@string/profile"
         android:visible="true"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:title="@string/logout"
         android:icon="@drawable/baseline_power_settings_new_24"
         android:id="@+id/logout"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
+
 </menu>

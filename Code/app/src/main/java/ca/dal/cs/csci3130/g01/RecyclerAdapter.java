@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,7 +22,8 @@ import java.util.List;
  * This class create a scrollable items which can be clicked to view its contents
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> implements Filterable {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>
+        implements Filterable{
 
     // Create a list of product
     private List<Product> productList;
@@ -61,12 +64,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     String searchResult = charSequence.toString().toLowerCase();
                     List<Product> newProductList = new ArrayList<>();
 
-                    for (Product product: filteredProduct) {
-                        String titleLowerCase = product.getTitle().toLowerCase();
-                        if(titleLowerCase.contains(searchResult.toLowerCase())){
-                            newProductList.add(product);
-                        }
+                    if(searchResult.equals("ascending")){
+                        newProductList = productList;
+                        newProductList.sort(new ProductSort());
+
+                    } else if(searchResult.equals("descending")) {
+                        newProductList = productList;
+                        newProductList.sort(new ProductSort().reversed());
+
+                    } else {
+                        filteredList(searchResult, newProductList);
                     }
+
 
                     results.values = newProductList;
                     results.count = newProductList.size();
@@ -82,6 +91,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             }
         };
         return filter;
+    }
+
+    /**
+     *
+     * @param searchResult
+     * @param newProductList
+     */
+    private void filteredList(String searchResult, List<Product> newProductList) {
+        for (Product product: filteredProduct) {
+            String titleLowerCase = product.getTitle().toLowerCase();
+            if(titleLowerCase.contains(searchResult.toLowerCase())){
+                newProductList.add(product);
+            }
+        }
     }
 
     // DO NOT TOUCH THIS

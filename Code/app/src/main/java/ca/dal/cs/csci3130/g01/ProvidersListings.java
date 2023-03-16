@@ -46,6 +46,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     List<Product> databaseListProduct;
     private String username;
 
+    private boolean sortAscending = true;
+
     @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
 
         // Set data from DB
         setupDataDB();
+
 
         // Set up recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -86,7 +89,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             @Override
             public void onClick(View view) {
                 Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
-                finish();
+//                finish();
                 startActivity(movingToListPageIntent);
             }
         });
@@ -124,6 +127,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             adapter.notifyDataSetChanged();
 
         });
+
     }
 
     /**
@@ -144,6 +148,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      */
     protected void uploadData(){
 
+        setData();
         for (int i = 0; i < productList.size(); i++) {
             database.collection("ProductList").add(productList.get(i));
         }
@@ -208,6 +213,15 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             if(username != null) profilePage.putExtra("username", username);
             startActivity(profilePage);
         }
+
+
+        if(item.getItemId() == R.id.sortBtn){
+            if(sortAscending){
+                adapter.getFilter().filter("ascending");
+            } else adapter.getFilter().filter("descending");
+            sortAscending = false;
+        }
+
         if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
