@@ -50,6 +50,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.filteredProduct = filteredProduct;
     }
 
+    /**
+     * Filter interface used in adapter for search and sort functions
+     * @return Filter object with filtered data
+     */
     @Override
     public Filter getFilter() {
         Filter filter = new Filter() {

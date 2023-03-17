@@ -218,8 +218,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         if(item.getItemId() == R.id.sortBtn){
             if(sortAscending){
                 adapter.getFilter().filter("ascending");
-            } else adapter.getFilter().filter("descending");
-            sortAscending = false;
+                sortAscending = false;
+            } else {
+                adapter.getFilter().filter("descending");
+                sortAscending = true;
+            }
         }
 
         if(item.getItemId() == R.id.logout){
