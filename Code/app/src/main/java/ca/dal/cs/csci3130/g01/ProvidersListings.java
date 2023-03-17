@@ -91,14 +91,6 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             }
         });
 
-        // set data Locally
-//        setData();
-
-        // upload data to firebase
-        //uploadData();
-
-
-
     }
 
     /**

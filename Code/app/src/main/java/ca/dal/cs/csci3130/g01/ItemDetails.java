@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -48,6 +50,15 @@ public class ItemDetails extends AppCompatActivity {
             productDescription.setText(product.getDescription());
         }
 
+        ImageButton ProductEditPageButton = findViewById(R.id.EditPrdct);
+        ProductEditPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent movingToListPageIntent = new Intent(getApplicationContext(), EditProduct.class);
+                finish();
+                startActivity(movingToListPageIntent);
+            }
+        });
 
     }
 

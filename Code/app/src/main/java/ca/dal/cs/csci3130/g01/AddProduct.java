@@ -64,8 +64,6 @@ public class AddProduct extends AppCompatActivity {
             return;
         }
 
-//        Product newProduct = new Product(ProductName,ProductDescription);
-//        switchToProviderListings(newProduct);
 
         // DB
         addProductToDB();

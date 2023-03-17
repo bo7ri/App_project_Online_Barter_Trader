@@ -1,7 +1,10 @@
 package ca.dal.cs.csci3130.g01;
 
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 
@@ -80,4 +83,5 @@ public class Product implements Parcelable {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
