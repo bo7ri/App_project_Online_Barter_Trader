@@ -5,4 +5,29 @@
     <string name="search">Search</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+
+    //provinces list and their cities to detect the users' location
+    <string-array name="provinces_list">
+        <item>Nova Scotia</item>
+        <item>Ontario</item>
+        <item>Quebec</item>
+    </string-array>
+
+    <string-array name="cities_list">
+        <item>Halifax</item>
+        <item>Sydney</item>
+        <item>Dartmouth</item>
+        <item>Truro</item>
+        <item>New Glasgow</item>
+    </string-array>
+
+    <string-array name="ontario_cities_list">
+        <item>Toronto</item>
+    </string-array>
+
+    <string-array name="quebec_cities_list">
+        <item>Ottawa</item>
+    </string-array>
+
+
 </resources>

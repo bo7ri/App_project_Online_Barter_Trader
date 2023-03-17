@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <!--Permissions for internet-->
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="CoarseFineLocation">
+    <!-- Permissions for internet -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:ignore="CoarseFineLocation" /> <!-- location permission -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,9 @@
         android:theme="@style/Theme.CSCI3130Project"
         tools:targetApi="s">
         <activity
+            android:name=".activity_location"
+            android:exported="false" />
+        <activity
             android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
@@ -27,8 +31,8 @@
             </intent-filter>
         </activity>
         <activity
-        android:name=".ProvidersListings"
-        android:exported="false" />
+            android:name=".ProvidersListings"
+            android:exported="false" />
         <activity
             android:name=".ItemDetails"
             android:exported="false" />
@@ -37,11 +41,10 @@
             android:exported="false" />
         <activity
             android:name=".RegisterPage"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".AddProduct"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>
