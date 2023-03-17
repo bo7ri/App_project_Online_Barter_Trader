@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,8 +23,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ItemDetails extends AppCompatActivity {
 
     Toolbar toolbar;
-
+    Button rateButton;
     FirebaseFirestore database;
+
+    private float rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,21 @@ public class ItemDetails extends AppCompatActivity {
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
         }
+        rateButton = findViewById(R.id.rating);
+        //take to rating page
+        rateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
+                startActivity(movingToRatingPage);
+            }
+        });
+        //display the rating
+        rating = getIntent().getFloatExtra("rating", 0.0f);
+        // For example, you can display the rating in a TextView
+        TextView ratingTextView = findViewById(R.id.rating_text_view);
+        ratingTextView.setText("Rating: " + rating);
+
 
 
     }
@@ -81,4 +100,6 @@ public class ItemDetails extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
