@@ -2,7 +2,6 @@ package ca.dal.cs.csci3130.g01;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
@@ -10,7 +9,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -23,6 +25,9 @@ public class ItemDetails extends AppCompatActivity {
     Toolbar toolbar;
 
     FirebaseFirestore database;
+
+    private String username;
+    private String usertype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +46,35 @@ public class ItemDetails extends AppCompatActivity {
 
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         // set product title and desc.
         if(product != null){
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
         }
+
+        // Setting up the sendRequestButton.
+        Button sendRequestButton = findViewById(R.id.sendRequestBtn);
+        sendRequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (usertype.equals("Receiver")) {
+                    Intent moveToRequestPage = new Intent(ItemDetails.this, SendRequestPage.class);
+                    moveToRequestPage.putExtra("username", username);
+                    moveToRequestPage.putExtra("product", product);
+                    moveToRequestPage.putExtra("usertype", usertype);
+                    ItemDetails.this.startActivity(moveToRequestPage);
+                } else {
+                    Intent moveBackToListPage = new Intent(ItemDetails.this, ProvidersListings.class);
+                    moveBackToListPage.putExtra("username", username);
+                    moveBackToListPage.putExtra("usertype", usertype);
+                    Toast.makeText(ItemDetails.this, "Provider cannot send request!", Toast.LENGTH_LONG).show();
+                    ItemDetails.this.startActivity(moveBackToListPage);
+                }
+            }
+        });
 
 
     }

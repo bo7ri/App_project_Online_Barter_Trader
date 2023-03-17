@@ -31,6 +31,21 @@
             android:name=".AddProduct">
         </activity>
         <activity
+            android:name=".SendRequestPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".RequestListPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".RequestDetailsPage"
+            android:exported="false">
+        </activity>
+
+
+
+        <activity
             android:name=".LoginPage"
             android:exported="true">
             <intent-filter>

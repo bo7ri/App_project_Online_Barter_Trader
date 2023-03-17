@@ -60,12 +60,15 @@ public class LoginPage extends AppCompatActivity {
                          for (QueryDocumentSnapshot document : task.getResult()){
 
                              String timp = document.get("Password").toString();
+                             String userType = document.get("UserType").toString();
 
                              if (pass.equals(timp)){
                                  //Intent to main page here
-                                Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
-                                moveToListPage.putExtra("username", userName);
-                                startActivity(moveToListPage);
+                                 Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
+                                 moveToListPage.putExtra("username", userName);
+                                 moveToListPage.putExtra("usertype", userType);
+                                 LoginPage.this.startActivity(moveToListPage);
+
                              }
 
                              else {
