@@ -39,7 +39,7 @@ public class Product implements Parcelable {
         description = in.readString();
     }
 
-// This is part of Parcelable interface
+    // This is part of Parcelable interface
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
         public Product createFromParcel(Parcel in) {
