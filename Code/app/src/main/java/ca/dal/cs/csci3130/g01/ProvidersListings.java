@@ -86,7 +86,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         usertype = getIntent().getStringExtra("usertype");
 
         // Add product btn
-        ImageButton ProductAddPageButton = findViewById(R.id.prductAddBtn);
+        ImageButton ProductAddPageButton = findViewById(R.id.productAddBtn);
         ProductAddPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

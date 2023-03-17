@@ -47,28 +47,28 @@ public class ExampleUnitTest {
 
     @Test
     public void testGetProductTitle() {
-//        Product product = new Product("iPhone12", "This is a description");
-//        assertEquals("iPhone12", product.getTitle());
+        Product product = new Product("iPhone12", "This is a description", "User1");
+        assertEquals("iPhone12", product.getTitle());
     }
 
     @Test
     public void testGetProductDescription() {
-//        Product product = new Product("SamsungS48193", "A very nice samsung.");
-//        assertEquals("A very nice samsung.", product.getDescription());
+        Product product = new Product("SamsungS48193", "A very nice samsung.", "User1");
+        assertEquals("A very nice samsung.", product.getDescription());
     }
 
     @Test
     public void testSetProductTitle() {
-//        Product product = new Product("BadTitle", "A description.");
-//        product.setTitle("GoodTitle");
-//        assertEquals("GoodTitle", product.getTitle());
+        Product product = new Product("BadTitle", "A description.", "User1");
+        product.setTitle("GoodTitle");
+        assertEquals("GoodTitle", product.getTitle());
     }
 
     @Test
     public void testSetProductDescription() {
-////        Product product = new Product("BigSofa", "BadDescription");
-//        product.setDescription("GoodDescription");
-//        assertEquals("GoodDescription", product.getDescription());
+        Product product = new Product("BigSofa", "BadDescription", "User1");
+        product.setDescription("GoodDescription");
+        assertEquals("GoodDescription", product.getDescription());
     }
 
     @Test

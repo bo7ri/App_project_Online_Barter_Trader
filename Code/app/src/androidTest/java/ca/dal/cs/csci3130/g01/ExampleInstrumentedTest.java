@@ -11,12 +11,12 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 
 import android.content.Context;
-import android.util.Log;
 
 
 import androidx.test.espresso.intent.Intents;
@@ -53,7 +53,7 @@ public class ExampleInstrumentedTest {
     @Rule
     public ActivityScenarioRule<LoginPage> longinRule = new ActivityScenarioRule<>(LoginPage.class);
     public IntentsRule intentsRule = new IntentsRule();
-
+    public ActivityScenarioRule<ProvidersListings> providersListingsRule = new ActivityScenarioRule<>(ProvidersListings.class);
 
     @BeforeClass
     public static void setup() {
@@ -86,7 +86,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Username)).perform(typeText("admin"));
         onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
         onView(withId(R.id.Login)).perform(click());
-        intended(hasComponent(ProvidersListings.class.getName()));
+        onView(withId(R.id.productAddBtn)).check(matches(isEnabled()));
     }
 
 
@@ -152,7 +152,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Username)).perform(replaceText("admin"));
         onView(withId(R.id.Password)).perform(replaceText("1234"));
         onView(withId(R.id.Login)).perform(click());
-        onView(withId(R.id.prductAddBtn)).perform(click());
+        onView(withId(R.id.productAddBtn)).perform(click());
     }
 
     @Test
@@ -168,7 +168,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Username)).perform(replaceText("admin"));
         onView(withId(R.id.Password)).perform(replaceText("1234"));
         onView(withId(R.id.Login)).perform(click());
-        onView(withId(R.id.prductAddBtn)).perform(click());
+        onView(withId(R.id.productAddBtn)).perform(click());
         onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
         onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
         onView(withId(R.id.addProductPrice)).perform(replaceText("101"));
@@ -180,7 +180,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Username)).perform(replaceText("admin"));
         onView(withId(R.id.Password)).perform(replaceText("1234"));
         onView(withId(R.id.Login)).perform(click());
-        onView(withId(R.id.prductAddBtn)).perform(click());
+        onView(withId(R.id.productAddBtn)).perform(click());
         onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
         onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
         onView(withId(R.id.addProductPrice)).perform(replaceText(""));
