@@ -57,6 +57,7 @@ public class ItemDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
+                movingToRatingPage.putExtra("product", product);
                 startActivity(movingToRatingPage);
             }
         });

@@ -54,11 +54,14 @@ public class Rate extends AppCompatActivity {
                 Toast.makeText(Rate.this, message, Toast.LENGTH_SHORT).show();
             }
         });
+        // Get parcel from ProvidersList
+        Product product = getIntent().getParcelableExtra("product");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Rate.this, ItemDetails.class);
                 intent.putExtra("rating", myRating);
+                intent.putExtra("product", product);
                 startActivity(intent);
 
             }
