@@ -35,12 +35,15 @@ public class Profile extends AppCompatActivity{
 
     FirebaseFirestore database;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
         toolbar = findViewById(R.id.toolBar);
+
 
         // Get the instance of the Firebase
         database = FirebaseFirestore.getInstance();
@@ -65,6 +68,14 @@ public class Profile extends AppCompatActivity{
                 Toast.makeText(Profile.this, "Only providers can access this page!", Toast.LENGTH_LONG).show();
             }
 
+        });
+
+        Button setLocationBtn = findViewById(R.id.SetLocationBtn);
+        setLocationBtn.setOnClickListener(view -> {
+            Intent moveToLocationPage = new Intent(getApplicationContext(), Location.class);
+            moveToLocationPage.putExtra("username", username);
+            moveToLocationPage.putExtra("usertype", usertype);
+            startActivity(moveToLocationPage);
         });
 
     }

@@ -7,4 +7,29 @@
     <string name="logout">Logout</string>
     <string name="sort">sort</string>
     <string name="INVALID_LOGIN">Invalid Login</string>
+
+    //provinces list and their cities to detect the users' location
+    <string-array name="provinces_list">
+        <item>Nova Scotia</item>
+        <item>Ontario</item>
+        <item>Quebec</item>
+    </string-array>
+
+    <string-array name="cities_list">
+        <item>Halifax</item>
+        <item>Sydney</item>
+        <item>Dartmouth</item>
+        <item>Truro</item>
+        <item>New Glasgow</item>
+    </string-array>
+
+    <string-array name="ontario_cities_list">
+        <item>Toronto</item>
+    </string-array>
+
+    <string-array name="quebec_cities_list">
+        <item>Ottawa</item>
+    </string-array>
+
+
 </resources>

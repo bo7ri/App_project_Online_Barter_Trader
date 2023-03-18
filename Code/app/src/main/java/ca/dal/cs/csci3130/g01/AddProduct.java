@@ -93,7 +93,6 @@ public class AddProduct extends AppCompatActivity {
         switchToProvidersListings.putExtra("username", username);
         switchToProvidersListings.putExtra("product", product);
         switchToProvidersListings.putExtra("usertype", usertype);
-        finish();
         startActivity(switchToProvidersListings);
     }
 
