@@ -32,7 +32,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class Profile extends AppCompatActivity{
 
     Toolbar toolbar;
-
+    Button sendEmailButton;
     FirebaseFirestore database;
 
 
@@ -78,6 +78,14 @@ public class Profile extends AppCompatActivity{
             startActivity(moveToLocationPage);
         });
 
+        if(username != null) getDataDB(username);
+
+        sendEmailButton = findViewById(R.id.send_email);
+        sendEmailButton.setOnClickListener(view -> {
+            // this button will open send email activity
+            Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
+            startActivity(sendEmailIntent);
+        });
     }
 
     /**

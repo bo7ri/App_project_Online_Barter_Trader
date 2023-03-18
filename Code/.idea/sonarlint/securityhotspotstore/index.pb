@@ -1,10 +1,6 @@
 
-m
-=app/src/test/java/ca/dal/cs/csci3130/g01/ExampleUnitTest.java,f\e\fe275c863330e1e4da2253d0b1fd7b2314e4012c
 u
 Eapp/src/androidTest/java/ca/dal/cs/csci3130/g01/RecyclerViewTest.java,0\4\040e4e7b0981ce19342169e7344632e9f55ade76
-g
-7app/src/main/java/ca/dal/cs/csci3130/g01/LoginPage.java,4\9\49219cdc80ce21d97b58b633df1d5e9d0349c1bd
 i
 9app/src/main/java/ca/dal/cs/csci3130/g01/ProductSort.java,3\5\359cc2d5e499dd838bc2e16387ef62a0eac5a457
 m

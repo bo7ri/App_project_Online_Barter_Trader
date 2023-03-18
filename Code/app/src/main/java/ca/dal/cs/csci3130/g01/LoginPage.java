@@ -63,7 +63,6 @@ public class LoginPage extends AppCompatActivity {
                              moveToListPage.putExtra("username", userName);
                              moveToListPage.putExtra("usertype", userType);
                              LoginPage.this.startActivity(moveToListPage);
-                             finish();
                          }
 
                          else {

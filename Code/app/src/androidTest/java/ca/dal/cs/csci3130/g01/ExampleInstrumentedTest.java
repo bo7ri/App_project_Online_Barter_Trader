@@ -4,6 +4,7 @@ package ca.dal.cs.csci3130.g01;
 
 import static org.junit.Assert.assertEquals;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
@@ -19,6 +20,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import android.content.Context;
 
 
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsRule;
 
@@ -188,4 +190,31 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
     }
 
+    @Test
+    public void testSendEmail() {
+        String senderEmail = "test12appproject@gmail.com";
+        String senderPassword = "wlkhkntczgufmqlh";
+
+        // enter any email u wish to check
+        String receiverEmail = "monther.s122@gmail.com";
+        String subject = "Test 2";
+        String message = "This is a massage from the app";
+
+        onView(withId(R.id.Username)).perform(replaceText("admin"));
+        onView(withId(R.id.Password)).perform(replaceText("1234"));
+        closeSoftKeyboard();
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.profile)).perform(click());
+
+        onView(withId(R.id.send_email)).perform(click());
+
+        onView(withId(R.id.et_from_email)).perform(clearText(), typeText(senderEmail), closeSoftKeyboard());
+        onView(withId(R.id.et_password)).perform(clearText(), typeText(senderPassword), closeSoftKeyboard());
+        onView(withId(R.id.et_to_email)).perform(clearText(), typeText(receiverEmail), closeSoftKeyboard());
+        onView(withId(R.id.et_subject)).perform(clearText(), typeText(subject), closeSoftKeyboard());
+        onView(withId(R.id.et_message)).perform(clearText(), typeText(message), closeSoftKeyboard());
+
+        onView(withId(R.id.btn_send)).perform(ViewActions.click());
+    }
 }

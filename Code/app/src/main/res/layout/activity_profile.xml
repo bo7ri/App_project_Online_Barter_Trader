@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="56dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <!-- Name -->
         <ImageView
@@ -147,6 +147,14 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/send_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send email"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="641dp" />
+
     </LinearLayout>
 
     <Button
@@ -174,6 +182,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
