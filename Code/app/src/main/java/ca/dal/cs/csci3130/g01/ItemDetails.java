@@ -25,8 +25,9 @@ public class ItemDetails extends AppCompatActivity {
     Toolbar toolbar;
     Button rateButton;
     FirebaseFirestore database;
-
     private String username;
+
+
     private String usertype;
     private float rating;
 
@@ -44,6 +45,7 @@ public class ItemDetails extends AppCompatActivity {
 
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
+        username = getIntent().getStringExtra("username");
 
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
@@ -118,7 +120,27 @@ public class ItemDetails extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId() == R.id.logout){
+        if(item.getItemId() == R.id.homeButton){
+            // transfer to home pahe
+            Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            startActivity(home);
+        }
+        else if(item.getItemId() == R.id.profile){
+            // transfer to profile activity
+            Intent profilePage = new Intent(getApplicationContext(), Profile.class);
+            if(username != null) profilePage.putExtra("username", username);
+            startActivity(profilePage);
+        }
+        else if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            startActivity(savedPage);
+        }
+        else if(item.getItemId() == R.id.messageInbox){
+            // transfer message inbox page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
+        else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
             startActivity(logout);

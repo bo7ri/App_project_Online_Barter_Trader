@@ -22,8 +22,8 @@
         android:id="@+id/addProductTitle"
         android:layout_width="379dp"
         android:layout_height="53dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Product Tile"
         android:inputType="text"
@@ -35,7 +35,7 @@
         android:layout_width="384dp"
         android:layout_height="213dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Product Description"
         android:inputType="text"
@@ -58,10 +58,19 @@
         android:id="@+id/submitAddProduct"
         android:layout_width="238dp"
         android:layout_height="82dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="128dp"
         android:text="Add Product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addProductDescription" />
+
+    <Button
+        android:id="@+id/cancelAddProduct"
+        android:layout_width="238dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="86dp"
+        android:text="Cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitAddProduct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

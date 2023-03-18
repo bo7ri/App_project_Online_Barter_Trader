@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -66,7 +67,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         toolbar = findViewById(R.id.toolBar);
 
         // Set data from DB
-        setupDataDB();
+        setupDataFromDB();
 
 
         // Set up recycler view
@@ -75,7 +76,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         // adapter set up
-        adapter = new RecyclerAdapter(databaseListProduct);
+        adapter = new RecyclerAdapter(databaseListProduct, getApplicationContext());
         adapter.setOnClickRecyclerView(this);
         adapter.setFilteredList(databaseListProduct);
         recyclerView.setAdapter(adapter);
@@ -87,10 +88,17 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         // Add product btn
         ImageButton productAddPageButton = findViewById(R.id.productAddBtn);
         productAddPageButton.setOnClickListener(view -> {
-            Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
-            movingToListPageIntent.putExtra("username", username);
-            movingToListPageIntent.putExtra("usertype", usertype);
-            startActivity(movingToListPageIntent);
+
+            if(usertype.equals("Provider")){
+                Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
+                movingToListPageIntent.putExtra("username", username);
+                movingToListPageIntent.putExtra("usertype", usertype);
+                startActivity(movingToListPageIntent);
+            } else {
+                Toast.makeText(getApplicationContext(), "Only providers can add products", Toast.LENGTH_LONG).show();
+            }
+
+
         });
 
     }
@@ -98,7 +106,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     /**
      * Sets data from database
      */
-    protected void setupDataDB() {
+    protected void setupDataFromDB() {
 
         database.collection("ProductList").get().addOnSuccessListener(queryDocumentSnapshots -> {
 
@@ -125,13 +133,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-        productList.add(new Product("Chair","desc" + 1, username));
-        productList.add(new Product("Table","desc" + 1, username));
-        productList.add(new Product("TV","desc" + 1, username));
-        productList.add(new Product("Phone","desc" + 1, username));
-        productList.add(new Product("Wooden chair","desc" + 1, username));
-        productList.add(new Product("laptop","desc" + 1, username));
-        productList.add(new Product("lamp","desc" + 1, username));
+        productList.add(new Product("Wooden Table", "Sample text.", "0", "0", R.drawable.table, username, 100));
+        productList.add(new Product("Couch", "Sample text.", "1", "0", R.drawable.couch, username, 100));
+        productList.add(new Product("Painting", "Sample text.", "2", "0", R.drawable.painting, username, 100));
+        productList.add(new Product("Bed", "Sample text.", "2", "0", R.drawable.bed, username, 100));
+        productList.add(new Product("Wooden Chair", "Sample text.", "4", "0", R.drawable.chair, username, 100));
     }
 
     /**
@@ -210,7 +216,6 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             startActivity(profilePage);
         }
 
-
         if(item.getItemId() == R.id.sortBtn){
             if(sortAscending){
                 adapter.getFilter().filter("ascending");
@@ -220,8 +225,17 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
                 sortAscending = true;
             }
         }
-
-        if(item.getItemId() == R.id.logout){
+        else if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            if(username != null) savedPage.putExtra("username", username);
+            startActivity(savedPage);
+        }
+        else if(item.getItemId() == R.id.messageInbox){
+            // transfer message inbox page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
+        else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
             startActivity(logout);

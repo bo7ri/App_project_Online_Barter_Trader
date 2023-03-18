@@ -1,5 +1,6 @@
 package ca.dal.cs.csci3130.g01;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,8 +17,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class AddProduct extends AppCompatActivity {
 
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
-    private Button SubmitPrdct;
+    private Button SubmitPrdct, CancelPrdct;
 
+    int key_count = 0;
+    double price;
     private String username;
     private Product product;
     private String usertype;
@@ -25,6 +28,7 @@ public class AddProduct extends AppCompatActivity {
 
     FirebaseFirestore cloudDatabase;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -38,12 +42,19 @@ public class AddProduct extends AppCompatActivity {
         PrdctDescription = findViewById(R.id.addProductDescription);
         PrdctPrice = findViewById(R.id.addProductPrice);
         SubmitPrdct = findViewById(R.id.submitAddProduct);
+        CancelPrdct = findViewById(R.id.cancelAddProduct);
+
 
         // Get Extra username
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
 
         SubmitPrdct.setOnClickListener(view -> addProductData());
+
+        CancelPrdct.setOnClickListener(view -> {
+            Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            startActivity(home);
+        });
     }
 
     /** Adding product data */
@@ -52,6 +63,7 @@ public class AddProduct extends AppCompatActivity {
         ProductName = PrdctTitle.getText().toString().trim();
         ProductDescription = PrdctDescription.getText().toString().trim();
         ProductPrice = PrdctPrice.getText().toString().trim();
+        price = Double.parseDouble(ProductPrice);
         currentUsername = username.trim();
 
         /** Validating The Data */
@@ -74,9 +86,10 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
+        String keyString = Integer.toString(key_count);
+        key_count++;
 
-
-        Product newProduct = new Product(ProductName,ProductDescription, currentUsername);
+        Product newProduct = new Product(ProductName, ProductDescription, keyString, "0", R.drawable.no_image_found_default, username, price);
         product = newProduct;
 
         cloudDatabase.collection("ProductList").add(newProduct);
@@ -95,7 +108,4 @@ public class AddProduct extends AppCompatActivity {
         switchToProvidersListings.putExtra("usertype", usertype);
         startActivity(switchToProvidersListings);
     }
-
-
-
 }

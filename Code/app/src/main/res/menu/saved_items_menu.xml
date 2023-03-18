@@ -15,10 +15,6 @@
         android:visible="true"
         app:showAsAction="ifRoom" />
     <item
-        android:title="@string/savedItems"
-        android:id="@+id/savedItems"
-        app:showAsAction="never"/>
-    <item
         android:title="@string/messages"
         android:id="@+id/messageInbox"
         app:showAsAction="never"/>
@@ -26,4 +22,5 @@
         android:title="@string/logout"
         android:id="@+id/logout"
         app:showAsAction="never"/>
+
 </menu>

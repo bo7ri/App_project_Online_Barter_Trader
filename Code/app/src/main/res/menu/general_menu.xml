@@ -23,8 +23,15 @@
         android:visible="true"
         app:showAsAction="always" />
     <item
+        android:title="@string/savedItems"
+        android:id="@+id/savedItems"
+        app:showAsAction="never"/>
+    <item
+        android:title="@string/messages"
+        android:id="@+id/messageInbox"
+        app:showAsAction="never"/>
+    <item
         android:title="@string/logout"
-        android:icon="@drawable/baseline_power_settings_new_24"
         android:id="@+id/logout"
         app:showAsAction="always"/>
 

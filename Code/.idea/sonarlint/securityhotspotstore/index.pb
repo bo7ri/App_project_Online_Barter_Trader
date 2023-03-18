@@ -1,10 +1,6 @@
 
-u
-Eapp/src/androidTest/java/ca/dal/cs/csci3130/g01/RecyclerViewTest.java,0\4\040e4e7b0981ce19342169e7344632e9f55ade76
 i
 9app/src/main/java/ca/dal/cs/csci3130/g01/ProductSort.java,3\5\359cc2d5e499dd838bc2e16387ef62a0eac5a457
-m
-=app/src/main/java/ca/dal/cs/csci3130/g01/RecyclerAdapter.java,f\9\f9f63d1ab3782176879021dd1cec41b43d2fb8bb
 j
 :app/src/main/java/ca/dal/cs/csci3130/g01/RegisterPage.java,3\b\3bc3f38479a613bcffce2dcd8905194ccd70771c
 p
