@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class Profile extends AppCompatActivity implements View.OnClickListener{
 
     Toolbar toolbar;
-
+    Button sendEmailButton;
     FirebaseFirestore database;
 
     @Override
@@ -45,6 +46,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
 
         String username = getIntent().getStringExtra("username");
         if(username != null) getDataDB(username);
+
+        sendEmailButton = findViewById(R.id.send_email);
+        sendEmailButton.setOnClickListener(this);
     }
 
     /**
@@ -119,6 +123,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-
+        // this button will open send email activity
+        if (view.getId() == R.id.send_email) {
+            Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
+            startActivity(sendEmailIntent);
+        }
     }
 }
