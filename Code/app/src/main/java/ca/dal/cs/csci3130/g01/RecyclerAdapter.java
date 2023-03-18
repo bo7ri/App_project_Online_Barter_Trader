@@ -13,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -31,7 +29,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     // DO NOT TOUCH THIS
     // Create a on click listener
-    private onClickRecyclerView onClickRecyclerView;
+    private OnClickRecyclerView onClickRecyclerView;
 
 
     /**
@@ -115,7 +113,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     /**
      * An interface for onCLick listener for recycler view
      */
-    public interface onClickRecyclerView{
+    public interface OnClickRecyclerView {
         void onClick(Product product);
     }
 
@@ -124,7 +122,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
      * A method for setting onClick listener
      * @param onClickRecyclerView A listener
      */
-    public void setOnClickRecyclerView(RecyclerAdapter.onClickRecyclerView onClickRecyclerView) {
+    public void setOnClickRecyclerView(OnClickRecyclerView onClickRecyclerView) {
         this.onClickRecyclerView = onClickRecyclerView;
     }
 
@@ -170,12 +168,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         Product itemName = productList.get(position);
         holder.item.setText(itemName.getTitle());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickRecyclerView.onClick(itemName);
-            }
-        });
+        holder.itemView.setOnClickListener(view -> onClickRecyclerView.onClick(itemName));
 
     }
 

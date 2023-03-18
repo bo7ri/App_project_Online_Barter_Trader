@@ -49,18 +49,15 @@ public class RequestListAdapter extends ArrayAdapter<RequestItem> {
         requestReceiverName.setText(requestItem.getReceiverUsername());
 
         // Adding onClick to the item.
-        inflateRequestListView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent moveToRequestDetailPage = new Intent(view.getContext(), RequestDetailsPage.class);
-                moveToRequestDetailPage.putExtra("ReceiverUsername", requestItem.getReceiverUsername());
-                moveToRequestDetailPage.putExtra("ProviderUsername", requestItem.getProviderUsername());
-                moveToRequestDetailPage.putExtra("ProductTitle", requestItem.getProductTitle());
-                moveToRequestDetailPage.putExtra("ProductDescription", requestItem.getProductDescription());
-                moveToRequestDetailPage.putExtra("RequestMessage", requestItem.getRequestMessage());
-                Toast.makeText(getContext(), "Product clicked is: " + requestItem.getProductTitle(), Toast.LENGTH_LONG).show();
-                view.getContext().startActivity(moveToRequestDetailPage);
-            }
+        inflateRequestListView.setOnClickListener(view -> {
+            Intent moveToRequestDetailPage = new Intent(view.getContext(), RequestDetailsPage.class);
+            moveToRequestDetailPage.putExtra("ReceiverUsername", requestItem.getReceiverUsername());
+            moveToRequestDetailPage.putExtra("ProviderUsername", requestItem.getProviderUsername());
+            moveToRequestDetailPage.putExtra("ProductTitle", requestItem.getProductTitle());
+            moveToRequestDetailPage.putExtra("ProductDescription", requestItem.getProductDescription());
+            moveToRequestDetailPage.putExtra("RequestMessage", requestItem.getRequestMessage());
+            Toast.makeText(getContext(), "Product clicked is: " + requestItem.getProductTitle(), Toast.LENGTH_LONG).show();
+            view.getContext().startActivity(moveToRequestDetailPage);
         });
 
         // Returning the view.

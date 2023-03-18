@@ -26,77 +26,74 @@ public class RegisterPage extends AppCompatActivity {
 
         // Creating a submitting button.
         Button registerSubmitButton = findViewById(R.id.registerSubmitButton);
-        registerSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        registerSubmitButton.setOnClickListener(view -> {
 
-                // Initializing the fields.
-                String inputUsername = getUsername();
-                String inputPassword = getPassword();
-                String inputFirstName = getFirstName();
-                String inputLastName = getLastName();
-                String inputEmailAddress = getEmailAddress();
-                String inputUserType = getUserType();
+            // Initializing the fields.
+            String inputUsername = getUsername();
+            String inputPassword = getPassword();
+            String inputFirstName = getFirstName();
+            String inputLastName = getLastName();
+            String inputEmailAddress = getEmailAddress();
+            String inputUserType = getUserType();
 
-                // Checking if one or more fields are empty.
-                if (!isRegisterFieldsEmpty(inputUsername, inputPassword, inputFirstName, inputLastName, inputEmailAddress, inputUserType)) {
+            // Checking if one or more fields are empty.
+            if (!isRegisterFieldsEmpty(inputUsername, inputPassword, inputFirstName, inputLastName, inputEmailAddress, inputUserType)) {
 
-                    // Error checking the fields.
-                    boolean errorFlag = false;
-                    if (inputUsername.length() < 3) {
-                        errorFlag = true;
-                        setRegisterStatus("Invalid! Username needs to contain at least three characters.");
-                        Toast.makeText(RegisterPage.this, "Invalid! Username needs to contain at least three characters.", Toast.LENGTH_LONG).show();
-                    } else if (inputPassword.length() < 3) {
-                        errorFlag = true;
-                        setRegisterStatus("Invalid! Password needs to contain at least three characters.");
-                        Toast.makeText(RegisterPage.this, "Invalid! Password needs to contain at least three characters.", Toast.LENGTH_LONG).show();
-                    } else if (inputFirstName.length() < 3) {
-                        errorFlag = true;
-                        setRegisterStatus("Invalid! First name needs to contain at least three characters.");
-                        Toast.makeText(RegisterPage.this, "Invalid! First name needs to contain at least three characters.", Toast.LENGTH_LONG).show();
-                    } else if (inputLastName.length() < 3) {
-                        errorFlag = true;
-                        setRegisterStatus("Invalid! Last name needs to contain at least three characters.");
-                        Toast.makeText(RegisterPage.this, "Invalid! Last name needs to contain at least three characters.", Toast.LENGTH_LONG).show();
-                    } else if (isValidEmailAddress(inputEmailAddress) == false) {
-                        errorFlag = true;
-                        setRegisterStatus("Invalid! Email address contains invalid length or characters.");
-                        Toast.makeText(RegisterPage.this, "Invalid! Email address contains invalid length or characters.", Toast.LENGTH_LONG).show();
-                    } else if (isValidUserType(inputUserType) == false) {
-                        errorFlag = true;
-                        setRegisterStatus("Invalid! Must be 'Provider' or 'Receiver' exactly.");
-                        Toast.makeText(RegisterPage.this, "Invalid! Must be 'Provider' or 'Receiver' exactly.", Toast.LENGTH_LONG).show();
-                    }
-
-                    if (errorFlag == false){
-
-                        // Sending the data to firebase.
-                        FirebaseFirestore cloudDatabase = FirebaseFirestore.getInstance();
-                        Map<String, Object> registeredUser = new HashMap<>();
-                        registeredUser.put("Username", inputUsername);
-                        registeredUser.put("Password", inputPassword);
-                        registeredUser.put("FirstName", inputFirstName);
-                        registeredUser.put("LastName", inputLastName);
-                        registeredUser.put("EmailAddress", inputEmailAddress);
-                        registeredUser.put("UserType", inputUserType);
-                        cloudDatabase.collection("UserList").add(registeredUser);
-
-                        // Switching back to login page.
-                        setRegisterStatus("Registration successful!");
-                        Toast.makeText(RegisterPage.this, "Registration successful!", Toast.LENGTH_LONG).show();
-                        switchToLoginPage();
-                    }
-
-                } else {
-
-                    // Empty fields error message.
-                    setRegisterStatus("One or more fields are empty!");
-                    Toast.makeText(RegisterPage.this, "One or more fields are empty!", Toast.LENGTH_LONG).show();
-
+                // Error checking the fields.
+                boolean errorFlag = false;
+                if (inputUsername.length() < 3) {
+                    errorFlag = true;
+                    setRegisterStatus("Invalid! Username needs to contain at least three characters.");
+                    Toast.makeText(RegisterPage.this, "Invalid! Username needs to contain at least three characters.", Toast.LENGTH_LONG).show();
+                } else if (inputPassword.length() < 3) {
+                    errorFlag = true;
+                    setRegisterStatus("Invalid! Password needs to contain at least three characters.");
+                    Toast.makeText(RegisterPage.this, "Invalid! Password needs to contain at least three characters.", Toast.LENGTH_LONG).show();
+                } else if (inputFirstName.length() < 3) {
+                    errorFlag = true;
+                    setRegisterStatus("Invalid! First name needs to contain at least three characters.");
+                    Toast.makeText(RegisterPage.this, "Invalid! First name needs to contain at least three characters.", Toast.LENGTH_LONG).show();
+                } else if (inputLastName.length() < 3) {
+                    errorFlag = true;
+                    setRegisterStatus("Invalid! Last name needs to contain at least three characters.");
+                    Toast.makeText(RegisterPage.this, "Invalid! Last name needs to contain at least three characters.", Toast.LENGTH_LONG).show();
+                } else if (isValidEmailAddress(inputEmailAddress) == false) {
+                    errorFlag = true;
+                    setRegisterStatus("Invalid! Email address contains invalid length or characters.");
+                    Toast.makeText(RegisterPage.this, "Invalid! Email address contains invalid length or characters.", Toast.LENGTH_LONG).show();
+                } else if (isValidUserType(inputUserType) == false) {
+                    errorFlag = true;
+                    setRegisterStatus("Invalid! Must be 'Provider' or 'Receiver' exactly.");
+                    Toast.makeText(RegisterPage.this, "Invalid! Must be 'Provider' or 'Receiver' exactly.", Toast.LENGTH_LONG).show();
                 }
 
+                if (errorFlag == false){
+
+                    // Sending the data to firebase.
+                    FirebaseFirestore cloudDatabase = FirebaseFirestore.getInstance();
+                    Map<String, Object> registeredUser = new HashMap<>();
+                    registeredUser.put("Username", inputUsername);
+                    registeredUser.put("Password", inputPassword);
+                    registeredUser.put("FirstName", inputFirstName);
+                    registeredUser.put("LastName", inputLastName);
+                    registeredUser.put("EmailAddress", inputEmailAddress);
+                    registeredUser.put("UserType", inputUserType);
+                    cloudDatabase.collection("UserList").add(registeredUser);
+
+                    // Switching back to login page.
+                    setRegisterStatus("Registration successful!");
+                    Toast.makeText(RegisterPage.this, "Registration successful!", Toast.LENGTH_LONG).show();
+                    switchToLoginPage();
+                }
+
+            } else {
+
+                // Empty fields error message.
+                setRegisterStatus("One or more fields are empty!");
+                Toast.makeText(RegisterPage.this, "One or more fields are empty!", Toast.LENGTH_LONG).show();
+
             }
+
         });
 
     }

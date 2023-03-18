@@ -48,34 +48,28 @@ public class RequestDetailsPage extends AppCompatActivity {
 
         // Setting accept request button.
         Button requestAcceptButton = findViewById(R.id.requestDetailsPageAcceptBtn);
-        requestAcceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
-                moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
-                moveBackToRequestListPage.putExtra("username", ProviderUsername);
-                moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
-                moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
-                moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
-                Toast.makeText(RequestDetailsPage.this, "You have accepted this request!", Toast.LENGTH_LONG).show();
-                startActivity(moveBackToRequestListPage);
-            }
+        requestAcceptButton.setOnClickListener(view -> {
+            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
+            moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
+            moveBackToRequestListPage.putExtra("username", ProviderUsername);
+            moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
+            moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
+            moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
+            Toast.makeText(RequestDetailsPage.this, "You have accepted this request!", Toast.LENGTH_LONG).show();
+            startActivity(moveBackToRequestListPage);
         });
 
         // Setting decline request button.
         Button requestDeclineButton = findViewById(R.id.requestDetailsPageDeclineBtn);
-        requestDeclineButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
-                moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
-                moveBackToRequestListPage.putExtra("username", ProviderUsername);
-                moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
-                moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
-                moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
-                Toast.makeText(RequestDetailsPage.this, "You have declined this request!", Toast.LENGTH_LONG).show();
-                startActivity(moveBackToRequestListPage);
-            }
+        requestDeclineButton.setOnClickListener(view -> {
+            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
+            moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
+            moveBackToRequestListPage.putExtra("username", ProviderUsername);
+            moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
+            moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
+            moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
+            Toast.makeText(RequestDetailsPage.this, "You have declined this request!", Toast.LENGTH_LONG).show();
+            startActivity(moveBackToRequestListPage);
         });
 
     }

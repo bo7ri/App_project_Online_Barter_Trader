@@ -16,7 +16,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -33,7 +32,7 @@ import java.util.List;
  * @author Mohamed Al-Maimani
  * This is main list page for providers products
  */
-public class ProvidersListings extends AppCompatActivity implements RecyclerAdapter.onClickRecyclerView{
+public class ProvidersListings extends AppCompatActivity implements RecyclerAdapter.OnClickRecyclerView {
 
 
     Toolbar toolbar;
@@ -86,24 +85,13 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         usertype = getIntent().getStringExtra("usertype");
 
         // Add product btn
-        ImageButton ProductAddPageButton = findViewById(R.id.productAddBtn);
-        ProductAddPageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
-                movingToListPageIntent.putExtra("username", username);
-                movingToListPageIntent.putExtra("usertype", usertype);
-                startActivity(movingToListPageIntent);
-            }
+        ImageButton productAddPageButton = findViewById(R.id.productAddBtn);
+        productAddPageButton.setOnClickListener(view -> {
+            Intent movingToListPageIntent = new Intent(getApplicationContext(), AddProduct.class);
+            movingToListPageIntent.putExtra("username", username);
+            movingToListPageIntent.putExtra("usertype", usertype);
+            startActivity(movingToListPageIntent);
         });
-
-        // set data Locally
-//        setData();
-
-        // upload data to firebase
-        //uploadData();
-
-
 
     }
 

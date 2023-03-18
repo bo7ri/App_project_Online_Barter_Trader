@@ -44,75 +44,69 @@ public class SendRequestPage extends AppCompatActivity {
 
         // Getting cancel request button.
         Button cancelRequestButton = findViewById(R.id.sendRequestCancelBtn);
-        cancelRequestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        cancelRequestButton.setOnClickListener(view -> {
+            Intent moveBackToItemListPage = new Intent(SendRequestPage.this, ProvidersListings.class);
+            moveBackToItemListPage.putExtra("username", username);
+            moveBackToItemListPage.putExtra("product", product);
+            moveBackToItemListPage.putExtra("usertype", usertype);
+            SendRequestPage.this.startActivity(moveBackToItemListPage);
+        });
+
+        // Getting submit request button.
+        Button submitRequestButton = findViewById(R.id.sendRequestSubmitBtn);
+        submitRequestButton.setOnClickListener(view -> {
+
+            // Initializing the variables.
+            String currentProductTitle = product.getTitle();
+            String currentProductDescription = product.getDescription();
+            String currentProductOwner = product.getUsername();
+            String currentRequestMessage = getRequestMessage();
+
+            // Checking if an empty or null values exist in the variables.
+            boolean isRequestVariablesEmpty = false;
+            if (username == null || username.length() < 1) {
+                isRequestVariablesEmpty = true;
+                Toast.makeText(SendRequestPage.this, "Invalid! Empty username!", Toast.LENGTH_LONG).show();
+            } else if (currentProductTitle == null || currentProductTitle.length() < 1) {
+                isRequestVariablesEmpty = true;
+                Toast.makeText(SendRequestPage.this, "Invalid! Empty title!", Toast.LENGTH_LONG).show();
+            } else if (currentProductDescription == null || currentProductDescription.length() < 1) {
+                isRequestVariablesEmpty = true;
+                Toast.makeText(SendRequestPage.this, "Invalid! Empty description!", Toast.LENGTH_LONG).show();
+            } else if (currentProductOwner == null || currentProductOwner.length() < 1) {
+                isRequestVariablesEmpty = true;
+                Toast.makeText(SendRequestPage.this, "Invalid! Empty owner!", Toast.LENGTH_LONG).show();
+            } else if (currentRequestMessage == null || currentRequestMessage.length() < 1) {
+                isRequestVariablesEmpty = true;
+                Toast.makeText(SendRequestPage.this, "Invalid! Empty message!", Toast.LENGTH_LONG).show();
+            }
+
+            // If none of the variable are empty.
+            if (!isRequestVariablesEmpty && usertype.equals("Receiver")) {
+
+                // Sending data to Firebase.
+                FirebaseFirestore databaseInstance = FirebaseFirestore.getInstance();
+                Map<String, Object> tradeRequest = new HashMap<>();
+                tradeRequest.put("ReceiverUsername", username);
+                tradeRequest.put("ProviderUsername", currentProductOwner);
+                tradeRequest.put("ProductTitle", currentProductTitle);
+                tradeRequest.put("ProductDescription", currentProductDescription);
+                tradeRequest.put("RequestMessage", currentRequestMessage);
+                databaseInstance.collection("RequestList").add(tradeRequest);
+
+                // Sending a toast if submitted successfully.
+                Toast.makeText(SendRequestPage.this, "Submitted successfully!", Toast.LENGTH_LONG).show();
+
+                // Moving back to list page.
                 Intent moveBackToItemListPage = new Intent(SendRequestPage.this, ProvidersListings.class);
                 moveBackToItemListPage.putExtra("username", username);
                 moveBackToItemListPage.putExtra("product", product);
                 moveBackToItemListPage.putExtra("usertype", usertype);
                 SendRequestPage.this.startActivity(moveBackToItemListPage);
-            }
-        });
-
-        // Getting submit request button.
-        Button submitRequestButton = findViewById(R.id.sendRequestSubmitBtn);
-        submitRequestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Initializing the variables.
-                String currentProductTitle = product.getTitle();
-                String currentProductDescription = product.getDescription();
-                String currentProductOwner = product.getUsername();
-                String currentRequestMessage = getRequestMessage();
-
-                // Checking if an empty or null values exist in the variables.
-                boolean isRequestVariablesEmpty = false;
-                if (username == null || username.length() < 1) {
-                    isRequestVariablesEmpty = true;
-                    Toast.makeText(SendRequestPage.this, "Invalid! Empty username!", Toast.LENGTH_LONG).show();
-                } else if (currentProductTitle == null || currentProductTitle.length() < 1) {
-                    isRequestVariablesEmpty = true;
-                    Toast.makeText(SendRequestPage.this, "Invalid! Empty title!", Toast.LENGTH_LONG).show();
-                } else if (currentProductDescription == null || currentProductDescription.length() < 1) {
-                    isRequestVariablesEmpty = true;
-                    Toast.makeText(SendRequestPage.this, "Invalid! Empty description!", Toast.LENGTH_LONG).show();
-                } else if (currentProductOwner == null || currentProductOwner.length() < 1) {
-                    isRequestVariablesEmpty = true;
-                    Toast.makeText(SendRequestPage.this, "Invalid! Empty owner!", Toast.LENGTH_LONG).show();
-                } else if (currentRequestMessage == null || currentRequestMessage.length() < 1) {
-                    isRequestVariablesEmpty = true;
-                    Toast.makeText(SendRequestPage.this, "Invalid! Empty message!", Toast.LENGTH_LONG).show();
-                }
-
-                // If none of the variable are empty.
-                if (!isRequestVariablesEmpty && usertype.equals("Receiver")) {
-
-                    // Sending data to Firebase.
-                    FirebaseFirestore databaseInstance = FirebaseFirestore.getInstance();
-                    Map<String, Object> tradeRequest = new HashMap<>();
-                    tradeRequest.put("ReceiverUsername", username);
-                    tradeRequest.put("ProviderUsername", currentProductOwner);
-                    tradeRequest.put("ProductTitle", currentProductTitle);
-                    tradeRequest.put("ProductDescription", currentProductDescription);
-                    tradeRequest.put("RequestMessage", currentRequestMessage);
-                    databaseInstance.collection("RequestList").add(tradeRequest);
-
-                    // Sending a toast if submitted successfully.
-                    Toast.makeText(SendRequestPage.this, "Submitted successfully!", Toast.LENGTH_LONG).show();
-
-                    // Moving back to list page.
-                    Intent moveBackToItemListPage = new Intent(SendRequestPage.this, ProvidersListings.class);
-                    moveBackToItemListPage.putExtra("username", username);
-                    moveBackToItemListPage.putExtra("product", product);
-                    moveBackToItemListPage.putExtra("usertype", usertype);
-                    SendRequestPage.this.startActivity(moveBackToItemListPage);
-
-                }
-
 
             }
+
+
         });
 
     }

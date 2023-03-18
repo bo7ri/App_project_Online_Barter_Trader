@@ -12,7 +12,8 @@ import android.widget.Toast;
 public class Rate extends AppCompatActivity {
 
 
-    Button button, rateButton;
+    Button button;
+    Button rateButton;
     RatingBar ratingStars;
     float myRating = 0;
     @Override
@@ -22,49 +23,41 @@ public class Rate extends AppCompatActivity {
 
         button = findViewById(R.id.button);
         ratingStars = findViewById(R.id.ratingBar);
-        //rateButton = findViewById(R.id.rating);
 
 
+        ratingStars.setOnRatingBarChangeListener((ratingBar, v, b) -> {
 
-        ratingStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged (RatingBar ratingBar, float v, boolean b){
+            int rating = (int) v;
+            String message = null;
 
-                int rating = (int) v;
-                String message = null;
-
-                myRating = ratingBar.getRating();
-                switch (rating) {
-                    case 1:
-                        message = "Sorry to hear that! :(";
-                        break;
-                    case 2:
-                        message = "You always accept suggestions!";
-                        break;
-                    case 3:
-                        message = "Good enough!";
-                        break;
-                    case 4:
-                        message = "Great! Thank you!";
-                        break;
-                    case 5:
-                        message = "Awesome! You are the best!";
-                        break;
-                }
-                Toast.makeText(Rate.this, message, Toast.LENGTH_SHORT).show();
+            myRating = ratingBar.getRating();
+            switch (rating) {
+                case 1:
+                    message = "Sorry to hear that! :(";
+                    break;
+                case 2:
+                    message = "You always accept suggestions!";
+                    break;
+                case 3:
+                    message = "Good enough!";
+                    break;
+                case 4:
+                    message = "Great! Thank you!";
+                    break;
+                case 5:
+                    message = "Awesome! You are the best!";
+                    break;
             }
+            Toast.makeText(Rate.this, message, Toast.LENGTH_SHORT).show();
         });
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Rate.this, ItemDetails.class);
-                intent.putExtra("rating", myRating);
-                intent.putExtra("product", product);
-                startActivity(intent);
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(Rate.this, ItemDetails.class);
+            intent.putExtra("rating", myRating);
+            intent.putExtra("product", product);
+            startActivity(intent);
 
-            }
         });
 
 

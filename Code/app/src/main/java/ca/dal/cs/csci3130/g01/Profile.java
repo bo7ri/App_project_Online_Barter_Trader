@@ -29,7 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class Profile extends AppCompatActivity implements View.OnClickListener{
+public class Profile extends AppCompatActivity{
 
     Toolbar toolbar;
 
@@ -55,19 +55,16 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
 
         // Creating a onClick button to move to request list page.
         Button moveToRequestListBtn = findViewById(R.id.moveToRequestListButton);
-        moveToRequestListBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (usertype.equals("Provider")) {
-                    Intent moveToRequestListPage = new Intent(Profile.this, RequestListPage.class);
-                    moveToRequestListPage.putExtra("username", username);
-                    moveToRequestListPage.putExtra("usertype", usertype);
-                    Profile.this.startActivity(moveToRequestListPage);
-                } else {
-                    Toast.makeText(Profile.this, "Only providers can access this page!", Toast.LENGTH_LONG).show();
-                }
-
+        moveToRequestListBtn.setOnClickListener(view -> {
+            if (usertype.equals("Provider")) {
+                Intent moveToRequestListPage = new Intent(Profile.this, RequestListPage.class);
+                moveToRequestListPage.putExtra("username", username);
+                moveToRequestListPage.putExtra("usertype", usertype);
+                Profile.this.startActivity(moveToRequestListPage);
+            } else {
+                Toast.makeText(Profile.this, "Only providers can access this page!", Toast.LENGTH_LONG).show();
             }
+
         });
 
     }
@@ -108,42 +105,36 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
         // Declaration of DocumentReference variables
         database.collection("UserList").whereEqualTo("Username",username)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for (QueryDocumentSnapshot document : task.getResult()) {
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        // retrieve the data from firebase
-                        String firstName = document.get("FirstName").toString();
-                        String lastName = document.get("LastName").toString();
-                        String userName = document.get("Username").toString();
-                        String userType = document.get("UserType").toString();
-                        String email = document.get("EmailAddress").toString();
+                            // retrieve the data from firebase
+                            String firstName = document.get("FirstName").toString();
+                            String lastName = document.get("LastName").toString();
+                            String userName = document.get("Username").toString();
+                            String userType = document.get("UserType").toString();
+                            String email = document.get("EmailAddress").toString();
 
-                        // set the profile labels
-                        TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
-                        firstNameLabel.setText(firstName.trim());
+                            // set the profile labels
+                            TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
+                            firstNameLabel.setText(firstName.trim());
 
-                        TextView lastNameLabel = findViewById(R.id.last_name_edit_text);
-                        lastNameLabel.setText(lastName.trim());
+                            TextView lastNameLabel = findViewById(R.id.last_name_edit_text);
+                            lastNameLabel.setText(lastName.trim());
 
-                        TextView userNameLabel = findViewById(R.id.username_edit_text);
-                        userNameLabel.setText(userName.trim());
+                            TextView userNameLabel = findViewById(R.id.username_edit_text);
+                            userNameLabel.setText(userName.trim());
 
-                        TextView userTypeLabel = findViewById(R.id.user_type_edit_text);
-                        userTypeLabel.setText(userType.trim());
+                            TextView userTypeLabel = findViewById(R.id.user_type_edit_text);
+                            userTypeLabel.setText(userType.trim());
 
-                        TextView emailLabel = findViewById(R.id.email_edit_text);
-                        emailLabel.setText(email.trim());
+                            TextView emailLabel = findViewById(R.id.email_edit_text);
+                            emailLabel.setText(email.trim());
+                        }
                     }
-                }
-            }
-        });
+                });
     }
 
-    @Override
-    public void onClick(View view) {
 
-    }
 }

@@ -57,13 +57,10 @@ public class ItemDetails extends AppCompatActivity {
         }
         rateButton = findViewById(R.id.rating);
         //take to rating page
-        rateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
-                movingToRatingPage.putExtra("product", product);
-                startActivity(movingToRatingPage);
-            }
+        rateButton.setOnClickListener(view -> {
+            Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
+            movingToRatingPage.putExtra("product", product);
+            startActivity(movingToRatingPage);
         });
         //display the rating
         rating = getIntent().getFloatExtra("rating", 0.0f);
@@ -74,22 +71,19 @@ public class ItemDetails extends AppCompatActivity {
 
         // Setting up the sendRequestButton.
         Button sendRequestButton = findViewById(R.id.sendRequestBtn);
-        sendRequestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (usertype.equals("Receiver")) {
-                    Intent moveToRequestPage = new Intent(ItemDetails.this, SendRequestPage.class);
-                    moveToRequestPage.putExtra("username", username);
-                    moveToRequestPage.putExtra("product", product);
-                    moveToRequestPage.putExtra("usertype", usertype);
-                    ItemDetails.this.startActivity(moveToRequestPage);
-                } else {
-                    Intent moveBackToListPage = new Intent(ItemDetails.this, ProvidersListings.class);
-                    moveBackToListPage.putExtra("username", username);
-                    moveBackToListPage.putExtra("usertype", usertype);
-                    Toast.makeText(ItemDetails.this, "Provider cannot send request!", Toast.LENGTH_LONG).show();
-                    ItemDetails.this.startActivity(moveBackToListPage);
-                }
+        sendRequestButton.setOnClickListener(view -> {
+            if (usertype.equals("Receiver")) {
+                Intent moveToRequestPage = new Intent(ItemDetails.this, SendRequestPage.class);
+                moveToRequestPage.putExtra("username", username);
+                moveToRequestPage.putExtra("product", product);
+                moveToRequestPage.putExtra("usertype", usertype);
+                ItemDetails.this.startActivity(moveToRequestPage);
+            } else {
+                Intent moveBackToListPage = new Intent(ItemDetails.this, ProvidersListings.class);
+                moveBackToListPage.putExtra("username", username);
+                moveBackToListPage.putExtra("usertype", usertype);
+                Toast.makeText(ItemDetails.this, "Provider cannot send request!", Toast.LENGTH_LONG).show();
+                ItemDetails.this.startActivity(moveBackToListPage);
             }
         });
 

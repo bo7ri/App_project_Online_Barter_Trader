@@ -43,12 +43,7 @@ public class AddProduct extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
 
-        SubmitPrdct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addProductData();
-            }
-        });
+        SubmitPrdct.setOnClickListener(view -> addProductData());
     }
 
     /** Adding product data */
@@ -57,7 +52,7 @@ public class AddProduct extends AppCompatActivity {
         ProductName = PrdctTitle.getText().toString().trim();
         ProductDescription = PrdctDescription.getText().toString().trim();
         ProductPrice = PrdctPrice.getText().toString().trim();
-        currentUsername = username.toString().trim();
+        currentUsername = username.trim();
 
         /** Validating The Data */
         if (TextUtils.isEmpty(ProductName)){
@@ -72,9 +67,6 @@ public class AddProduct extends AppCompatActivity {
             Toast.makeText(this, "Product Price is required!", Toast.LENGTH_SHORT).show();
             return;
         }
-
-//        Product newProduct = new Product(ProductName,ProductDescription);
-//        switchToProviderListings(newProduct);
 
         // DB
         addProductToDB();

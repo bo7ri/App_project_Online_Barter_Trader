@@ -36,57 +36,51 @@ public class LoginPage extends AppCompatActivity {
 
         // Creating the registering page button.
         Button registerPageButton = findViewById(R.id.RegisterButton);
-        registerPageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent movingToRegisterPageIntent = new Intent(LoginPage.this, RegisterPage.class);
-                LoginPage.this.startActivity(movingToRegisterPageIntent);
-            }
+        registerPageButton.setOnClickListener(view -> {
+            Intent movingToRegisterPageIntent = new Intent(LoginPage.this, RegisterPage.class);
+            LoginPage.this.startActivity(movingToRegisterPageIntent);
         });
 
 
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String userName = username.getText().toString().trim();
-                String pass = password.getText().toString().trim();
+        login.setOnClickListener(view -> {
+            String userName = username.getText().toString().trim();
+            String pass = password.getText().toString().trim();
 
-                databaseInstance.collection("UserList").whereEqualTo("Username", userName).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()){
+            databaseInstance.collection("UserList").whereEqualTo("Username", userName).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()){
 
-                         for (QueryDocumentSnapshot document : task.getResult()){
+                     for (QueryDocumentSnapshot document : task.getResult()){
 
-                             String timp = document.get("Password").toString();
-                             String userType = document.get("UserType").toString();
+                         String timp = document.get("Password").toString();
+                         String userType = document.get("UserType").toString();
 
-                             if (pass.equals(timp)){
-                                 //Intent to main page here
-                                 Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
-                                 moveToListPage.putExtra("username", userName);
-                                 moveToListPage.putExtra("usertype", userType);
-                                 LoginPage.this.startActivity(moveToListPage);
-                                 finish();
-                             }
-
-                             else {
-                                 TextView loginStatus = findViewById(R.id.LoginStatusText);
-                                 String validity = getResources().getString(R.string.INVALID_LOGIN).trim();
-                                 loginStatus.setText(R.string.INVALID_LOGIN);
-                                 Toast.makeText(LoginPage.this, validity, Toast.LENGTH_SHORT).show();
-                             }
-
+                         if (pass.equals(timp)){
+                             //Intent to main page here
+                             Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
+                             moveToListPage.putExtra("username", userName);
+                             moveToListPage.putExtra("usertype", userType);
+                             LoginPage.this.startActivity(moveToListPage);
+                             finish();
                          }
 
+                         else {
+                             TextView loginStatus = findViewById(R.id.LoginStatusText);
+                             String validity = getResources().getString(R.string.INVALID_LOGIN).trim();
+                             loginStatus.setText(R.string.INVALID_LOGIN);
+                             Toast.makeText(LoginPage.this, validity, Toast.LENGTH_SHORT).show();
+                         }
 
-                        }
+                     }
+
 
                     }
-                });
 
-            }
+                }
+            });
+
         });
     }
     }
