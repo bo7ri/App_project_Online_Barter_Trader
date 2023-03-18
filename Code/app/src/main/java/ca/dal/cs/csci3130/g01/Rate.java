@@ -13,9 +13,10 @@ public class Rate extends AppCompatActivity {
 
 
     Button button;
-    Button rateButton;
     RatingBar ratingStars;
     float myRating = 0;
+    private String username;
+    private String usertype;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,14 +51,22 @@ public class Rate extends AppCompatActivity {
             }
             Toast.makeText(Rate.this, message, Toast.LENGTH_SHORT).show();
         });
+
+        // Getting the username from intent.
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
+
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
         button.setOnClickListener(view -> {
             Intent intent = new Intent(Rate.this, ItemDetails.class);
             intent.putExtra("rating", myRating);
             intent.putExtra("product", product);
+            intent.putExtra("username", username);
+            intent.putExtra("product", product);
+            intent.putExtra("usertype", usertype);
             startActivity(intent);
-
+            finish();
         });
 
 

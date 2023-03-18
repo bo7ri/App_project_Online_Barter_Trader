@@ -55,15 +55,21 @@ public class ItemDetails extends AppCompatActivity {
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
         }
+
         rateButton = findViewById(R.id.rating);
+
         //take to rating page
         rateButton.setOnClickListener(view -> {
             Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
             movingToRatingPage.putExtra("product", product);
+            movingToRatingPage.putExtra("username", username);
+            movingToRatingPage.putExtra("usertype", usertype);
             startActivity(movingToRatingPage);
         });
+
         //display the rating
         rating = getIntent().getFloatExtra("rating", 0.0f);
+
         // For example, you can display the rating in a TextView
         TextView ratingTextView = findViewById(R.id.rating_text_view);
         ratingTextView.setText("Rating: " + rating);
