@@ -7,8 +7,6 @@
 <!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
 
 
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -42,9 +40,9 @@
             android:name=".RequestDetailsPage"
             android:exported="false">
         </activity>
-
-
-
+        <activity
+            android:name=".Rate"
+            android:exported="false" />
         <activity
             android:name=".LoginPage"
             android:exported="true">

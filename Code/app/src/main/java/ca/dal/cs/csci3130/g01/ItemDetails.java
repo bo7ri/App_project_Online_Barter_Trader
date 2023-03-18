@@ -23,11 +23,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ItemDetails extends AppCompatActivity {
 
     Toolbar toolbar;
-
+    Button rateButton;
     FirebaseFirestore database;
 
     private String username;
     private String usertype;
+    private float rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,22 @@ public class ItemDetails extends AppCompatActivity {
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
         }
+        rateButton = findViewById(R.id.rating);
+        //take to rating page
+        rateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
+                movingToRatingPage.putExtra("product", product);
+                startActivity(movingToRatingPage);
+            }
+        });
+        //display the rating
+        rating = getIntent().getFloatExtra("rating", 0.0f);
+        // For example, you can display the rating in a TextView
+        TextView ratingTextView = findViewById(R.id.rating_text_view);
+        ratingTextView.setText("Rating: " + rating);
+
 
         // Setting up the sendRequestButton.
         Button sendRequestButton = findViewById(R.id.sendRequestBtn);
@@ -109,4 +126,6 @@ public class ItemDetails extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
