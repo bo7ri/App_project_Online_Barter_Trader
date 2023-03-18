@@ -124,9 +124,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         // this button will open send email activity
-        if (view.getId() == R.id.send_email) {
-            Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
-            startActivity(sendEmailIntent);
-        }
+        Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
+        startActivity(sendEmailIntent);
+
     }
 }
