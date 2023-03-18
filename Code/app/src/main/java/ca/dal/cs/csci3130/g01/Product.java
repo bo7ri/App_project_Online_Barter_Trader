@@ -76,6 +76,8 @@ public class Product implements Parcelable {
         return description;
     }
 
+
+
     public void setTitle(String title) {
         this.title = title;
     }

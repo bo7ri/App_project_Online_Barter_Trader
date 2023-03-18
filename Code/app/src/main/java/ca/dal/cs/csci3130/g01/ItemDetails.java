@@ -55,6 +55,7 @@ public class ItemDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent movingToListPageIntent = new Intent(getApplicationContext(), EditProduct.class);
+                movingToListPageIntent.putExtra("product",product);
                 finish();
                 startActivity(movingToListPageIntent);
             }
