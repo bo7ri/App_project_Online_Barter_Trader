@@ -21,6 +21,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -73,7 +75,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         // adapter set up
-        adapter = new RecyclerAdapter(databaseListProduct);
+        adapter = new RecyclerAdapter(databaseListProduct, getApplicationContext());
         adapter.setOnClickRecyclerView(this);
         adapter.setFilteredList(databaseListProduct);
         recyclerView.setAdapter(adapter);
@@ -131,13 +133,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-        productList.add(new Product("Chair","desc" + 1));
-        productList.add(new Product("Table","desc" + 1));
-        productList.add(new Product("TV","desc" + 1));
-        productList.add(new Product("Phone","desc" + 1));
-        productList.add(new Product("Wooden chair","desc" + 1));
-        productList.add(new Product("laptop","desc" + 1));
-        productList.add(new Product("lamp","desc" + 1));
+        productList.add(new Product("Wooden Table", "Sample text.", "0", "0", R.drawable.table));
+        productList.add(new Product("Couch", "Sample text.", "1", "0", R.drawable.couch));
+        productList.add(new Product("Painting", "Sample text.", "2", "0", R.drawable.painting));
+        productList.add(new Product("Bed", "Sample text.", "2", "0", R.drawable.bed));
+        productList.add(new Product("Wooden Chair", "Sample text.", "4", "0", R.drawable.chair));
     }
 
     /**
@@ -209,15 +209,16 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             if(username != null) profilePage.putExtra("username", username);
             startActivity(profilePage);
         }
-        if(item.getItemId() == R.id.savedItems){
+        else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
-            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+            Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            startActivity(savedPage);
         }
-        if(item.getItemId() == R.id.messageInbox){
+        else if(item.getItemId() == R.id.messageInbox){
             // transfer message inbox page
             Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
         }
-        if(item.getItemId() == R.id.logout){
+        else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
             startActivity(logout);

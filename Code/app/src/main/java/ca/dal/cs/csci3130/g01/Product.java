@@ -15,28 +15,40 @@ import androidx.annotation.NonNull;
 public class Product implements Parcelable {
 //test
 
+    private int imageResource;
     private String title;
+    private String key_id;
+    private String favStatus;
     private String description;
 
-    /**
-     * A basic product constructor
-     * @param title The title of the product
-     * @param description The description of the product
-     */
-    public Product(@NonNull String title, @NonNull String description) {
-        this.title = title;
-        this.description = description;
+
+    public Product(){
 
     }
 
-    // This is part of Parcelable interface
-    public Product() {
+    /**
+     * Constructor for Product class.
+     * @param title
+     * @param description
+     * @param key_id
+     * @param favStatus
+     * @param imageResource
+     */
+    public Product(String title, String description, String key_id, String favStatus, int imageResource) {
+        this.title = title;
+        this.description = description;
+        this.key_id = key_id;
+        this.favStatus = favStatus;
+        this.imageResource = imageResource;
     }
 
     // This is part of Parcelable interface
     protected Product(Parcel in) {
-        title = in.readString();
         description = in.readString();
+        favStatus = in.readString();
+        imageResource = in.readInt();
+        key_id = in.readString();
+        title = in.readString();
     }
 
 // This is part of Parcelable interface
@@ -58,23 +70,52 @@ public class Product implements Parcelable {
         return 0;
     }
 
+    // This is part of Parcelable interface
     @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(title);
+    public void writeToParcel(@NonNull Parcel parcel, int i) {;
         parcel.writeString(description);
+        parcel.writeString(favStatus);
+        parcel.writeInt(imageResource);
+        parcel.writeString(key_id);
+        parcel.writeString(title);
     }
 
     // setters and getters
+
+    public int getImageResource() {
+        return imageResource;
+    }
+
+    public void setImageResource(int imageResource) {
+        this.imageResource = imageResource;
+    }
+
     public String getTitle() {
         return title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getKey_id() {
+        return key_id;
+    }
+
+    public void setKey_id(String key_id) {
+        this.key_id = key_id;
+    }
+
+    public String getFavStatus() {
+        return favStatus;
+    }
+
+    public void setFavStatus(String favStatus) {
+        this.favStatus = favStatus;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {

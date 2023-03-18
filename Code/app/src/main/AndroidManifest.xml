@@ -42,6 +42,10 @@
             android:name=".AddProduct"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".SavedItems"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

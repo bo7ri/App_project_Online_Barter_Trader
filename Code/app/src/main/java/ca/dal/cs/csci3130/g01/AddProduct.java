@@ -19,6 +19,8 @@ public class AddProduct extends AppCompatActivity {
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
     private Button SubmitPrdct, CancelPrdct;
 
+    int key_count = 0;
+
 
     FirebaseFirestore cloudDatabase;
 
@@ -84,9 +86,10 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
+        String keyString = Integer.toString(key_count);
+        key_count++;
 
-
-        Product newProduct = new Product(ProductName,ProductDescription);
+        Product newProduct = new Product(ProductName, ProductDescription, keyString, "0", R.drawable.no_image_found_default);
 
         cloudDatabase.collection("ProductList").add(newProduct);
 
@@ -102,7 +105,4 @@ public class AddProduct extends AppCompatActivity {
         finish();
         startActivity(switchToProvidersListings);
     }
-
-
-
 }

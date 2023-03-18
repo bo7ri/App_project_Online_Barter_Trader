@@ -24,6 +24,7 @@ public class ItemDetails extends AppCompatActivity {
     Toolbar toolbar;
 
     FirebaseFirestore database;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class ItemDetails extends AppCompatActivity {
 
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
+        username = getIntent().getStringExtra("username");
 
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
@@ -79,21 +81,22 @@ public class ItemDetails extends AppCompatActivity {
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
             startActivity(home);
         }
-        if(item.getItemId() == R.id.profile){
+        else if(item.getItemId() == R.id.profile){
             // transfer to profile activity
             Intent profilePage = new Intent(getApplicationContext(), Profile.class);
-            //if(username != null) profilePage.putExtra("username", username);
+            if(username != null) profilePage.putExtra("username", username);
             startActivity(profilePage);
         }
-        if(item.getItemId() == R.id.savedItems){
+        else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
-            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+            Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            startActivity(savedPage);
         }
-        if(item.getItemId() == R.id.messageInbox){
+        else if(item.getItemId() == R.id.messageInbox){
             // transfer message inbox page
             Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
         }
-        if(item.getItemId() == R.id.logout){
+        else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
             startActivity(logout);

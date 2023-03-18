@@ -191,4 +191,33 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Login)).perform(click());
         onView(withId(R.id.LoginStatusText)).check(matches(withText("Invalid Login!")));
     }
+
+//    // Checks if switches correctly to saved items page after button is clicked.
+//    @Test
+//    public void checkIfSwitchedToSavedPage(){
+//        // For login rule
+////        onView(withId(R.id.Username)).perform(typeText("ProviderAdmin"));
+////        onView(withId(R.id.Password)).perform(typeText("admin4321"));
+////        onView(withId(R.id.Login)).perform(click());
+//
+//        onView(withId(R.id.savedItems)).perform(click());
+//        intended(hasComponent(SavedItems.class.getName()));
+//    }
+//
+//    // Checks if after pressing the favorite button, it displays in the saved items page.
+//    @Test
+//    public void checkIfItemsSaved(){
+//        // For login rule
+////        onView(withId(R.id.Username)).perform(typeText("ProviderAdmin"));
+////        onView(withId(R.id.Password)).perform(typeText("admin4321"));
+////        onView(withId(R.id.Login)).perform(click());
+//
+//        onView(withId(R.id.favBtn)).perform(actionOnItemAtPosition(0, click()));
+//
+//        onView(withId(R.id.savedItems)).perform(click());
+//
+//        onView(withId(R.id.favTextView)).check(matches(isDisplayed()));
+//        onView(withId(R.id.favImageView)).check(matches(isDisplayed()));
+//        onView(withId(R.id.favBtn)).check(matches(isDisplayed()));
+//    }
 }
