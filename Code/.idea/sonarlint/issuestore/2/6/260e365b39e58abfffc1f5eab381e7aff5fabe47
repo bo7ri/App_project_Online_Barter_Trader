@@ -1,0 +1,10 @@
+
+e
+java:S1192<"HDefine a constant instead of duplicating this literal "product" 3 times.(®®–»8Ÿ‰‘ï0
+t
+java:S1450"WRemove the "username" field and declare it as a local variable in the relevant methods.(‘ó¹²8ëü‰‘ï0
+y
+java:S1450"WRemove the "usertype" field and declare it as a local variable in the relevant methods.(á¹¢üÿÿÿÿ8ìü‰‘ï0
+C	java:S131#""Add a default case to this switch.(±•´‚ÿÿÿÿÿ8âÙï0
+W
+java:S1874<":Remove this use of "getParcelableExtra"; it is deprecated.(®®–»8ıü‰‘ï0
