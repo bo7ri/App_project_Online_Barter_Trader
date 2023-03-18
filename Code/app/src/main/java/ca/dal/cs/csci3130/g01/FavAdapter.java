@@ -89,14 +89,11 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
             favBtn = itemView.findViewById(R.id.favBtn);
             imageView = itemView.findViewById(R.id.favImageView);
 
-            favBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    final FavItem favItem = favItemList.get(position);
-                    favDB.remove_fav(favItem.getKey_id());
-                    removeItem(position);
-                }
+            favBtn.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                final FavItem favItem = favItemList.get(position);
+                favDB.remove_fav(favItem.getKey_id());
+                removeItem(position);
             });
         }
     }

@@ -160,38 +160,35 @@ public class Profile extends AppCompatActivity{
                         }
                     }
                 })
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                            // retrieve the data from firebase
-                                            String firstName = document.get("FirstName").toString();
-                                            String lastName = document.get("LastName").toString();
-                                            String userName = document.get("Username").toString();
-                                            String userType = document.get("UserType").toString();
-                                            String email = document.get("EmailAddress").toString();
+                            // retrieve the data from firebase
+                            String firstName = document.get("FirstName").toString();
+                            String lastName = document.get("LastName").toString();
+                            String userName = document.get("Username").toString();
+                            String userType = document.get("UserType").toString();
+                            String email = document.get("EmailAddress").toString();
 
-                                            // set the profile labels
-                                            TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
-                                            firstNameLabel.setText(firstName.trim());
+                            // set the profile labels
+                            TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
+                            firstNameLabel.setText(firstName.trim());
 
-                                            TextView lastNameLabel = findViewById(R.id.last_name_edit_text);
-                                            lastNameLabel.setText(lastName.trim());
+                            TextView lastNameLabel = findViewById(R.id.last_name_edit_text);
+                            lastNameLabel.setText(lastName.trim());
 
-                                            TextView userNameLabel = findViewById(R.id.username_edit_text);
-                                            userNameLabel.setText(userName.trim());
+                            TextView userNameLabel = findViewById(R.id.username_edit_text);
+                            userNameLabel.setText(userName.trim());
 
-                                            TextView userTypeLabel = findViewById(R.id.user_type_edit_text);
-                                            userTypeLabel.setText(userType.trim());
+                            TextView userTypeLabel = findViewById(R.id.user_type_edit_text);
+                            userTypeLabel.setText(userType.trim());
 
-                                            TextView emailLabel = findViewById(R.id.email_edit_text);
-                                            emailLabel.setText(email.trim());
-                                        }
-                                    }
-                                }
-                            });
+                            TextView emailLabel = findViewById(R.id.email_edit_text);
+                            emailLabel.setText(email.trim());
+                        }
+                    }
+                });
     }
 
 }

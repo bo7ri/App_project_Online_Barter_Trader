@@ -20,7 +20,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginPage extends AppCompatActivity {
 
-    EditText username, password;
+    EditText username;
+    EditText password;
     Button login;
     //Firebase connection
     FirebaseFirestore databaseInstance = FirebaseFirestore.getInstance();
@@ -47,37 +48,34 @@ public class LoginPage extends AppCompatActivity {
             String userName = username.getText().toString().trim();
             String pass = password.getText().toString().trim();
 
-            databaseInstance.collection("UserList").whereEqualTo("Username", userName).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()){
+            databaseInstance.collection("UserList").whereEqualTo("Username", userName).get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
 
-                     for (QueryDocumentSnapshot document : task.getResult()){
+                 for (QueryDocumentSnapshot document : task.getResult()){
 
-                         String timp = document.get("Password").toString();
-                         String userType = document.get("UserType").toString();
+                     String timp = document.get("Password").toString();
+                     String userType = document.get("UserType").toString();
 
-                         if (pass.equals(timp)){
-                             //Intent to main page here
-                             Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
-                             moveToListPage.putExtra("username", userName);
-                             moveToListPage.putExtra("usertype", userType);
-                             LoginPage.this.startActivity(moveToListPage);
-                         }
-
-                         else {
-                             TextView loginStatus = findViewById(R.id.LoginStatusText);
-                             String validity = getResources().getString(R.string.INVALID_LOGIN).trim();
-                             loginStatus.setText(R.string.INVALID_LOGIN);
-                             Toast.makeText(LoginPage.this, validity, Toast.LENGTH_SHORT).show();
-                         }
-
+                     if (pass.equals(timp)){
+                         //Intent to main page here
+                         Intent moveToListPage = new Intent(getApplicationContext(), ProvidersListings.class);
+                         moveToListPage.putExtra("username", userName);
+                         moveToListPage.putExtra("usertype", userType);
+                         LoginPage.this.startActivity(moveToListPage);
                      }
 
+                     else {
+                         TextView loginStatus = findViewById(R.id.LoginStatusText);
+                         String validity = getResources().getString(R.string.INVALID_LOGIN).trim();
+                         loginStatus.setText(R.string.INVALID_LOGIN);
+                         Toast.makeText(LoginPage.this, validity, Toast.LENGTH_SHORT).show();
+                     }
 
-                    }
+                 }
+
 
                 }
+
             });
 
         });

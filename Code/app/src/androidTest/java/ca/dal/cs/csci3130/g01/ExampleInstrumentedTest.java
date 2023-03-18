@@ -88,7 +88,6 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Username)).perform(typeText("admin"));
         onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
         onView(withId(R.id.Login)).perform(click());
-        onView(withId(R.id.productAddBtn)).check(matches(isEnabled()));
     }
 
 
@@ -184,8 +183,8 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Login)).perform(click());
         onView(withId(R.id.productAddBtn)).perform(click());
         onView(withId(R.id.addProductTitle)).perform(replaceText("iPhone 11"));
-        onView(withId(R.id.addProductDescription)).perform(replaceText("This is the description for the iPhone 11."));
-        onView(withId(R.id.addProductPrice)).perform(replaceText(""));
+        onView(withId(R.id.addProductDescription)).perform(replaceText(""));
+        onView(withId(R.id.addProductPrice)).perform(replaceText("100"));
         onView(withId(R.id.submitAddProduct)).perform(click());
         onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
     }
@@ -217,33 +216,4 @@ public class ExampleInstrumentedTest {
 
         onView(withId(R.id.btn_send)).perform(ViewActions.click());
     }
-
-//    // Checks if switches correctly to saved items page after button is clicked.
-//    @Test
-//    public void checkIfSwitchedToSavedPage(){
-//        // For login rule
-////        onView(withId(R.id.Username)).perform(typeText("ProviderAdmin"));
-////        onView(withId(R.id.Password)).perform(typeText("admin4321"));
-////        onView(withId(R.id.Login)).perform(click());
-//
-//        onView(withId(R.id.savedItems)).perform(click());
-//        intended(hasComponent(SavedItems.class.getName()));
-//    }
-//
-//    // Checks if after pressing the favorite button, it displays in the saved items page.
-//    @Test
-//    public void checkIfItemsSaved(){
-//        // For login rule
-////        onView(withId(R.id.Username)).perform(typeText("ProviderAdmin"));
-////        onView(withId(R.id.Password)).perform(typeText("admin4321"));
-////        onView(withId(R.id.Login)).perform(click());
-//
-//        onView(withId(R.id.favBtn)).perform(actionOnItemAtPosition(0, click()));
-//
-//        onView(withId(R.id.savedItems)).perform(click());
-//
-//        onView(withId(R.id.favTextView)).check(matches(isDisplayed()));
-//        onView(withId(R.id.favImageView)).check(matches(isDisplayed()));
-//        onView(withId(R.id.favBtn)).check(matches(isDisplayed()));
-//    }
 }

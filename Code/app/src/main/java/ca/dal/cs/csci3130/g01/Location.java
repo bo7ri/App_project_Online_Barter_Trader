@@ -38,6 +38,7 @@ public class Location extends AppCompatActivity {
         citiesSpinner.setAdapter(citiesAdapter);
 
 
+        // Note: Might be used for the future.
         // checks which province was selected and updates the cities list accordingly
         provincesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

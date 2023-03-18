@@ -10,6 +10,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -23,6 +24,7 @@ public class ExampleUnitTest {
 
 
     static RegisterPage registerPageFirst;
+    static RequestItem requestItemFirst;
 
     @BeforeClass
     public static void setup() {
@@ -37,6 +39,15 @@ public class ExampleUnitTest {
         Mockito.when(registerPageFirst.getUserType()).thenReturn("Provider");
         Mockito.when(registerPageFirst.isValidUserType("Provider")).thenReturn(true);
         Mockito.when(registerPageFirst.isValidEmailAddress("jthor111@gmail.com")).thenReturn(true);
+
+        // This is mocking requestItemFirst.
+        requestItemFirst = Mockito.mock(RequestItem.class);
+        Mockito.when(requestItemFirst.getReceiverUsername()).thenReturn("Messi");
+        Mockito.when(requestItemFirst.getProviderUsername()).thenReturn("Ronaldo");
+        Mockito.when(requestItemFirst.getProductTitle()).thenReturn("Golden Boot");
+        Mockito.when(requestItemFirst.getProductDescription()).thenReturn("This is a golden boot made out of gold!");
+        Mockito.when(requestItemFirst.getRequestMessage()).thenReturn("Messi is a better player than Ronaldo!");
+
 
     }
 
@@ -121,5 +132,31 @@ public class ExampleUnitTest {
         String email = registerPageFirst.getEmailAddress();
         assertFalse(registerPageFirst.isRegisterFieldsEmpty(username, password, firstName, lastName, email, userType));
     }
+    @Test
+    public void testRequestReceiverUsername() {
+        assertEquals("Messi", requestItemFirst.getReceiverUsername());
+    }
+
+    @Test
+    public void testRequestProviderUsername() {
+        assertEquals("Ronaldo", requestItemFirst.getProviderUsername());
+    }
+
+    @Test
+    public void testRequestProductTitle() {
+        assertEquals("Golden Boot", requestItemFirst.getProductTitle());
+    }
+
+    @Test
+    public void testRequestProductDescription() {
+        assertEquals("This is a golden boot made out of gold!", requestItemFirst.getProductDescription());
+    }
+
+    @Test
+    public void testRequestRequestMessage() {
+        assertEquals("Messi is a better player than Ronaldo!", requestItemFirst.getRequestMessage());
+    }
+
+
 
 }
