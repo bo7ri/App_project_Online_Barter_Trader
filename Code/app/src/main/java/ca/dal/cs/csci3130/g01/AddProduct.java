@@ -80,6 +80,7 @@ public class AddProduct extends AppCompatActivity {
             return;
         }
 
+
         // DB
         addProductToDB();
     }

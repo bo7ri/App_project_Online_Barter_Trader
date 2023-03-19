@@ -45,6 +45,7 @@
             android:name=".RequestDetailsPage"
             android:exported="false">
         </activity>
+        <activity android:name=".EditProduct"/>
         <activity android:name=".Location"/>
         <activity android:name=".SendEmails"/>
         <activity
@@ -55,10 +56,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".SavedItems"
-            android:exported="false">
         </activity>
     </application>
 

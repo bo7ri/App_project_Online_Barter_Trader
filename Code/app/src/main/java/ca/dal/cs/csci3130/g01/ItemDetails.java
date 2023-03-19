@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,6 +96,14 @@ public class ItemDetails extends AppCompatActivity {
             }
         });
 
+        // GO TO EDIT PAGE
+        ImageButton ProductEditPageButton = findViewById(R.id.EditPrdct);
+        ProductEditPageButton.setOnClickListener(view -> {
+            Intent movingToEditPage = new Intent(getApplicationContext(), EditProduct.class);
+            movingToEditPage.putExtra("product",product);
+            movingToEditPage.putExtra("username", username);
+            startActivity(movingToEditPage);
+        });
 
     }
 
