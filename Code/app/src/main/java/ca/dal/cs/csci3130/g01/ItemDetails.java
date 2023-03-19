@@ -2,7 +2,6 @@ package ca.dal.cs.csci3130.g01;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
@@ -10,7 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -21,8 +24,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ItemDetails extends AppCompatActivity {
 
     Toolbar toolbar;
-
+    Button rateButton;
     FirebaseFirestore database;
+    private String username;
+
+
+    private String usertype;
+    private float rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +46,12 @@ public class ItemDetails extends AppCompatActivity {
 
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
+        username = getIntent().getStringExtra("username");
 
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         // set product title and desc.
         if(product != null){
@@ -48,6 +59,51 @@ public class ItemDetails extends AppCompatActivity {
             productDescription.setText(product.getDescription());
         }
 
+        rateButton = findViewById(R.id.rating);
+
+        //take to rating page
+        rateButton.setOnClickListener(view -> {
+            Intent movingToRatingPage = new Intent(ItemDetails.this, Rate.class);
+            movingToRatingPage.putExtra("product", product);
+            movingToRatingPage.putExtra("username", username);
+            movingToRatingPage.putExtra("usertype", usertype);
+            startActivity(movingToRatingPage);
+        });
+
+        //display the rating
+        rating = getIntent().getFloatExtra("rating", 0.0f);
+
+        // For example, you can display the rating in a TextView
+        TextView ratingTextView = findViewById(R.id.rating_text_view);
+        ratingTextView.setText("Rating: " + rating);
+
+
+        // Setting up the sendRequestButton.
+        Button sendRequestButton = findViewById(R.id.sendRequestBtn);
+        sendRequestButton.setOnClickListener(view -> {
+            if (usertype.equals("Receiver")) {
+                Intent moveToRequestPage = new Intent(ItemDetails.this, SendRequestPage.class);
+                moveToRequestPage.putExtra("username", username);
+                moveToRequestPage.putExtra("product", product);
+                moveToRequestPage.putExtra("usertype", usertype);
+                ItemDetails.this.startActivity(moveToRequestPage);
+            } else {
+                Intent moveBackToListPage = new Intent(ItemDetails.this, ProvidersListings.class);
+                moveBackToListPage.putExtra("username", username);
+                moveBackToListPage.putExtra("usertype", usertype);
+                Toast.makeText(ItemDetails.this, "Provider cannot send request!", Toast.LENGTH_LONG).show();
+                ItemDetails.this.startActivity(moveBackToListPage);
+            }
+        });
+
+        // GO TO EDIT PAGE
+        ImageButton ProductEditPageButton = findViewById(R.id.EditPrdct);
+        ProductEditPageButton.setOnClickListener(view -> {
+            Intent movingToEditPage = new Intent(getApplicationContext(), EditProduct.class);
+            movingToEditPage.putExtra("product",product);
+            movingToEditPage.putExtra("username", username);
+            startActivity(movingToEditPage);
+        });
 
     }
 
@@ -73,7 +129,27 @@ public class ItemDetails extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId() == R.id.logout){
+        if(item.getItemId() == R.id.homeButton){
+            // transfer to home pahe
+            Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            startActivity(home);
+        }
+        else if(item.getItemId() == R.id.profile){
+            // transfer to profile activity
+            Intent profilePage = new Intent(getApplicationContext(), Profile.class);
+            if(username != null) profilePage.putExtra("username", username);
+            startActivity(profilePage);
+        }
+        else if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            startActivity(savedPage);
+        }
+        else if(item.getItemId() == R.id.messageInbox){
+            // transfer message inbox page
+            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
+        }
+        else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
             startActivity(logout);
@@ -81,4 +157,6 @@ public class ItemDetails extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

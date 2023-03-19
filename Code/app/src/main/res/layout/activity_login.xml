@@ -62,9 +62,11 @@
 
     <TextView
         android:id="@+id/LoginStatusText"
-        android:layout_width="5dp"
-        android:layout_height="4dp"
-        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="500dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

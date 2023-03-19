@@ -1,0 +1,18 @@
+
+j
+java:S1192#"ODefine a constant instead of duplicating this literal "RequestMessage" 3 times.(ÿ¥µ‘úÿÿÿÿ
+n
+java:S1192""SDefine a constant instead of duplicating this literal "ProductDescription" 3 times.(›„”ùÿÿÿÿ
+l
+java:S1192"QDefine a constant instead of duplicating this literal "ReceiverUsername" 3 times.(ˆÏÕëûÿÿÿÿ
+c
+java:S1192!"MDefine a constant instead of duplicating this literal "ProductTitle" 3 times.(²Áı‡
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÏÕëûÿÿÿÿ
+k	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’”úúÿÿÿÿ
+f	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Áı‡
+k	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›„”ùÿÿÿÿ
+k	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¥µ‘úÿÿÿÿ
+B
+java:S1068",Remove this unused "username" private field.(‘ó¹²
+G
+java:S1068",Remove this unused "usertype" private field.(á¹¢üÿÿÿÿ

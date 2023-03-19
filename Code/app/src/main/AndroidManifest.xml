@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<!--    &lt;!&ndash;Permissions for internet&ndash;&gt;-->
+<!--    <uses-permission android:name="android.permission.INTERNET" />-->
+<!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
 
-    <!--Permissions for internet-->
+    <!-- Permissions for internet -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:ignore="CoarseFineLocation" />
 
 
     <application
@@ -18,6 +22,33 @@
         android:theme="@style/Theme.CSCI3130Project"
         tools:targetApi="s">
         <activity
+            android:name=".ProvidersListings"
+            android:exported="true"/>
+        <activity
+            android:name=".ItemDetails"/>
+        <activity
+            android:name=".Profile"/>
+        <activity
+            android:name=".RegisterPage" />
+        <activity
+            android:name=".AddProduct">
+        </activity>
+        <activity
+            android:name=".SendRequestPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".RequestListPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".RequestDetailsPage"
+            android:exported="false">
+        </activity>
+        <activity android:name=".EditProduct"/>
+        <activity android:name=".Location"/>
+        <activity android:name=".SendEmails"/>
+        <activity
             android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
@@ -25,22 +56,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-        android:name=".ProvidersListings"
-        android:exported="false" />
-        <activity
-            android:name=".ItemDetails"
-            android:exported="false" />
-        <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterPage"
-            android:exported="false"/>
-        <activity
-            android:name=".AddProduct"
-            android:exported="false">
         </activity>
     </application>
 
