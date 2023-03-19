@@ -114,10 +114,6 @@ public class Profile extends AppCompatActivity{
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
             startActivity(savedPage);
         }
-        else if(item.getItemId() == R.id.messageInbox){
-            // transfer message inbox page
-            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
-        }
         else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);

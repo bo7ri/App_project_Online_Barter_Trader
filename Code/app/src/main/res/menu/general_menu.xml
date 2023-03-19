@@ -24,15 +24,13 @@
         app:showAsAction="always" />
     <item
         android:title="@string/savedItems"
+        android:icon="@drawable/baseline_bookmark_added_24"
         android:id="@+id/savedItems"
-        app:showAsAction="never"/>
-    <item
-        android:title="@string/messages"
-        android:id="@+id/messageInbox"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
     <item
         android:title="@string/logout"
         android:id="@+id/logout"
+        android:icon="@drawable/baseline_power_settings_new_24"
         app:showAsAction="always"/>
 
 </menu>

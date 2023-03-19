@@ -9,9 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AddProduct extends AppCompatActivity {
@@ -19,13 +32,12 @@ public class AddProduct extends AppCompatActivity {
     private EditText PrdctTitle, PrdctDescription, PrdctPrice;
     private Button SubmitPrdct, CancelPrdct;
 
-    int key_count = 0;
+    String keyCountString;
+    int key_count;
     double price;
     private String username;
     private Product product;
     private String usertype;
-
-
     FirebaseFirestore cloudDatabase;
 
     @SuppressLint("MissingInflatedId")
@@ -55,6 +67,8 @@ public class AddProduct extends AppCompatActivity {
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
             startActivity(home);
         });
+
+        getKeys();
     }
 
     /** Adding product data */
@@ -87,11 +101,12 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
-        String keyString = Integer.toString(key_count);
-        key_count++;
-
-        Product newProduct = new Product(ProductName, ProductDescription, keyString, "0", R.drawable.no_image_found_default, username, price);
+        key_count = Integer.parseInt(keyCountString);
+        Product newProduct = new Product(ProductName, ProductDescription, keyCountString, "0", R.drawable.no_image_found_default, username, price);
         product = newProduct;
+
+        key_count++;
+        setKeys(key_count);
 
         cloudDatabase.collection("ProductList").add(newProduct);
 
@@ -108,5 +123,30 @@ public class AddProduct extends AppCompatActivity {
         switchToProvidersListings.putExtra("product", product);
         switchToProvidersListings.putExtra("usertype", usertype);
         startActivity(switchToProvidersListings);
+    }
+
+    public void getKeys(){
+        DocumentReference documentReference = cloudDatabase.collection("NumberKeys").document("XokHk1KXtd8RlTSvZGGN");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                keyCountString = documentSnapshot.getString("numberOfKeys");
+            }
+        });
+    }
+
+    public void setKeys(int key){
+        String keys = Integer.toString(key);
+        Map<String, Object> keyUpdate = new HashMap<>();
+        keyUpdate.put("numberOfKeys", keys);
+
+        cloudDatabase.collection("NumberKeys").whereEqualTo("numberOfKeys", key).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        cloudDatabase.collection("NumberKeys").document("XokHk1KXtd8RlTSvZGGN").update(keyUpdate);
+
+                    }
+                });
     }
 }

@@ -7,17 +7,15 @@
         android:title="@string/homeButton"
         android:icon="@drawable/baseline_home_24"
         android:id="@+id/homeButton"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
     <item
         android:title="@string/savedItems"
         android:id="@+id/savedItems"
-        app:showAsAction="never"/>
-    <item
-        android:title="@string/messages"
-        android:id="@+id/messageInbox"
-        app:showAsAction="never"/>
+        android:icon="@drawable/baseline_bookmark_added_24"
+        app:showAsAction="always"/>
     <item
         android:title="@string/logout"
         android:id="@+id/logout"
-        app:showAsAction="never"/>
+        android:icon="@drawable/baseline_power_settings_new_24"
+        app:showAsAction="always"/>
 </menu>

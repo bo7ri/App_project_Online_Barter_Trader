@@ -29,10 +29,11 @@
         <activity
             android:name=".Profile"/>
         <activity
-            android:name=".RegisterPage" />
+            android:name=".AddProduct"/>
         <activity
-            android:name=".AddProduct">
-        </activity>
+            android:name=".SavedItems"/>
+        <activity
+            android:name=".RegisterPage" />
         <activity
             android:name=".SendRequestPage"
             android:exported="false">

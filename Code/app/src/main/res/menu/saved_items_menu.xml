@@ -15,12 +15,9 @@
         android:visible="true"
         app:showAsAction="ifRoom" />
     <item
-        android:title="@string/messages"
-        android:id="@+id/messageInbox"
-        app:showAsAction="never"/>
-    <item
         android:title="@string/logout"
         android:id="@+id/logout"
-        app:showAsAction="never"/>
+        android:icon="@drawable/baseline_power_settings_new_24"
+        app:showAsAction="always"/>
 
 </menu>

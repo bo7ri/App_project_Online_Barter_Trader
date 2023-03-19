@@ -126,10 +126,6 @@ public class SavedItems extends AppCompatActivity{
             if(username != null) profilePage.putExtra("username", username);
             startActivity(profilePage);
         }
-        else if(item.getItemId() == R.id.messageInbox){
-            // transfer message inbox page
-            Toast.makeText(getApplicationContext(),"Message Inbox Clicked",Toast.LENGTH_SHORT).show();
-        }
         else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);

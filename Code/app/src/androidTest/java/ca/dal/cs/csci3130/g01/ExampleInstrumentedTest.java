@@ -9,8 +9,10 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -20,7 +22,9 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import android.content.Context;
 
 
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsRule;
 
@@ -88,6 +92,16 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.Username)).perform(typeText("admin"));
         onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
         onView(withId(R.id.Login)).perform(click());
+    }
+
+    @Test
+    public void checkIfSwitchedToSavedPage(){
+        onView(withId(R.id.Username)).perform(typeText("ProviderAdmin"));
+        onView(withId(R.id.Password)).perform(typeText("admin4321"));
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.savedItems)).perform(click());
+        intended(hasComponent(SavedItems.class.getName()));
     }
 
 
