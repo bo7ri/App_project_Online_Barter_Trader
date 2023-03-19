@@ -101,12 +101,10 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
-        key_count = Integer.parseInt(keyCountString);
         Product newProduct = new Product(ProductName, ProductDescription, keyCountString, "0", R.drawable.no_image_found_default, username, price);
         product = newProduct;
 
-        key_count++;
-        setKeys(key_count);
+        updateKeys();
 
         cloudDatabase.collection("ProductList").add(newProduct);
 
@@ -135,12 +133,14 @@ public class AddProduct extends AppCompatActivity {
         });
     }
 
-    public void setKeys(int key){
-        String keys = Integer.toString(key);
+    public void updateKeys(){
+        key_count = Integer.parseInt(keyCountString);
+        key_count++;
+        keyCountString = Integer.toString(key_count);
         Map<String, Object> keyUpdate = new HashMap<>();
-        keyUpdate.put("numberOfKeys", keys);
+        keyUpdate.put("numberOfKeys", keyCountString);
 
-        cloudDatabase.collection("NumberKeys").whereEqualTo("numberOfKeys", key).get()
+        cloudDatabase.collection("NumberKeys").whereEqualTo("numberOfKeys", keyCountString).get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
