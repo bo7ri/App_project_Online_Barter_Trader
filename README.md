@@ -1,5 +1,5 @@
 CSCI3130 Group Project
-//test
+
 Topic Title: Online Barter Trader
 
 - Group Member 1: Mazin Asim Abdulaziz Al Raisi, mz871166@dal.ca, B00858797

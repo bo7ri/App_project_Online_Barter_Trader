@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="22900944-7d99-4467-9059-cfd538b34fd6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Code/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/androidTestResultsUserPreferences.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/issuestore/2/6/260e365b39e58abfffc1f5eab381e7aff5fabe47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/issuestore/3/4/34e8103f6f567f14c1fc8aa45d299605e216d93f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/issuestore/3/5/359cc2d5e499dd838bc2e16387ef62a0eac5a457" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/issuestore/3/b/3bc3f38479a613bcffce2dcd8905194ccd70771c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/issuestore/4/f/4feb8df09bb6546108e9d5489cd9c002981d116c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/securityhotspotstore/2/6/260e365b39e58abfffc1f5eab381e7aff5fabe47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/securityhotspotstore/3/4/34e8103f6f567f14c1fc8aa45d299605e216d93f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/securityhotspotstore/3/5/359cc2d5e499dd838bc2e16387ef62a0eac5a457" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/securityhotspotstore/3/b/3bc3f38479a613bcffce2dcd8905194ccd70771c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/securityhotspotstore/4/f/4feb8df09bb6546108e9d5489cd9c002981d116c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/androidTest/java/ca/dal/cs/csci3130/g01/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/androidTest/java/ca/dal/cs/csci3130/g01/RecyclerViewTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/AddProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/EditProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/FavAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/FavDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/FavItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/ItemDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/LoginPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/ProductSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/Profile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/ProvidersListings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/Rate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/RecyclerAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/RegisterPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/RequestDetailsPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/RequestItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/RequestListAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/RequestListPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/SavedItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/SendEmails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/java/ca/dal/cs/csci3130/g01/SendRequestPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/add_product.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_account_circle_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_add_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_bookmark_active_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_bookmark_added_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_bookmark_inactive_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_home_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_password_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_person_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_person_outline_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_power_settings_new_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_search_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/baseline_sort_by_alpha_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/bed.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/chair.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/couch.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/no_image_found_default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/painting.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/drawable/table.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_add_product.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_edit_product.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_item_details.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_location.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_profile.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_providers_listings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_rate.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_registerpage.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_requestdetails_page.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_requestlist_page.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_saved_items.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_send_emails.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_sendrequest_page.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/fav_items.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/list_items.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/request_list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/toolbar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/menu/general_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/menu/item_details_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/menu/profile_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/menu/saved_items_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/test/java/ca/dal/cs/csci3130/g01/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CSCI3130Project" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CSCI3130Project" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CSCI3130Project" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CSCI3130Project" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NQAwmNo0Id0PEUQzwnLHCjf7eC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/Users/mazin/git/csci3130/GroupProject/csci3130-w23-g01-project",
+    "memory.settings.postsync.last.time.stamp": "1679586186247"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.ExampleUnitTest">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="CSCI3130Project.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExampleInstrumentedTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="CSCI3130Project.app.androidTest" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="ca.dal.cs.csci3130.g01.ExampleInstrumentedTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_NAME_REGEX" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="RETENTION_ENABLED" value="No" />
+      <option name="RETENTION_MAX_SNAPSHOTS" value="2" />
+      <option name="RETENTION_COMPRESS_SNAPSHOTS" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecyclerViewTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="CSCI3130Project.app.androidTest" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="ca.dal.cs.csci3130.g01.RecyclerViewTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_NAME_REGEX" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="RETENTION_ENABLED" value="No" />
+      <option name="RETENTION_MAX_SNAPSHOTS" value="2" />
+      <option name="RETENTION_COMPRESS_SNAPSHOTS" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExampleUnitTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;ca.dal.cs.csci3130.g01.ExampleUnitTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ExampleUnitTest" />
+        <item itemvalue="Android Instrumented Tests.RecyclerViewTest" />
+        <item itemvalue="Android Instrumented Tests.ExampleInstrumentedTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22900944-7d99-4467-9059-cfd538b34fd6" name="Changes" comment="" />
+      <created>1679586172862</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679586172862</updated>
+    </task>
+    <servers />
+  </component>
+</project>
