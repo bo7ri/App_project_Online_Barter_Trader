@@ -1,0 +1,50 @@
+Final User Stories for Iteration 3:
+
+Story 1:
+- User Story: As a <provider>, I want to <accept and decline trade requests> so that <I can decide whether to accept the current trade request or not>.
+- Acceptance Test 1: Given that <I am logged into the app as a provider> when <I click accept trade request> then <I will trade with the receiver and add value to my profile>.
+- Acceptance Test 2: Given that <I am logged into the app as a provider> when <I click decline trade request> then <I will not trade with the receiver and not add value to my profile>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 2:
+- User Story: As a <receiver>, I want to <visualize the exchange history of each user> so that <I can see the reputation of each user>.
+- Acceptance Test 1: Given that <I am logged into the app as a receiver> when <I click to view provider's profile> then <I will be able to see a summary of the provider's requests>.
+- Acceptance Test 2: Given that <I am logged into the app as a provider> when <I click to view provider's profile> then <I will not be able to see a summary of the provider's requests>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 3:
+- User Story: As a <receiver>, I want to <find products that are in my local area> so that <I can send trade requests for nearby products>.
+- Acceptance Test 1: Given that <I am logged into the app as a receiver and near a product> when <I click to view the details of a product> then <I will be able to see a message saying this product is in my local area>.
+- Acceptance Test 2: Given that <I am logged into the app as a receiver and not near a product> when <I click to view the details of a product> then <I will not see a message saying this product is in my local area>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 4:
+- User Story: As a <receiver and provider>, I want to <view emails within the app> so that <I can easily keep track of the emails being sent/received>.
+- Acceptance Test 1: Given that <I am logged into the app> when <I click view emails> then <I should be able to see a list of emails that I have received>.
+- Acceptance Test 2: Given that <I am logged into the app> when <I click a specific email> then <I should be able to see the details of that specific email>.
+- Priority: Critical
+- Effort: 3 points -> 6 hours.
+
+Story 5:
+- User Story: As a <receiver and provider>, I want to <identify and store my location> so that <I can see the approximate distance to other products>.
+- Acceptance Test 1: Given that <I am logged into the app and enabled my location> when <I click to view the details of a product> then <I can see a number indicating the distance between me and the product>.
+- Acceptance Test 2: Given that <I am logged into the app and not enabled my location> when <I click to view the details of a product> then <I will not be able to see a number indicating the distance between me and the product>.
+- Priority: Critical
+- Effort: 5 points -> 10 hours.
+
+Story 6:
+- User Story: As a <receiver and provider>, I want to <rate other users on the app> so that <I can see the reputation of each user>.
+- Acceptance Test 1: Given that <I am logged into the app as a receiver> when <I click to view provide's profile> then <I will be able to rate the provider>.
+- Acceptance Test 2: Given that <I am logged into the app as a provider> when <I click to view receiver's profile> then <I will be able to rate the receiver>.
+- Priority: Essential
+- Effort: 3 points -> 6 hours.
+
+Story 7:
+- User Story: As a <receiver and provider>, I want to <change my personal details> so that <I can get an updated profile page>.
+- Acceptance Test 1: Given that <I am logged into the app> when <I click edit on profile page and filled in all the required details> then <I will see an updated profile page>.
+- Acceptance Test 2: Given that <I am logged into the app> when <I click edit on profile page and not filled in all the required details> then <I will not see an updated profile page>.
+- Priority: Nice-to-have
+- Effort: 3 points -> 6 hours.
