@@ -23,7 +23,7 @@ public class RequestDetailsPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // Loading in the layout.
+        // Loading in the layout...
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requestdetails_page);
 
