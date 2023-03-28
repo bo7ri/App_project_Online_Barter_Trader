@@ -26,6 +26,8 @@ public class ExampleUnitTest {
     static RegisterPage registerPageFirst;
     static RequestItem requestItemFirst;
 
+    static FavItem favItemFirst;
+
     @BeforeClass
     public static void setup() {
 
@@ -48,6 +50,11 @@ public class ExampleUnitTest {
         Mockito.when(requestItemFirst.getProductDescription()).thenReturn("This is a golden boot made out of gold!");
         Mockito.when(requestItemFirst.getRequestMessage()).thenReturn("Messi is a better player than Ronaldo!");
 
+        // This is mocking favItemFirst.
+        favItemFirst = Mockito.mock(FavItem.class);
+        Mockito.when(favItemFirst.getKey_id()).thenReturn("1AbD42Aa");
+        Mockito.when(favItemFirst.getItem_title()).thenReturn("Golden Toothpick");
+        Mockito.when(favItemFirst.getItem_image()).thenReturn(1231241);
 
     }
 
@@ -155,6 +162,42 @@ public class ExampleUnitTest {
     @Test
     public void testRequestRequestMessage() {
         assertEquals("Messi is a better player than Ronaldo!", requestItemFirst.getRequestMessage());
+    }
+
+    @Test
+    public void testFavItemGetID() {
+        assertEquals("1AbD42Aa", favItemFirst.getKey_id());
+    }
+
+    @Test
+    public void testFavItemGetTitle() {
+        assertEquals("Golden Toothpick", favItemFirst.getItem_title());
+    }
+
+    @Test
+    public void testFavItemGetImage() {
+        assertEquals(1231241, favItemFirst.getItem_image());
+    }
+
+    @Test
+    public void testFavItemSetID() {
+        FavItem tempFavItem = new FavItem("Cool title", "1111", 939);
+        tempFavItem.setKey_id("2222");
+        assertEquals("2222", tempFavItem.getKey_id());
+    }
+
+    @Test
+    public void testFavItemSetTitle() {
+        FavItem tempFavItem = new FavItem("Cool title", "1111", 939);
+        tempFavItem.setItem_title("Very cool title");
+        assertEquals("Very cool title", tempFavItem.getItem_title());
+    }
+
+    @Test
+    public void testFavItemSetImage() {
+        FavItem tempFavItem = new FavItem("Cool title", "1111", 939);
+        tempFavItem.setItem_image(727);
+        assertEquals(727, tempFavItem.getItem_image());
     }
 
 
