@@ -60,6 +60,40 @@ public class RequestDetailsPage extends AppCompatActivity {
 
             // To do: find product price, add value to provider, delete request from database.
 
+            // Finding request from the database.
+            cloudDatabase.collection("RequestList").whereEqualTo("ProductTitle", ProductTitle)
+                    .whereEqualTo("ProviderUsername", ProviderUsername).whereEqualTo("ReceiverUsername", ReceiverUsername)
+                    .whereEqualTo("RequestMessage", RequestMessage).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                            // Checks if task is successful.
+                            if (task.isSuccessful()) {
+
+                                // Loops through the documents found by the previous query.
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    // Getting and storing the appropriate information.
+                                    String documentProductTitle = document.get("ProductTitle").toString();
+                                    String documentReceiverUsername = document.get("ReceiverUsername").toString();
+                                    String documentProviderUsername = document.get("ProviderUsername").toString();
+                                    String documentRequestMessage = document.get("RequestMessage").toString();
+
+                                    // Error checking methods to see if clicked request is same as retrieved request.
+                                    if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
+                                            && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
+                                        Toast.makeText(RequestDetailsPage.this, "Found request!", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                    });
+
             // Sending the user back to the request list page.
             Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
             moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
