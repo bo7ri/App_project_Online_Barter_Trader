@@ -23,7 +23,7 @@ public class RequestDetailsPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // Loading in the layout...
+        // Loading in the layout.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requestdetails_page);
 
@@ -49,6 +49,10 @@ public class RequestDetailsPage extends AppCompatActivity {
         // Setting accept request button.
         Button requestAcceptButton = findViewById(R.id.requestDetailsPageAcceptBtn);
         requestAcceptButton.setOnClickListener(view -> {
+
+            // To do: find product price, add value to provider, delete request from database.
+
+            // Sending the user back to the request list page.
             Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
             moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
             moveBackToRequestListPage.putExtra("username", ProviderUsername);
@@ -62,6 +66,10 @@ public class RequestDetailsPage extends AppCompatActivity {
         // Setting decline request button.
         Button requestDeclineButton = findViewById(R.id.requestDetailsPageDeclineBtn);
         requestDeclineButton.setOnClickListener(view -> {
+
+            // To do: find and delete request from database.
+
+            // Sending the user back to the request list page.
             Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
             moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
             moveBackToRequestListPage.putExtra("username", ProviderUsername);
