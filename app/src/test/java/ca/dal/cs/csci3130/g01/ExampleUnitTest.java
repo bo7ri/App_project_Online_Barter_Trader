@@ -200,6 +200,81 @@ public class ExampleUnitTest {
         assertEquals(727, tempFavItem.getItem_image());
     }
 
+    @Test
+    public void testProductGetPrice() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        assertEquals(100, tempProduct.getPrice(), 0);
+    }
+
+    @Test
+    public void testProductSetPrice() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        tempProduct.setPrice(88.1);
+        assertEquals(88.1, tempProduct.getPrice(), 0);
+    }
+
+    @Test
+    public void testProductGetKeyID() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        assertEquals("0", tempProduct.getKey_id());
+    }
+
+    @Test
+    public void testProductSetKeyID() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        tempProduct.setKey_id("1521");
+        assertEquals("1521", tempProduct.getKey_id());
+    }
+
+    @Test
+    public void testProductGetFav() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        assertEquals("0", tempProduct.getFavStatus());
+    }
+
+    @Test
+    public void testProductSetFav() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        tempProduct.setFavStatus("1");
+        assertEquals("1", tempProduct.getFavStatus());
+    }
+
+    @Test
+    public void testProductGetImage() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        assertEquals(1234, tempProduct.getImageResource());
+    }
+
+    @Test
+    public void testProductSetImage() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        tempProduct.setImageResource(4321);
+        assertEquals(4321, tempProduct.getImageResource());
+    }
+
+    @Test
+    public void testProductGetName() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        assertEquals("coolAdmin", tempProduct.getUsername());
+    }
+
+    @Test
+    public void tempProductSetName() {
+        Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
+                "0", 1234, "coolAdmin", 100);
+        tempProduct.setUsername("TheCoolAdmin");
+        assertEquals("TheCoolAdmin", tempProduct.getUsername());
+    }
+
 
 
 }
