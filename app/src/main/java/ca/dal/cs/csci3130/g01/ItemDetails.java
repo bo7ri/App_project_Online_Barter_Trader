@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.checkerframework.common.returnsreceiver.qual.This;
+
 /**
  * @author Mohamed Al-Maimani
  * This class desplays the item's titles and description.
@@ -43,6 +45,7 @@ public class ItemDetails extends AppCompatActivity {
         // Get the TextView
         TextView productTitle = findViewById(R.id.productTitle);
         TextView productDescription = findViewById(R.id.productDesp);
+        TextView productProvider = findViewById(R.id.listed_username);
 
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
@@ -57,6 +60,7 @@ public class ItemDetails extends AppCompatActivity {
         if(product != null){
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
+            productProvider.setText(product.getUsername());
         }
 
         rateButton = findViewById(R.id.rating);
@@ -103,6 +107,15 @@ public class ItemDetails extends AppCompatActivity {
             movingToEditPage.putExtra("product",product);
             movingToEditPage.putExtra("username", username);
             startActivity(movingToEditPage);
+        });
+
+        productProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToProductProvider = new Intent(getApplicationContext(), ProductProviderProfile.class);
+                goToProductProvider.putExtra("username", username);
+                startActivity(goToProductProvider);
+            }
         });
 
     }
