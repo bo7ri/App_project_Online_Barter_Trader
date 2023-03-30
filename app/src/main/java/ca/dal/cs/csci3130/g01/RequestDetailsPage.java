@@ -84,8 +84,27 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     // Error checking methods to see if clicked request is same as retrieved request.
                                     if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
                                             && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
-                                        Toast.makeText(RequestDetailsPage.this, "Found request!", Toast.LENGTH_LONG).show();
+
+                                        // Getting request ID.
+                                        String requestID = document.getId();
+
+                                        // Deleting the request from firebase.
+                                        cloudDatabase.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                // Send a toast message if request is accepted successfully.
+                                                Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                // Send a toast message if request is not accepted successfully.
+                                                Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
                                     } else {
+                                        // Sending error message if request cannot be found.
                                         Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
                                     }
 
@@ -104,9 +123,9 @@ public class RequestDetailsPage extends AppCompatActivity {
             moveBackToProfilePage.putExtra("ProductDescription", ProductDescription);
             moveBackToProfilePage.putExtra("RequestMessage", RequestMessage);
             moveBackToProfilePage.putExtra("usertype", "Provider");
-            Toast.makeText(RequestDetailsPage.this, "You have accepted this request!", Toast.LENGTH_LONG).show();
             startActivity(moveBackToProfilePage);
         });
+
 
         // Setting decline request button.
         Button requestDeclineButton = findViewById(R.id.requestDetailsPageDeclineBtn);
@@ -135,18 +154,20 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
                                             && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
 
-                                        // Getting ID
+                                        // Getting request ID.
                                         String requestID = document.getId();
 
                                         // Deleting the request from firebase.
                                         cloudDatabase.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
+                                                // Send a toast message if request is accepted successfully.
                                                 Toast.makeText(RequestDetailsPage.this, "Deleted the request successfully!", Toast.LENGTH_LONG).show();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
+                                                // Send a toast message if request is not accepted successfully.
                                                 Toast.makeText(RequestDetailsPage.this, "Did not delete the request successfully!", Toast.LENGTH_SHORT).show();
                                             }
                                         });
