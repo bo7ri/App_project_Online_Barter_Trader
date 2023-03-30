@@ -97,22 +97,20 @@ public class RequestDetailsPage extends AppCompatActivity {
                     });
 
             // Sending the user back to the request list page.
-            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, Profile.class);
-            moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
-            moveBackToRequestListPage.putExtra("username", ProviderUsername);
-            moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
-            moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
-            moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
-            moveBackToRequestListPage.putExtra("usertype", "Provider");
+            Intent moveBackToProfilePage = new Intent(RequestDetailsPage.this, Profile.class);
+            moveBackToProfilePage.putExtra("ReceiverUsername", ReceiverUsername);
+            moveBackToProfilePage.putExtra("username", ProviderUsername);
+            moveBackToProfilePage.putExtra("ProductTitle", ProductTitle);
+            moveBackToProfilePage.putExtra("ProductDescription", ProductDescription);
+            moveBackToProfilePage.putExtra("RequestMessage", RequestMessage);
+            moveBackToProfilePage.putExtra("usertype", "Provider");
             Toast.makeText(RequestDetailsPage.this, "You have accepted this request!", Toast.LENGTH_LONG).show();
-            startActivity(moveBackToRequestListPage);
+            startActivity(moveBackToProfilePage);
         });
 
         // Setting decline request button.
         Button requestDeclineButton = findViewById(R.id.requestDetailsPageDeclineBtn);
         requestDeclineButton.setOnClickListener(view -> {
-
-            // To do: find and delete request from database.
 
             // Finding request from the database.
             cloudDatabase.collection("RequestList").whereEqualTo("ProductTitle", ProductTitle)
@@ -137,22 +135,24 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
                                             && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
 
-                                        // Deleting request.
-                                        String testString = document.getId();
-                                        cloudDatabase.collection("RequestList").document(testString).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        // Getting ID
+                                        String requestID = document.getId();
+
+                                        // Deleting the request from firebase.
+                                        cloudDatabase.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Toast.makeText(RequestDetailsPage.this, "WooYeah", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(RequestDetailsPage.this, "Deleted the request successfully!", Toast.LENGTH_LONG).show();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(RequestDetailsPage.this, "NooYeah", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(RequestDetailsPage.this, "Did not delete the request successfully!", Toast.LENGTH_SHORT).show();
                                             }
                                         });
 
-                                        Toast.makeText(RequestDetailsPage.this, testString, Toast.LENGTH_LONG).show();
                                     } else {
+                                        // Sending error message if request cannot be found.
                                         Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
                                     }
 
@@ -163,16 +163,15 @@ public class RequestDetailsPage extends AppCompatActivity {
                         }
                     });
 
-            // Sending the user back to the request list page.
-            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, Profile.class);
-            moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
-            moveBackToRequestListPage.putExtra("username", ProviderUsername);
-            moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
-            moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
-            moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
-            moveBackToRequestListPage.putExtra("usertype", "Provider");
-            Toast.makeText(RequestDetailsPage.this, "You have declined this request!", Toast.LENGTH_LONG).show();
-            startActivity(moveBackToRequestListPage);
+            // Sending the user back to the profile page.
+            Intent moveBackToProfilePage = new Intent(RequestDetailsPage.this, Profile.class);
+            moveBackToProfilePage.putExtra("ReceiverUsername", ReceiverUsername);
+            moveBackToProfilePage.putExtra("username", ProviderUsername);
+            moveBackToProfilePage.putExtra("ProductTitle", ProductTitle);
+            moveBackToProfilePage.putExtra("ProductDescription", ProductDescription);
+            moveBackToProfilePage.putExtra("RequestMessage", RequestMessage);
+            moveBackToProfilePage.putExtra("usertype", "Provider");
+            startActivity(moveBackToProfilePage);
         });
 
     }
