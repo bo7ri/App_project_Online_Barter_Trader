@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -95,12 +97,13 @@ public class RequestDetailsPage extends AppCompatActivity {
                     });
 
             // Sending the user back to the request list page.
-            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
+            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, Profile.class);
             moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
             moveBackToRequestListPage.putExtra("username", ProviderUsername);
             moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
             moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
             moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
+            moveBackToRequestListPage.putExtra("usertype", "Provider");
             Toast.makeText(RequestDetailsPage.this, "You have accepted this request!", Toast.LENGTH_LONG).show();
             startActivity(moveBackToRequestListPage);
         });
@@ -133,7 +136,22 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     // Error checking methods to see if clicked request is same as retrieved request.
                                     if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
                                             && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
-                                        Toast.makeText(RequestDetailsPage.this, "Found request!", Toast.LENGTH_LONG).show();
+
+                                        // Deleting request.
+                                        String testString = document.getId();
+                                        cloudDatabase.collection("RequestList").document(testString).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(RequestDetailsPage.this, "WooYeah", Toast.LENGTH_LONG).show();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(RequestDetailsPage.this, "NooYeah", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
+                                        Toast.makeText(RequestDetailsPage.this, testString, Toast.LENGTH_LONG).show();
                                     } else {
                                         Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
                                     }
@@ -146,12 +164,13 @@ public class RequestDetailsPage extends AppCompatActivity {
                     });
 
             // Sending the user back to the request list page.
-            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, RequestListPage.class);
+            Intent moveBackToRequestListPage = new Intent(RequestDetailsPage.this, Profile.class);
             moveBackToRequestListPage.putExtra("ReceiverUsername", ReceiverUsername);
             moveBackToRequestListPage.putExtra("username", ProviderUsername);
             moveBackToRequestListPage.putExtra("ProductTitle", ProductTitle);
             moveBackToRequestListPage.putExtra("ProductDescription", ProductDescription);
             moveBackToRequestListPage.putExtra("RequestMessage", RequestMessage);
+            moveBackToRequestListPage.putExtra("usertype", "Provider");
             Toast.makeText(RequestDetailsPage.this, "You have declined this request!", Toast.LENGTH_LONG).show();
             startActivity(moveBackToRequestListPage);
         });
