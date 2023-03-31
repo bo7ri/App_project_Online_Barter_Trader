@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,9 @@ public class ProductProviderProfile extends AppCompatActivity {
     Toolbar toolbar;
     FirebaseFirestore database;
     String username;
+    float userRating;
+    TextView providerUsername;
+    TextView providerRating;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,13 +43,14 @@ public class ProductProviderProfile extends AppCompatActivity {
 
         // Get the instance of the Firebase
         database = FirebaseFirestore.getInstance();
-
         username = getIntent().getStringExtra("username");
 
-        TextView providerUsername = findViewById(R.id.provider_username);
-        TextView providerRating = findViewById(R.id.provider_rating);
-
+        // Setting the providers username through intent from ItemDetails class.
+        providerUsername = findViewById(R.id.provider_username);
         providerUsername.setText(username);
+
+        providerRating = findViewById(R.id.provider_rating);
+
     }
 
     /**

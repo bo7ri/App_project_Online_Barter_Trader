@@ -109,11 +109,13 @@ public class ItemDetails extends AppCompatActivity {
             startActivity(movingToEditPage);
         });
 
+
+        // Goes to the product's provider profile page.
         productProvider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goToProductProvider = new Intent(getApplicationContext(), ProductProviderProfile.class);
-                goToProductProvider.putExtra("username", username);
+                goToProductProvider.putExtra("username", product.getUsername());
                 startActivity(goToProductProvider);
             }
         });
