@@ -18,7 +18,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-public class SendEmails extends AppCompatActivity {
+public class JavaMail extends AppCompatActivity {
     // define variables
     private EditText etFromEmail, etPassword, etToEmail, etSubject, etMessage;
     private Button btnSend;
@@ -105,9 +105,9 @@ public class SendEmails extends AppCompatActivity {
             // Show a toast message depending on whether the email was sent successfully or not
             super.onPostExecute(result);
             if (result) {
-                Toast.makeText(SendEmails.this, "Email sent successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(JavaMail.this, "Email sent successfully", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(SendEmails.this, "Email not sent. Check the log for errors.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(JavaMail.this, "Email not sent. Check the log for errors.", Toast.LENGTH_SHORT).show();
             }
         }
     }
