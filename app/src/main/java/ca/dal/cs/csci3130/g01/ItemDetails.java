@@ -28,6 +28,7 @@ public class ItemDetails extends AppCompatActivity {
     FirebaseFirestore database;
     private String username;
 
+    Button providerPage;
 
     private String usertype;
     private float rating;
@@ -105,6 +106,12 @@ public class ItemDetails extends AppCompatActivity {
             startActivity(movingToEditPage);
         });
 
+        providerPage = findViewById(R.id.providerProfilePage);
+        providerPage.setOnClickListener(view -> {
+            Intent moveToProviderPage = new Intent(getApplicationContext(), ProviderPage.class);
+            moveToProviderPage.putExtra("product", product);
+            startActivity(moveToProviderPage);
+        });
     }
 
     /**
