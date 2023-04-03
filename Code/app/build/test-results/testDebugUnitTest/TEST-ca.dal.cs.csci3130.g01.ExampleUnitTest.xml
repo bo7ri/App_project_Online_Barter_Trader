@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ca.dal.cs.csci3130.g01.ExampleUnitTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2023-03-19T00:05:12" hostname="AL-MAIMANI" time="0.109">
+  <properties/>
+  <testcase name="testGetProductTitle" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.041"/>
+  <testcase name="testRequestProviderUsername" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.011"/>
+  <testcase name="testRegisterUserType" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.002"/>
+  <testcase name="testRegisterUsername" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.001"/>
+  <testcase name="testRequestProductTitle" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.001"/>
+  <testcase name="testRequestProductDescription" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.001"/>
+  <testcase name="testSetProductTitle" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.0"/>
+  <testcase name="testRegisterValidUserType" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.009"/>
+  <testcase name="testRequestReceiverUsername" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.003"/>
+  <testcase name="testRegisterFirstName" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.003"/>
+  <testcase name="testGetProductDescription" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.0"/>
+  <testcase name="testRegisterPassword" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.002"/>
+  <testcase name="testRequestRequestMessage" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.002"/>
+  <testcase name="testRegisterFieldsNotEmpty" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.006"/>
+  <testcase name="addition_isCorrect" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.001"/>
+  <testcase name="testRegisterEmailAddress" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.004"/>
+  <testcase name="testRegisterLastName" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.002"/>
+  <testcase name="testSetProductDescription" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.001"/>
+  <testcase name="testRegisterValidEmailAddress" classname="ca.dal.cs.csci3130.g01.ExampleUnitTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

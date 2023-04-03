@@ -1,0 +1,640 @@
+# 2023-03-19T00:04:50.781Z:
+test_suite_meta_data {
+  scheduled_test_case_count: 12
+}
+test_status: PASSED
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "checkIfSwitchedToRegisterPage"
+    start_time {
+      seconds: 1679184229
+      nanos: 256000000
+    }
+    end_time {
+      seconds: 1679184233
+      nanos: 490000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-checkIfSwitchedToRegisterPage.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "checkIfSwitchedToListPage"
+    start_time {
+      seconds: 1679184234
+      nanos: 290000000
+    }
+    end_time {
+      seconds: 1679184239
+      nanos: 759000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-checkIfSwitchedToListPage.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "checkIfFieldsNotEmpty"
+    start_time {
+      seconds: 1679184241
+      nanos: 838000000
+    }
+    end_time {
+      seconds: 1679184246
+      nanos: 519000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-checkIfFieldsNotEmpty.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "checkIfFieldsAreEmpty"
+    start_time {
+      seconds: 1679184247
+      nanos: 141000000
+    }
+    end_time {
+      seconds: 1679184250
+      nanos: 579000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-checkIfFieldsAreEmpty.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "testProfileLabels"
+    start_time {
+      seconds: 1679184251
+      nanos: 234000000
+    }
+    end_time {
+      seconds: 1679184255
+      nanos: 599000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-testProfileLabels.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "useAppContext"
+    start_time {
+      seconds: 1679184256
+      nanos: 621000000
+    }
+    end_time {
+      seconds: 1679184257
+      nanos: 901000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-useAppContext.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "testSendEmail"
+    start_time {
+      seconds: 1679184258
+      nanos: 447000000
+    }
+    end_time {
+      seconds: 1679184271
+      nanos: 278000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-testSendEmail.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "switchToAddProduct"
+    start_time {
+      seconds: 1679184271
+      nanos: 909000000
+    }
+    end_time {
+      seconds: 1679184274
+      nanos: 535000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-switchToAddProduct.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "testToolbarIsDisplayed"
+    start_time {
+      seconds: 1679184275
+      nanos: 216000000
+    }
+    end_time {
+      seconds: 1679184277
+      nanos: 696000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-testToolbarIsDisplayed.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "checkIfIncorrectLogin"
+    start_time {
+      seconds: 1679184278
+      nanos: 263000000
+    }
+    end_time {
+      seconds: 1679184280
+      nanos: 713000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-checkIfIncorrectLogin.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "testAddProductIsEmpty"
+    start_time {
+      seconds: 1679184281
+      nanos: 200000000
+    }
+    end_time {
+      seconds: 1679184285
+      nanos: 10000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-testAddProductIsEmpty.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "ca.dal.cs.csci3130.g01"
+    test_method: "testAddProductIsNotEmpty"
+    start_time {
+      seconds: 1679184285
+      nanos: 693000000
+    }
+    end_time {
+      seconds: 1679184289
+      nanos: 668000000
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\logcat-ca.dal.cs.csci3130.g01.ExampleInstrumentedTest-testAddProductIsNotEmpty.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\cpuinfo"
+    }
+  }
+}
+output_artifact {
+  label {
+    label: "test-results.log"
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  source_path {
+    path: "C:\\Users\\mrmad\\git\\CSCI3130\\Project\\csci3130-w23-g01-project\\Code\\app\\build\\outputs\\androidTest-results\\connected\\Pixel_6_Pro_API_33(AVD) - 13\\testlog\\test-results.log"
+  }
+  type: TEST_DATA
+  mime_type: "text/plain"
+}

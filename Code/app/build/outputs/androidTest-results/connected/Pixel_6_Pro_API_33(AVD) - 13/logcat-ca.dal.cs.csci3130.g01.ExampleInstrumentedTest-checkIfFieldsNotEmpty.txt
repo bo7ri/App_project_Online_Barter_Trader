@@ -1,0 +1,287 @@
+03-18 21:03:55.163 29950 29981 I TestRunner: started: checkIfFieldsNotEmpty(ca.dal.cs.csci3130.g01.ExampleInstrumentedTest)
+03-18 21:03:55.164 29950 29950 I MonitoringInstr: Finishing activity: ca.dal.cs.csci3130.g01.ProvidersListings@c2c7184
+03-18 21:03:55.170   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e4000000 0x3e4af8000]
+03-18 21:03:55.187 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.189 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.ProvidersListings@c2c7184 in: PAUSED
+03-18 21:03:55.197  1302  1600 D BtGatt.ScanManager: uid 10105 isForeground true scanMode -1
+03-18 21:03:55.198  1302  1600 D BtGatt.ScanManager: uid 10105 isForeground true scanMode -1
+03-18 21:03:55.218   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e4af8000 0x3e5c1c000]
+03-18 21:03:55.292 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.317   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e5c1c000 0x3e6d40000]
+03-18 21:03:55.324   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ea714000 0x3eb838000]
+03-18 21:03:55.339   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f0000000 0x3f1124000]
+03-18 21:03:55.343  1302  1600 D BtGatt.ScanManager: uid 10105 isForeground true scanMode -1
+03-18 21:03:55.343 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.344  1302  1600 D BtGatt.ScanManager: uid 10105 isForeground true scanMode -1
+03-18 21:03:55.351   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f1124000 0x3f2248000]
+03-18 21:03:55.370   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f2248000 0x3f336c000]
+03-18 21:03:55.371 29950 29983 D EGL_emulation: app_time_stats: avg=287.05ms min=8.19ms max=772.27ms count=5
+03-18 21:03:55.396 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.435  2618  3067 I A       : Using proto config with mendel
+03-18 21:03:55.447 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.465  2618  3067 I A       : Using proto config with mendel
+03-18 21:03:55.480  2618  3067 W A       : Account id is not cached
+03-18 21:03:55.488  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+03-18 21:03:55.490  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+03-18 21:03:55.490  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=com.google.android.apps.nexuslauncher fieldId=-1 fieldName=null extras=null}, false)
+03-18 21:03:55.490  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+03-18 21:03:55.514 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.535   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7030
+03-18 21:03:55.564 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.615 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.666 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.683   655   668 I system_server: NativeAlloc concurrent copying GC freed 122423(5910KB) AllocSpace objects, 6(120KB) LOS objects, 49% free, 21MB/43MB, paused 238us,358us total 249.255ms
+03-18 21:03:55.717 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.769 29950 29981 I MonitoringInstr: Unstopped activity count: 1
+03-18 21:03:55.798 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.ProvidersListings@c2c7184 in: STOPPED
+03-18 21:03:55.804 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.ProvidersListings@c2c7184 in: DESTROYED
+03-18 21:03:55.811   655  2582 W InputManager-JNI: Input channel object 'c2059ed ca.dal.cs.csci3130.g01/ca.dal.cs.csci3130.g01.ProvidersListings (client)' was disposed without first being removed with the input manager!
+03-18 21:03:55.828   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7990
+03-18 21:03:55.829   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02ac5b0
+03-18 21:03:55.829   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7990
+03-18 21:03:55.837 29950 29981 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+03-18 21:03:55.855  1091  1166 D SplashScreenView: Build android.window.SplashScreenView{d490657 V.E...... ......ID 0,0-0,0}
+03-18 21:03:55.855  1091  1166 D SplashScreenView: Icon: view: null drawable: null size: 0
+03-18 21:03:55.855  1091  1166 D SplashScreenView: Branding: view: android.view.View{6506544 G.ED..... ......I. 0,0-0,0 #10204db android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+03-18 21:03:55.879 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: PRE_ON_CREATE
+03-18 21:03:55.880 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+03-18 21:03:55.899 29950 29950 D AutofillManager: Fill dialog is enabled:false, hints=[password, passwordAuto, creditCardNumber, creditCardSecurityCode, creditCardExpirationDate]
+03-18 21:03:55.928 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: CREATED
+03-18 21:03:55.928 29950 29950 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=ca.dal.cs.csci3130.g01.LoginPage@35fd2de
+03-18 21:03:55.935 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: STARTED
+03-18 21:03:55.936 29950 29950 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=ca.dal.cs.csci3130.g01.LoginPage@35fd2de
+03-18 21:03:55.937 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: RESUMED
+03-18 21:03:55.937 29950 29950 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=ca.dal.cs.csci3130.g01.LoginPage@35fd2de
+03-18 21:03:55.946  1091  1173 D EGL_emulation: app_time_stats: avg=5.93ms min=1.17ms max=39.71ms count=37
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.990   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:55.997   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ee8ce000 0x3ef9f2000]
+03-18 21:03:56.005   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:56.006 29950 29950 D AutofillManager: Trigger fill request at view entered
+03-18 21:03:56.009   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ec000000 0x3ed124000]
+03-18 21:03:56.018   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ed124000 0x3ee248000]
+03-18 21:03:56.052   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f4000000 0x3f5124000]
+03-18 21:03:56.079   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f5124000 0x3f6248000]
+03-18 21:03:56.092   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f6248000 0x3f736c000]
+03-18 21:03:56.110  1091  1173 W Parcel  : Expecting binder but got null!
+03-18 21:03:56.120 29950 29983 W Parcel  : Expecting binder but got null!
+03-18 21:03:56.154   655   687 W ziparchive: Unable to open '/data/app/~~XQKZKU0bJadgVTcSdm8jzA==/ca.dal.cs.csci3130.g01-dyOtAX0dUrRmrFqbiG64mA==/base.dm': No such file or directory
+03-18 21:03:56.160   655   687 I ActivityTaskManager: Displayed ca.dal.cs.csci3130.g01/.LoginPage: +303ms
+03-18 21:03:56.203 29950 29950 I AssistStructure: Flattened final assist data: 1908 bytes, containing 1 windows, 11 views
+03-18 21:03:56.245  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+03-18 21:03:56.248  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+03-18 21:03:56.250  1862  1862 W KeyboardViewController: KeyboardViewController.show():493 Requesting to show sub view with id 2131428249(#0x7f0b0399) when keyboard HEADER view is not ready to show
+03-18 21:03:56.255  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=ca.dal.cs.csci3130.g01 fieldId=-1 fieldName=null extras=null}, false)
+03-18 21:03:56.257  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+03-18 21:03:56.267  3854  3854 W svc     : Pending fill request while another request in the same session was triggered. [CONTEXT service_id=177 ]
+03-18 21:03:56.272   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02aae10
+03-18 21:03:56.277  1894  1894 V InlineSuggestionRenderService: handleDestroySuggestionViews called for 0:167531825
+03-18 21:03:56.295  1091  1173 D EGL_emulation: app_time_stats: avg=259.84ms min=2.82ms max=1938.11ms count=9
+03-18 21:03:56.453   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a6bb0
+03-18 21:03:56.453   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a6bb0
+03-18 21:03:56.453   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7c30
+03-18 21:03:56.462 29950 29950 I ViewInteraction: Performing 'single click' action on view view.getId() is <2131296269/ca.dal.cs.csci3130.g01:id/RegisterButton>
+03-18 21:03:56.473   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7cf0
+03-18 21:03:56.473   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7cf0
+03-18 21:03:56.483  1477  1477 D TaplEvents: TIS / TouchInteractionService.onInputEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=717.5, y[0]=2890.5, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=BUTTON_PRIMARY, classification=NONE, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=14383262, downTime=14383262, deviceId=-1, source=0x1002, displayId=0, eventId=-465054217 }
+03-18 21:03:56.489  2618 27752 I PBSessionCacheImpl: Deleted sessionId[11515764936016661] from persistence.
+03-18 21:03:56.503   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02ac130
+03-18 21:03:56.503   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a8a70
+03-18 21:03:56.542  2618  3067 W SearchServiceCore: Abort, client detached.
+03-18 21:03:56.604   655  2320 W InputManager-JNI: Input channel object 'cc4f2cf Splash Screen ca.dal.cs.csci3130.g01 (client)' was disposed without first being removed with the input manager!
+03-18 21:03:56.636  1477  1477 D TaplEvents: TIS / TouchInteractionService.onInputEvent: MotionEvent { action=ACTION_UP, actionButton=0, id[0]=0, x[0]=717.5, y[0]=2890.5, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=BUTTON_PRIMARY, classification=NONE, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=14383405, downTime=14383262, deviceId=-1, source=0x1002, displayId=0, eventId=-530251039 }
+03-18 21:03:56.680 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: PAUSED
+03-18 21:03:56.682 29950 29950 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=ca.dal.cs.csci3130.g01.LoginPage@35fd2de
+03-18 21:03:56.738 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.RegisterPage@6e86c8 in: PRE_ON_CREATE
+03-18 21:03:56.738 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.RegisterPage }, activity=ca.dal.cs.csci3130.g01.RegisterPage@6e86c8
+03-18 21:03:56.754   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:56.754   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:56.754   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:56.754   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:56.754   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:56.784 29950 29950 D AutofillManager: Fill dialog is enabled:false, hints=[password, passwordAuto, creditCardNumber, creditCardSecurityCode, creditCardExpirationDate]
+03-18 21:03:56.861 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.RegisterPage@6e86c8 in: CREATED
+03-18 21:03:56.862 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.RegisterPage }, activity=ca.dal.cs.csci3130.g01.RegisterPage@6e86c8
+03-18 21:03:56.866 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.RegisterPage@6e86c8 in: STARTED
+03-18 21:03:56.867 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.RegisterPage }, activity=ca.dal.cs.csci3130.g01.RegisterPage@6e86c8
+03-18 21:03:56.870 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.RegisterPage@6e86c8 in: RESUMED
+03-18 21:03:56.870 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.RegisterPage }, activity=ca.dal.cs.csci3130.g01.RegisterPage@6e86c8
+03-18 21:03:56.934   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e4af8000 0x3e5c1c000]
+03-18 21:03:56.939   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e5c1c000 0x3e6d40000]
+03-18 21:03:56.944   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ea714000 0x3eb838000]
+03-18 21:03:56.998 29950 29983 W Parcel  : Expecting binder but got null!
+03-18 21:03:57.016   655   687 I ActivityTaskManager: Displayed ca.dal.cs.csci3130.g01/.RegisterPage: +380ms
+03-18 21:03:57.039  1091  1173 D EGL_emulation: app_time_stats: avg=45.93ms min=2.81ms max=161.59ms count=18
+03-18 21:03:57.054   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7abc000 0x3e7ac0000]
+03-18 21:03:57.059   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7ac0000 0x3e7ac4000]
+03-18 21:03:57.074   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7ac4000 0x3e7c7b000]
+03-18 21:03:57.099   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7c7b000 0x3e7e32000]
+03-18 21:03:57.104   655  1756 W Parcel  : Expecting binder but got null!
+03-18 21:03:57.107   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7c7b000 0x3e7e32000]
+03-18 21:03:57.117   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7e32000 0x3e7fe9000]
+03-18 21:03:57.120   655  1756 W Parcel  : Expecting binder but got null!
+03-18 21:03:57.230  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+03-18 21:03:57.232  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+03-18 21:03:57.232  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=ca.dal.cs.csci3130.g01 fieldId=-1 fieldName=null extras=null}, false)
+03-18 21:03:57.233  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+03-18 21:03:57.234 29950 29983 D EGL_emulation: app_time_stats: avg=17.57ms min=2.34ms max=119.35ms count=31
+03-18 21:03:57.492 29950 29950 I ViewInteraction: Performing 'replace text(BLAbla)' action on view view.getId() is <2131296668/ca.dal.cs.csci3130.g01:id/registerUsernameField>
+03-18 21:03:57.516 29950 29950 I AssistStructure: Flattened final assist data: 4276 bytes, containing 1 windows, 21 views
+03-18 21:03:57.528 29950 29950 I ViewInteraction: Performing 'replace text(password333)' action on view view.getId() is <2131296663/ca.dal.cs.csci3130.g01:id/registerPasswordField>
+03-18 21:03:57.566 29950 29950 I ViewInteraction: Performing 'replace text(Blae)' action on view view.getId() is <2131296658/ca.dal.cs.csci3130.g01:id/registerFirstNameField>
+03-18 21:03:57.607 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: STOPPED
+03-18 21:03:57.608 29950 29950 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=ca.dal.cs.csci3130.g01.LoginPage@35fd2de
+03-18 21:03:57.620   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a5cb0
+03-18 21:03:57.620   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02acd30
+03-18 21:03:57.620   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a9010
+03-18 21:03:57.620   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02aae70
+03-18 21:03:57.620   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a5e90
+03-18 21:03:57.620   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a1810
+03-18 21:03:57.638 29950 29950 I ViewInteraction: Performing 'replace text(Orange)' action on view view.getId() is <2131296660/ca.dal.cs.csci3130.g01:id/registerLastNameField>
+03-18 21:03:57.639   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02ab5f0
+03-18 21:03:57.736 29950 29950 I ViewInteraction: Performing 'replace text(blabla@orange.com)' action on view view.getId() is <2131296656/ca.dal.cs.csci3130.g01:id/registerEmailField>
+03-18 21:03:57.763 29950 29950 I ViewInteraction: Performing 'replace text(Provider)' action on view view.getId() is <2131296666/ca.dal.cs.csci3130.g01:id/registerUserTypeField>
+03-18 21:03:57.779 29950 29950 I ViewInteraction: Performing 'single click' action on view view.getId() is <2131296665/ca.dal.cs.csci3130.g01:id/registerSubmitButton>
+03-18 21:03:57.788  1477  1477 D TaplEvents: TIS / TouchInteractionService.onInputEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=719.5, y[0]=1859.5, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=BUTTON_PRIMARY, classification=NONE, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=14384565, downTime=14384565, deviceId=-1, source=0x1002, displayId=0, eventId=-115562310 }
+03-18 21:03:57.827  1477  1477 D TaplEvents: TIS / TouchInteractionService.onInputEvent: MotionEvent { action=ACTION_UP, actionButton=0, id[0]=0, x[0]=719.5, y[0]=1859.5, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=BUTTON_PRIMARY, classification=NONE, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=14384606, downTime=14384565, deviceId=-1, source=0x1002, displayId=0, eventId=-1043548457 }
+03-18 21:03:57.846   454   612 D AudioFlinger: mixer(0x74fa869f69a0) throttle end: throttle time(38)
+03-18 21:03:57.853 29950 29950 D CompatibilityChangeReporter: Compat change id reported: 147798919; UID 10160; state: ENABLED
+03-18 21:03:57.935 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.RegisterPage@6e86c8 in: PAUSED
+03-18 21:03:57.936 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.RegisterPage }, activity=ca.dal.cs.csci3130.g01.RegisterPage@6e86c8
+03-18 21:03:57.974   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7ac4000 0x3e7b50000]
+03-18 21:03:57.991   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7b50000 0x3e7bdc000]
+03-18 21:03:57.997   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7bdc000 0x3e7c68000]
+03-18 21:03:58.007 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: PRE_ON_CREATE
+03-18 21:03:58.008 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:58.041 29950 29950 D AutofillManager: Fill dialog is enabled:false, hints=[password, passwordAuto, creditCardNumber, creditCardSecurityCode, creditCardExpirationDate]
+03-18 21:03:58.071 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: CREATED
+03-18 21:03:58.073 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:58.076 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: STARTED
+03-18 21:03:58.077 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:58.080 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: RESUMED
+03-18 21:03:58.083 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:58.083 29950 29983 D EGL_emulation: app_time_stats: avg=38.43ms min=3.35ms max=131.37ms count=23
+03-18 21:03:58.114  1091  1173 W Parcel  : Expecting binder but got null!
+03-18 21:03:58.150  1302  1600 D BtGatt.ScanManager: uid 10105 isForeground true scanMode -1
+03-18 21:03:58.150  1302  1600 D BtGatt.ScanManager: uid 10105 isForeground true scanMode -1
+03-18 21:03:58.154   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.187   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.187   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.298 29950 29950 D AutofillManager: Trigger fill request at view entered
+03-18 21:03:58.315   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ee8ce000 0x3ef9f2000]
+03-18 21:03:58.323   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ec000000 0x3ed124000]
+03-18 21:03:58.330   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ed124000 0x3ee248000]
+03-18 21:03:58.433 29950 29983 W Parcel  : Expecting binder but got null!
+03-18 21:03:58.567   655   687 I ActivityTaskManager: Displayed ca.dal.cs.csci3130.g01/.LoginPage: +693ms
+03-18 21:03:58.573   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.574   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.574   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.574   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.624   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:58.659   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7c68000 0x3e7c6c000]
+03-18 21:03:58.752   418   458 D goldfish-address-space: claimShared: Ask to claim region [0x3e7c6c000 0x3e7c70000]
+03-18 21:03:58.769   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7c70000 0x3e7e27000]
+03-18 21:03:58.795   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7e27000 0x3e7fde000]
+03-18 21:03:58.803   655  1756 W Parcel  : Expecting binder but got null!
+03-18 21:03:58.806   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e7e27000 0x3e7fde000]
+03-18 21:03:58.843   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e6d40000 0x3e6ef7000]
+03-18 21:03:58.847 29950 29950 I AssistStructure: Flattened final assist data: 1908 bytes, containing 1 windows, 11 views
+03-18 21:03:58.848   655  1756 W Parcel  : Expecting binder but got null!
+03-18 21:03:58.948 29950 29961 I cs.csci3130.g01: Background concurrent copying GC freed 57263(2629KB) AllocSpace objects, 7(172KB) LOS objects, 49% free, 6749KB/13MB, paused 1.200ms,14us total 876ms
+03-18 21:03:59.044  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+03-18 21:03:59.049  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+03-18 21:03:59.053  1862  1862 W KeyboardViewController: KeyboardViewController.show():493 Requesting to show sub view with id 2131428249(#0x7f0b0399) when keyboard HEADER view is not ready to show
+03-18 21:03:59.060  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=ca.dal.cs.csci3130.g01 fieldId=-1 fieldName=null extras=null}, false)
+03-18 21:03:59.066  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+03-18 21:03:59.099 29950 29983 D EGL_emulation: app_time_stats: avg=47.49ms min=3.95ms max=225.20ms count=15
+03-18 21:03:59.167 29950 29967 W System  : A resource failed to call CursorWindow.close.
+03-18 21:03:59.167 29950 29967 W System  : A resource failed to call AbstractCursor.close.
+03-18 21:03:59.167 29950 29967 W System  : A resource failed to call close.
+03-18 21:03:59.167 29950 29967 W System  : A resource failed to call CursorWindow.close.
+03-18 21:03:59.167 29950 29967 W System  : A resource failed to call AbstractCursor.close.
+03-18 21:03:59.167 29950 29967 W System  : A resource failed to call close.
+03-18 21:03:59.174  3854  3854 W svc     : Pending fill request while another request in the same session was triggered. [CONTEXT service_id=177 ]
+03-18 21:03:59.189 29950 29967 W System  : A resource failed to call CursorWindow.close.
+03-18 21:03:59.189 29950 29967 W System  : A resource failed to call AbstractCursor.close.
+03-18 21:03:59.189 29950 29967 W System  : A resource failed to call close.
+03-18 21:03:59.190 29950 29967 W System  : A resource failed to call CursorWindow.close.
+03-18 21:03:59.190 29950 29967 W System  : A resource failed to call AbstractCursor.close.
+03-18 21:03:59.190 29950 29967 W System  : A resource failed to call close.
+03-18 21:03:59.194  1894  1894 V InlineSuggestionRenderService: handleDestroySuggestionViews called for 0:1316676689
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a8bf0
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a9850
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a99d0
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a6e50
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02ab650
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02ac490
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02ab650
+03-18 21:03:59.338   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a9850
+03-18 21:03:59.340   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:59.340   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:59.354 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.RegisterPage@6e86c8 in: STOPPED
+03-18 21:03:59.354 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.RegisterPage }, activity=ca.dal.cs.csci3130.g01.RegisterPage@6e86c8
+03-18 21:03:59.387   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02aab70
+03-18 21:03:59.440 29950 29950 I ViewInteraction: Checking 'MatchesViewAssertion{viewMatcher=(view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle)}' assertion on view view.getId() is <2131296269/ca.dal.cs.csci3130.g01:id/RegisterButton>
+03-18 21:03:59.451 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: PAUSED
+03-18 21:03:59.451 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:59.465 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: PRE_ON_CREATE
+03-18 21:03:59.465 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.471 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: CREATED
+03-18 21:03:59.471 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.472 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: STARTED
+03-18 21:03:59.472 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.474 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: RESUMED
+03-18 21:03:59.475 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.508   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e4af8000 0x3e5c1c000]
+03-18 21:03:59.517   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e5c1c000 0x3e6d40000]
+03-18 21:03:59.533   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3ea714000 0x3eb838000]
+03-18 21:03:59.547 29950 29983 W Parcel  : Expecting binder but got null!
+03-18 21:03:59.559 29950 29950 D AutofillManager: onActivityFinishing(): calling cancelLocked()
+03-18 21:03:59.560 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@35fd2de in: DESTROYED
+03-18 21:03:59.561 29950 29950 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+03-18 21:03:59.562   655   687 I ActivityTaskManager: Displayed ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity: +115ms
+03-18 21:03:59.572   655  1517 W InputManager-JNI: Input channel object '6c7eceb ca.dal.cs.csci3130.g01/ca.dal.cs.csci3130.g01.LoginPage (client)' was disposed without first being removed with the input manager!
+03-18 21:03:59.585   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f0000000 0x3f0af8000]
+03-18 21:03:59.589   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7ab0
+03-18 21:03:59.590   471   484 W TransactionTracing: Could not find layer id -1
+03-18 21:03:59.622   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a8290
+03-18 21:03:59.645 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: STOPPED
+03-18 21:03:59.649 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:59.668 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: PAUSED
+03-18 21:03:59.669 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.685  1477  1488 W System  : A resource failed to call release.
+03-18 21:03:59.685  1477  1488 W System  : A resource failed to call release.
+03-18 21:03:59.685  1477  1488 W System  : A resource failed to call release.
+03-18 21:03:59.685  1477  1488 W System  : A resource failed to call release.
+03-18 21:03:59.685  1477  1488 W System  : A resource failed to call release.
+03-18 21:03:59.686  1477  1488 W System  : A resource failed to call release.
+03-18 21:03:59.704 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: RESTARTED
+03-18 21:03:59.704 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:59.706 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: STARTED
+03-18 21:03:59.706 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:59.708 29950 29950 D LifecycleMonitor: Lifecycle status change: ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8 in: RESUMED
+03-18 21:03:59.708 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity=ca.dal.cs.csci3130.g01.LoginPage@9c5f2a8
+03-18 21:03:59.726   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e8000000 0x3e9124000]
+03-18 21:03:59.743   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3e9124000 0x3ea248000]
+03-18 21:03:59.755   418   418 D goldfish-address-space: claimShared: Ask to claim region [0x3f0af8000 0x3f1c1c000]
+03-18 21:03:59.803   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02aaff0
+03-18 21:03:59.804   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a8290
+03-18 21:03:59.812 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: STOPPED
+03-18 21:03:59.814 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.818 29950 29950 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37 in: DESTROYED
+03-18 21:03:59.819 29950 29950 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=ca.dal.cs.csci3130.g01/.LoginPage }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@6960b37
+03-18 21:03:59.824   655   781 W InputManager-JNI: Input channel object 'fc2bef8 ca.dal.cs.csci3130.g01/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+03-18 21:03:59.831  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+03-18 21:03:59.832  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+03-18 21:03:59.832  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=ca.dal.cs.csci3130.g01 fieldId=-1 fieldName=null extras=null}, false)
+03-18 21:03:59.832  1862  1862 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+03-18 21:03:59.835   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02aab70
+03-18 21:03:59.835   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02a7030
+03-18 21:03:59.835   471   484 W TransactionTracing: Could not find layer handle 0x78c1d02aab70
+03-18 21:03:59.851 29950 29981 I TestRunner: finished: checkIfFieldsNotEmpty(ca.dal.cs.csci3130.g01.ExampleInstrumentedTest)

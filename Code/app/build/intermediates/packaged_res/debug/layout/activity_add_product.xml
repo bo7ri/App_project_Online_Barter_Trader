@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/addProduct"
+        android:layout_width="306dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
+        android:text="Add Product"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addProductTitle"
+        android:layout_width="379dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Product Tile"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProduct" />
+
+    <EditText
+        android:id="@+id/addProductDescription"
+        android:layout_width="384dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Product Description"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductTitle" />
+
+    <EditText
+        android:id="@+id/addProductPrice"
+        android:layout_width="385dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Product Price"
+        android:inputType="number|text|numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductDescription" />
+
+    <Button
+        android:id="@+id/submitAddProduct"
+        android:layout_width="218dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="104dp"
+        android:text="Add Product"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductDescription" />
+
+    <Button
+        android:id="@+id/cancelAddProduct"
+        android:layout_width="238dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="24dp"
+        android:text="Cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitAddProduct" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
