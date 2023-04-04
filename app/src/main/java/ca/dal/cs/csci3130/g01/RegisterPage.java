@@ -78,6 +78,7 @@ public class RegisterPage extends AppCompatActivity {
                     registeredUser.put("LastName", inputLastName);
                     registeredUser.put("EmailAddress", inputEmailAddress);
                     registeredUser.put("UserType", inputUserType);
+                    registeredUser.put("UserRating",0.0);
                     cloudDatabase.collection("UserList").add(registeredUser);
 
                     // Switching back to login page.

@@ -32,13 +32,13 @@
         <activity android:name=".RegisterPage" />
         <activity
             android:name=".SendRequestPage"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".RequestListPage"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".RequestDetailsPage"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity android:name=".EditProduct" />
         <activity android:name=".Location" />
         <activity android:name=".SendEmails" />

@@ -31,6 +31,7 @@ public class ItemDetails extends AppCompatActivity {
     Button providerPage;
 
     private String usertype;
+    private String lastName;
     private float rating;
 
     @Override
@@ -53,6 +54,7 @@ public class ItemDetails extends AppCompatActivity {
         Product product = getIntent().getParcelableExtra("product");
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
+        lastName = getIntent().getStringExtra("lastName");
 
         // set product title and desc.
         if(product != null){
@@ -110,6 +112,8 @@ public class ItemDetails extends AppCompatActivity {
         providerPage.setOnClickListener(view -> {
             Intent moveToProviderPage = new Intent(getApplicationContext(), ProviderPage.class);
             moveToProviderPage.putExtra("product", product);
+            moveToProviderPage.putExtra("lastName", lastName);
+
             startActivity(moveToProviderPage);
         });
     }
