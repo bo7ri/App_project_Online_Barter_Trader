@@ -89,22 +89,8 @@ public class RequestDetailsPage extends AppCompatActivity {
                                         // Getting request ID.
                                         String requestID = document.getId();
 
-                                        // Deleting the request from firebase.
-                                        cloudDatabase.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                // Send a toast message if request is accepted successfully.
-                                                Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                // Send a toast message if request is not accepted successfully.
-                                                Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-
-
+                                        // Deleting the request from Firebase.
+                                        deleteRequestFromFirebase(cloudDatabase, requestID);
 
                                         // Finding product.
                                         cloudDatabase.collection("ProductList").whereEqualTo("title", documentProductTitle)
@@ -205,20 +191,8 @@ public class RequestDetailsPage extends AppCompatActivity {
                                         // Getting request ID.
                                         String requestID = document.getId();
 
-                                        // Deleting the request from firebase.
-                                        cloudDatabase.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                // Send a toast message if request is accepted successfully.
-                                                Toast.makeText(RequestDetailsPage.this, "Deleted the request successfully!", Toast.LENGTH_LONG).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                // Send a toast message if request is not accepted successfully.
-                                                Toast.makeText(RequestDetailsPage.this, "Did not delete the request successfully!", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+                                        // Deleting the request from Firebase.
+                                        deleteRequestFromFirebase(cloudDatabase, requestID);
 
                                     } else {
                                         // Sending error message if request cannot be found.
@@ -251,6 +225,26 @@ public class RequestDetailsPage extends AppCompatActivity {
         moveBackToProfilePage.putExtra("RequestMessage", requestMessage);
         moveBackToProfilePage.putExtra("usertype", "Provider");
         startActivity(moveBackToProfilePage);
+    }
+
+    // Method to delete request from Firebase.
+    protected void deleteRequestFromFirebase(FirebaseFirestore ffInstance, String requestID) {
+
+        // Deleting the request from firebase.
+        ffInstance.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                // Send a toast message if request is accepted successfully.
+                Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Send a toast message if request is not accepted successfully.
+                Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 }
