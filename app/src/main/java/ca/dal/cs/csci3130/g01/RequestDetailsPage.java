@@ -78,7 +78,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     String requestID = document.getId();
 
                                     // Deleting the request from Firebase.
-                                    deleteRequestFromFirebase(cloudDatabase, requestID);
+                                    deleteRequestFromFirebase(cloudDatabase, requestID, "Accept");
 
                                     // Finding product.
                                     cloudDatabase.collection("ProductList").whereEqualTo("title", documentProductTitle)
@@ -160,15 +160,21 @@ public class RequestDetailsPage extends AppCompatActivity {
     }
 
     // Method to delete request from Firebase.
-    protected void deleteRequestFromFirebase(FirebaseFirestore ffInstance, String requestID) {
+    protected void deleteRequestFromFirebase(FirebaseFirestore ffInstance, String requestID, String typeOfRequest) {
 
         // Deleting the request from firebase.
         ffInstance.collection("RequestList").document(requestID).delete().addOnSuccessListener(unused -> {
-            // Send a toast message if request is accepted successfully.
-            Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
+            if (typeOfRequest.equals("Accept")) {
+                Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
+            } else if (typeOfRequest.equals("Decline")) {
+                Toast.makeText(RequestDetailsPage.this, "Declined the request successfully!", Toast.LENGTH_SHORT).show();
+            }
         }).addOnFailureListener(e -> {
-            // Send a toast message if request is not accepted successfully.
-            Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
+            if (typeOfRequest.equals("Accept")) {
+                Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
+            } else if (typeOfRequest.equals("Decline")) {
+                Toast.makeText(RequestDetailsPage.this, "Did not decline the request successfully!", Toast.LENGTH_SHORT).show();
+            }
         });
 
     }
@@ -179,7 +185,7 @@ public class RequestDetailsPage extends AppCompatActivity {
         // Delete product from the firebase.
         ffInstance.collection("ProductList").document(productID).delete().addOnSuccessListener(unused -> {
             // Send a toast message if product is found.
-            Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT);
         }).addOnFailureListener(e -> {
             // Send a toast message if product is not found.
             Toast.makeText(RequestDetailsPage.this, "Product was not found in app!", Toast.LENGTH_SHORT).show();
@@ -205,7 +211,7 @@ public class RequestDetailsPage extends AppCompatActivity {
             String requestID = declinedDocument.getId();
 
             // Deleting the request from Firebase.
-            deleteRequestFromFirebase(ffInstance, requestID);
+            deleteRequestFromFirebase(ffInstance, requestID, "Decline");
 
         } else {
             // Sending error message if request cannot be found.
@@ -284,6 +290,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                 if (document.exists()) {
 
                     double currTotalValue = document.getDouble("ProviderTotalValue");
+
                     // Creating a map for updated value.
                     Map<String, Object> newTotalValueMap = new HashMap<>();
                     newTotalValueMap.put("ProviderUsername", providerUsername);
@@ -291,8 +298,8 @@ public class RequestDetailsPage extends AppCompatActivity {
                     newTotalValueMap.put("ProviderTotalValue", productPrice + currTotalValue);
 
                     ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(unused ->
-                            Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show())
-                            .addOnFailureListener(e -> Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show());
+                            Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG))
+                            .addOnFailureListener(e -> Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG));
 
                 } else {
 
@@ -303,7 +310,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                     newTotalValueMap.put("ProviderTotalValue", productPrice);
 
                     ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(unused ->
-                            Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show())
+                            Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG))
                             .addOnFailureListener(e -> Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show());
 
                 }
