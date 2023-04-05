@@ -2,6 +2,7 @@ package ca.dal.cs.csci3130.g01;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ public class RequestDetailsPage extends AppCompatActivity {
 
     private String username;
     private String usertype;
+    private String tempProviderUsernameID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,9 @@ public class RequestDetailsPage extends AppCompatActivity {
 
                                                                     // Delete product from the firebase.
                                                                     deleteProductFromFirebase(cloudDatabase, productID);
+
+                                                                    // Setting temp user ID in tempProviderUsernameID.
+                                                                    setProviderUserIDFromFirebase(cloudDatabase, document1ProviderUsername);
 
                                                                 }
 
@@ -261,6 +266,32 @@ public class RequestDetailsPage extends AppCompatActivity {
             // Sending error message if request cannot be found.
             Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
         }
+
+    }
+
+    // Method to get provider user id from Firebase.
+    protected void setProviderUserIDFromFirebase(FirebaseFirestore ffInstance, String providerUsername) {
+
+        // Finding the user id.
+        ffInstance.collection("UserList").whereEqualTo("Username", providerUsername).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                // Checks if task is successful.
+                if (task.isSuccessful()) {
+                    // Loops through the documents found by the previous query.
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        // Getting username of provider.
+                        String documentProviderUsername = document.get("Username").toString();
+                        // Error checking to see if given username is same as retrieved username.
+                        if (documentProviderUsername.equals(providerUsername)) {
+                            tempProviderUsernameID = document.getId();
+                        }
+                    }
+                }
+
+            }
+        });
 
     }
 
