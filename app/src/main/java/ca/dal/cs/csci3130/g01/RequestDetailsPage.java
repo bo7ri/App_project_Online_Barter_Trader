@@ -132,7 +132,20 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                                     // Getting product ID.
                                                                     String productID = document1.getId();
 
-
+                                                                    // Delete product from the firebase.
+                                                                    cloudDatabase.collection("ProductList").document(productID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                        @Override
+                                                                        public void onSuccess(Void unused) {
+                                                                            // Send a toast message if product is found.
+                                                                            Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                                        @Override
+                                                                        public void onFailure(@NonNull Exception e) {
+                                                                            // Send a toast message if product is not found.
+                                                                            Toast.makeText(RequestDetailsPage.this, "Product was not found in app!", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
 
 
 
