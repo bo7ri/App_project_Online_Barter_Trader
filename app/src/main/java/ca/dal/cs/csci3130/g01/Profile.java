@@ -28,6 +28,8 @@ public class Profile extends AppCompatActivity{
     Toolbar toolbar;
     Button sendEmailButton;
     FirebaseFirestore database;
+    String username;
+    String usertype;
 
 
 
@@ -43,8 +45,8 @@ public class Profile extends AppCompatActivity{
         database = FirebaseFirestore.getInstance();
 
         // Getting intents.
-        String username = getIntent().getStringExtra("username");
-        String usertype = getIntent().getStringExtra("usertype");
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         if(username != null) {
             getDataDB(username);
@@ -107,16 +109,22 @@ public class Profile extends AppCompatActivity{
         if(item.getItemId() == R.id.homeButton){
             // transfer to home page
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            home.putExtra("username", username);
+            home.putExtra("usertype", usertype);
             startActivity(home);
         }
         else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            savedPage.putExtra("username", username);
+            savedPage.putExtra("usertype", usertype);
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
+            logout.putExtra("username", username);
+            logout.putExtra("usertype", usertype);
             startActivity(logout);
         }
 
