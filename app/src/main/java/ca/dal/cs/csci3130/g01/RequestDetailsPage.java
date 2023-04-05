@@ -52,8 +52,6 @@ public class RequestDetailsPage extends AppCompatActivity {
         Button requestAcceptButton = findViewById(R.id.requestDetailsPageAcceptBtn);
         requestAcceptButton.setOnClickListener(view -> {
 
-            // To do: find product price, add value to provider, delete request from database.
-
             // Finding request from the database.
             cloudDatabase.collection("RequestList").whereEqualTo("ProductTitle", ProductTitle)
                     .whereEqualTo("ProviderUsername", ProviderUsername).whereEqualTo("ReceiverUsername", ReceiverUsername)
@@ -90,39 +88,10 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<QuerySnapshot> task1) {
-
-                                                        // Checks if task1 is successful.
-                                                        if (task1.isSuccessful()) {
-
-                                                            // Loops through the documents found in ProductList.
-                                                            for (QueryDocumentSnapshot document1 : task1.getResult()) {
-
-                                                                // Getting information about the product.
-                                                                String document1Title = document1.get("title").toString();
-                                                                String document1Description = document1.get("description").toString();
-                                                                String document1ProviderUsername = document1.get("username").toString();
-                                                                double document1Price = document1.getDouble("price");
-
-                                                                // Error checking to see if request product matches retrieved product.
-                                                                if ((document1Title.equals(documentProductTitle)) && (document1Description.equals(documentProductDescription))
-                                                                        && (document1ProviderUsername.equals(documentProviderUsername))) {
-
-                                                                    // Getting product ID.
-                                                                    String productID = document1.getId();
-
-                                                                    // Delete product from the firebase.
-                                                                    deleteProductFromFirebase(cloudDatabase, productID);
-
-                                                                    // Setting temp user ID in tempProviderUsernameID.
-                                                                    setProviderUserIDFromFirebase(cloudDatabase, document1ProviderUsername, document1Price);
-
-                                                                }
-
-                                                            }
-                                                        }
+                                                        // Finding product to update the total value traded of the provider.
+                                                        findProductToUpdateValue(cloudDatabase, task1, documentProductTitle, documentProductDescription, documentProviderUsername);
                                                     }
                                                 });
-
 
                                     } else {
                                         // Sending error message if request cannot be found.
@@ -130,9 +99,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     }
 
                                 }
-
                             }
-
                         }
                     });
 
@@ -295,26 +262,38 @@ public class RequestDetailsPage extends AppCompatActivity {
 
     }
 
-    // Method to update total value traded on Firebase.
-    protected void updateProviderTotalValue(FirebaseFirestore ffInstance, String providerUsername, String providerID, double productPrice) {
+    // Method to find product.
+    protected void findProductToUpdateValue(FirebaseFirestore ffInstance, Task<QuerySnapshot> task, String productTitle, String productDescription, String providerUsername) {
 
-        // Creating a map for updated value.
-        Map<String, Object> newTotalValueMap = new HashMap<>();
-        newTotalValueMap.put("ProviderUsername", providerUsername);
-        newTotalValueMap.put("ProviderUsernameID", providerID);
-        newTotalValueMap.put("ProviderTotalValue", productPrice);
+        // Checks if task1 is successful.
+        if (task.isSuccessful()) {
 
-        ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show();
+            // Loops through the documents found in ProductList.
+            for (QueryDocumentSnapshot document1 : task.getResult()) {
+
+                // Getting information about the product.
+                String document1Title = document1.get("title").toString();
+                String document1Description = document1.get("description").toString();
+                String document1ProviderUsername = document1.get("username").toString();
+                double document1Price = document1.getDouble("price");
+
+                // Error checking to see if request product matches retrieved product.
+                if ((document1Title.equals(productTitle)) && (document1Description.equals(productDescription))
+                        && (document1ProviderUsername.equals(providerUsername))) {
+
+                    // Getting product ID.
+                    String productID = document1.getId();
+
+                    // Delete product from the firebase.
+                    deleteProductFromFirebase(ffInstance, productID);
+
+                    // Setting temp user ID in tempProviderUsernameID.
+                    setProviderUserIDFromFirebase(ffInstance, document1ProviderUsername, document1Price);
+
+                }
+
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
-            }
-        });
+        }
 
     }
 
