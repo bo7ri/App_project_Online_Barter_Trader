@@ -55,50 +55,44 @@ public class RequestDetailsPage extends AppCompatActivity {
             // Finding request from the database.
             cloudDatabase.collection("RequestList").whereEqualTo("ProductTitle", ProductTitle)
                     .whereEqualTo("ProviderUsername", ProviderUsername).whereEqualTo("ReceiverUsername", ReceiverUsername)
-                    .whereEqualTo("RequestMessage", RequestMessage).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    .whereEqualTo("RequestMessage", RequestMessage).get().addOnCompleteListener(task -> {
 
-                            // Checks if task is successful.
-                            if (task.isSuccessful()) {
+                        // Checks if task is successful.
+                        if (task.isSuccessful()) {
 
-                                // Loops through the documents found by the previous query.
-                                for (QueryDocumentSnapshot document : task.getResult()) {
+                            // Loops through the documents found by the previous query.
+                            for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                    // Getting and storing the appropriate information.
-                                    String documentProductTitle = document.get("ProductTitle").toString();
-                                    String documentReceiverUsername = document.get("ReceiverUsername").toString();
-                                    String documentProviderUsername = document.get("ProviderUsername").toString();
-                                    String documentRequestMessage = document.get("RequestMessage").toString();
-                                    String documentProductDescription = document.get("ProductDescription").toString();
+                                // Getting and storing the appropriate information.
+                                String documentProductTitle = document.get("ProductTitle").toString();
+                                String documentReceiverUsername = document.get("ReceiverUsername").toString();
+                                String documentProviderUsername = document.get("ProviderUsername").toString();
+                                String documentRequestMessage = document.get("RequestMessage").toString();
+                                String documentProductDescription = document.get("ProductDescription").toString();
 
-                                    // Error checking methods to see if clicked request is same as retrieved request.
-                                    if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
-                                            && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
+                                // Error checking methods to see if clicked request is same as retrieved request.
+                                if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
+                                        && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
 
-                                        // Getting request ID.
-                                        String requestID = document.getId();
+                                    // Getting request ID.
+                                    String requestID = document.getId();
 
-                                        // Deleting the request from Firebase.
-                                        deleteRequestFromFirebase(cloudDatabase, requestID);
+                                    // Deleting the request from Firebase.
+                                    deleteRequestFromFirebase(cloudDatabase, requestID);
 
-                                        // Finding product.
-                                        cloudDatabase.collection("ProductList").whereEqualTo("title", documentProductTitle)
-                                                .whereEqualTo("username", documentProviderUsername).whereEqualTo("description", documentProductDescription)
-                                                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<QuerySnapshot> task1) {
-                                                        // Finding product to update the total value traded of the provider.
-                                                        findProductToUpdateValue(cloudDatabase, task1, documentProductTitle, documentProductDescription, documentProviderUsername);
-                                                    }
-                                                });
+                                    // Finding product.
+                                    cloudDatabase.collection("ProductList").whereEqualTo("title", documentProductTitle)
+                                            .whereEqualTo("username", documentProviderUsername).whereEqualTo("description", documentProductDescription)
+                                            .get().addOnCompleteListener(task1 -> {
+                                                // Finding product to update the total value traded of the provider.
+                                                findProductToUpdateValue(cloudDatabase, task1, documentProductTitle, documentProductDescription, documentProviderUsername);
+                                            });
 
-                                    } else {
-                                        // Sending error message if request cannot be found.
-                                        Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
-                                    }
-
+                                } else {
+                                    // Sending error message if request cannot be found.
+                                    Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
                                 }
+
                             }
                         }
                     });
@@ -116,16 +110,13 @@ public class RequestDetailsPage extends AppCompatActivity {
             // Finding request from the database.
             cloudDatabase.collection("RequestList").whereEqualTo("ProductTitle", ProductTitle)
                     .whereEqualTo("ProviderUsername", ProviderUsername).whereEqualTo("ReceiverUsername", ReceiverUsername)
-                    .whereEqualTo("RequestMessage", RequestMessage).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            // Checks if task is successful.
-                            if (task.isSuccessful()) {
-                                // Loops through the documents found by the previous query.
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    // Calling declineButtonPressed method.
-                                    declineButtonPressed(document, cloudDatabase, ProductTitle, ReceiverUsername, ProviderUsername, RequestMessage);
-                                }
+                    .whereEqualTo("RequestMessage", RequestMessage).get().addOnCompleteListener(task -> {
+                        // Checks if task is successful.
+                        if (task.isSuccessful()) {
+                            // Loops through the documents found by the previous query.
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                // Calling declineButtonPressed method.
+                                declineButtonPressed(document, cloudDatabase, ProductTitle, ReceiverUsername, ProviderUsername, RequestMessage);
                             }
                         }
                     });
@@ -172,18 +163,12 @@ public class RequestDetailsPage extends AppCompatActivity {
     protected void deleteRequestFromFirebase(FirebaseFirestore ffInstance, String requestID) {
 
         // Deleting the request from firebase.
-        ffInstance.collection("RequestList").document(requestID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                // Send a toast message if request is accepted successfully.
-                Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                // Send a toast message if request is not accepted successfully.
-                Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
-            }
+        ffInstance.collection("RequestList").document(requestID).delete().addOnSuccessListener(unused -> {
+            // Send a toast message if request is accepted successfully.
+            Toast.makeText(RequestDetailsPage.this, "Accepted the request successfully!", Toast.LENGTH_LONG).show();
+        }).addOnFailureListener(e -> {
+            // Send a toast message if request is not accepted successfully.
+            Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
         });
 
     }
@@ -192,18 +177,12 @@ public class RequestDetailsPage extends AppCompatActivity {
     protected void deleteProductFromFirebase(FirebaseFirestore ffInstance, String productID) {
 
         // Delete product from the firebase.
-        ffInstance.collection("ProductList").document(productID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                // Send a toast message if product is found.
-                Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                // Send a toast message if product is not found.
-                Toast.makeText(RequestDetailsPage.this, "Product was not found in app!", Toast.LENGTH_SHORT).show();
-            }
+        ffInstance.collection("ProductList").document(productID).delete().addOnSuccessListener(unused -> {
+            // Send a toast message if product is found.
+            Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(e -> {
+            // Send a toast message if product is not found.
+            Toast.makeText(RequestDetailsPage.this, "Product was not found in app!", Toast.LENGTH_SHORT).show();
         });
 
     }
@@ -239,25 +218,22 @@ public class RequestDetailsPage extends AppCompatActivity {
     protected void setProviderUserIDFromFirebase(FirebaseFirestore ffInstance, String providerUsername, double productPrice) {
 
         // Finding the user id.
-        ffInstance.collection("UserList").whereEqualTo("Username", providerUsername).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+        ffInstance.collection("UserList").whereEqualTo("Username", providerUsername).get().addOnCompleteListener(task -> {
 
-                // Checks if task is successful.
-                if (task.isSuccessful()) {
-                    // Loops through the documents found by the previous query.
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        // Getting username of provider.
-                        String documentProviderUsername = document.get("Username").toString();
-                        // Error checking to see if given username is same as retrieved username.
-                        if (documentProviderUsername.equals(providerUsername)) {
-                            tempProviderUsernameID = document.getId();
-                            setTotalValueTraded(ffInstance, providerUsername, document.getId(), productPrice);
-                        }
+            // Checks if task is successful.
+            if (task.isSuccessful()) {
+                // Loops through the documents found by the previous query.
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    // Getting username of provider.
+                    String documentProviderUsername = document.get("Username").toString();
+                    // Error checking to see if given username is same as retrieved username.
+                    if (documentProviderUsername.equals(providerUsername)) {
+                        tempProviderUsernameID = document.getId();
+                        setTotalValueTraded(ffInstance, providerUsername, document.getId(), productPrice);
                     }
                 }
-
             }
+
         });
 
     }
@@ -302,53 +278,34 @@ public class RequestDetailsPage extends AppCompatActivity {
 
         // Getting total value from TotalValue collection.
         DocumentReference documentRef = ffInstance.collection("TotalValue").document(providerID);
-        documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
+        documentRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
 
-                        double currTotalValue = document.getDouble("ProviderTotalValue");
-                        // Creating a map for updated value.
-                        Map<String, Object> newTotalValueMap = new HashMap<>();
-                        newTotalValueMap.put("ProviderUsername", providerUsername);
-                        newTotalValueMap.put("ProviderUsernameID", providerID);
-                        newTotalValueMap.put("ProviderTotalValue", productPrice + currTotalValue);
+                    double currTotalValue = document.getDouble("ProviderTotalValue");
+                    // Creating a map for updated value.
+                    Map<String, Object> newTotalValueMap = new HashMap<>();
+                    newTotalValueMap.put("ProviderUsername", providerUsername);
+                    newTotalValueMap.put("ProviderUsernameID", providerID);
+                    newTotalValueMap.put("ProviderTotalValue", productPrice + currTotalValue);
 
-                        ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                    ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(unused ->
+                            Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show())
+                            .addOnFailureListener(e -> Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show());
 
-                    } else {
+                } else {
 
-                        // Creating a map for updated value.
-                        Map<String, Object> newTotalValueMap = new HashMap<>();
-                        newTotalValueMap.put("ProviderUsername", providerUsername);
-                        newTotalValueMap.put("ProviderUsernameID", providerID);
-                        newTotalValueMap.put("ProviderTotalValue", productPrice);
+                    // Creating a map for updated value.
+                    Map<String, Object> newTotalValueMap = new HashMap<>();
+                    newTotalValueMap.put("ProviderUsername", providerUsername);
+                    newTotalValueMap.put("ProviderUsernameID", providerID);
+                    newTotalValueMap.put("ProviderTotalValue", productPrice);
 
-                        ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                    ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(unused ->
+                            Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show())
+                            .addOnFailureListener(e -> Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show());
 
-                    }
                 }
             }
         });
