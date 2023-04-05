@@ -44,17 +44,8 @@ public class RequestDetailsPage extends AppCompatActivity {
         String ProductDescription = getIntent().getStringExtra("ProductDescription");
         String RequestMessage = getIntent().getStringExtra("RequestMessage");
 
-        // Getting text views.
-        TextView productTitleTextView = findViewById(R.id.requestDetailsProductTitleInput);
-        TextView productDescriptionTextView = findViewById(R.id.requestDetailsProductDescriptionInput);
-        TextView receiverUsernameTextView = findViewById(R.id.requestDetailsReceiverNameInput);
-        TextView requestMessageTextView = findViewById(R.id.requestDetailsRequestMsgInput);
-
-        // Setting the text views.
-        productTitleTextView.setText(ProductTitle);
-        productDescriptionTextView.setText(ProductDescription);
-        receiverUsernameTextView.setText(ReceiverUsername);
-        requestMessageTextView.setText(RequestMessage);
+        // Setting up the text views on the page.
+        setRequestDetailsTextView(ProductTitle, ProductDescription, ReceiverUsername, RequestMessage);
 
         // Setting accept request button.
         Button requestAcceptButton = findViewById(R.id.requestDetailsPageAcceptBtn);
@@ -172,6 +163,23 @@ public class RequestDetailsPage extends AppCompatActivity {
             moveRequestPageToProfilePage(ReceiverUsername, ProviderUsername, ProductTitle, ProductDescription, RequestMessage);
 
         });
+
+    }
+
+    // Method to set text views on the page.
+    protected void setRequestDetailsTextView(String productTitle, String productDescription, String receiverUsername, String requestMessage) {
+
+        // Getting text views.
+        TextView productTitleTextView = findViewById(R.id.requestDetailsProductTitleInput);
+        TextView productDescriptionTextView = findViewById(R.id.requestDetailsProductDescriptionInput);
+        TextView receiverUsernameTextView = findViewById(R.id.requestDetailsReceiverNameInput);
+        TextView requestMessageTextView = findViewById(R.id.requestDetailsRequestMsgInput);
+
+        // Setting the text views.
+        productTitleTextView.setText(productTitle);
+        productDescriptionTextView.setText(productDescription);
+        receiverUsernameTextView.setText(receiverUsername);
+        requestMessageTextView.setText(requestMessage);
 
     }
 
