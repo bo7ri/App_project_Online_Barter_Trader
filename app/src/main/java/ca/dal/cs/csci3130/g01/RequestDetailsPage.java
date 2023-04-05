@@ -178,26 +178,8 @@ public class RequestDetailsPage extends AppCompatActivity {
                                 // Loops through the documents found by the previous query.
                                 for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                    // Getting and storing the appropriate information.
-                                    String documentProductTitle = document.get("ProductTitle").toString();
-                                    String documentReceiverUsername = document.get("ReceiverUsername").toString();
-                                    String documentProviderUsername = document.get("ProviderUsername").toString();
-                                    String documentRequestMessage = document.get("RequestMessage").toString();
-
-                                    // Error checking methods to see if clicked request is same as retrieved request.
-                                    if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
-                                            && documentProviderUsername.equals(ProviderUsername) && documentRequestMessage.equals(RequestMessage)) {
-
-                                        // Getting request ID.
-                                        String requestID = document.getId();
-
-                                        // Deleting the request from Firebase.
-                                        deleteRequestFromFirebase(cloudDatabase, requestID);
-
-                                    } else {
-                                        // Sending error message if request cannot be found.
-                                        Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
-                                    }
+                                    // Calling declineButtonPressed method.
+                                    declineButtonPressed(document, cloudDatabase, ProductTitle, ReceiverUsername, ProviderUsername, RequestMessage);
 
                                 }
 
@@ -244,6 +226,33 @@ public class RequestDetailsPage extends AppCompatActivity {
                 Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    // Performing and calling methods when decline button is pressed.
+    protected void declineButtonPressed(QueryDocumentSnapshot declinedDocument, FirebaseFirestore ffInstance, String productTitle,
+                                        String receiverUsername, String providerUsername, String requestMessage) {
+
+        // Getting and storing the appropriate information.
+        String documentProductTitle = declinedDocument.get("ProductTitle").toString();
+        String documentReceiverUsername = declinedDocument.get("ReceiverUsername").toString();
+        String documentProviderUsername = declinedDocument.get("ProviderUsername").toString();
+        String documentRequestMessage = declinedDocument.get("RequestMessage").toString();
+
+        // Error checking methods to see if clicked request is same as retrieved request.
+        if (documentProductTitle.equals(productTitle) && documentReceiverUsername.equals(receiverUsername)
+                && documentProviderUsername.equals(providerUsername) && documentRequestMessage.equals(requestMessage)) {
+
+            // Getting request ID.
+            String requestID = declinedDocument.getId();
+
+            // Deleting the request from Firebase.
+            deleteRequestFromFirebase(ffInstance, requestID);
+
+        } else {
+            // Sending error message if request cannot be found.
+            Toast.makeText(RequestDetailsPage.this, "Did not find request!", Toast.LENGTH_LONG).show();
+        }
 
     }
 
