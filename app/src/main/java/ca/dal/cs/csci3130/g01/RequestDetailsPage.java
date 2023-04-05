@@ -80,6 +80,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                                     String documentReceiverUsername = document.get("ReceiverUsername").toString();
                                     String documentProviderUsername = document.get("ProviderUsername").toString();
                                     String documentRequestMessage = document.get("RequestMessage").toString();
+                                    String documentProductDescription = document.get("ProductDescription").toString();
 
                                     // Error checking methods to see if clicked request is same as retrieved request.
                                     if (documentProductTitle.equals(ProductTitle) && documentReceiverUsername.equals(ReceiverUsername)
@@ -102,6 +103,48 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                 Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
                                             }
                                         });
+
+
+
+                                        // Finding product.
+                                        cloudDatabase.collection("ProductList").whereEqualTo("title", documentProductTitle)
+                                                .whereEqualTo("username", documentProviderUsername).whereEqualTo("description", documentProductDescription)
+                                                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<QuerySnapshot> task1) {
+
+                                                        // Checks if task1 is successful.
+                                                        if (task1.isSuccessful()) {
+
+                                                            // Loops through the documents found in ProductList.
+                                                            for (QueryDocumentSnapshot document1 : task1.getResult()) {
+
+                                                                // Getting information about the product.
+                                                                String document1Title = document1.get("title").toString();
+                                                                String document1Description = document1.get("description").toString();
+                                                                String document1ProviderUsername = document1.get("username").toString();
+                                                                String document1Price = document1.get("price").toString();
+
+                                                                // Error checking to see if request product matches retrieved product.
+                                                                if ((document1Title.equals(documentProductTitle)) && (document1Description.equals(documentProductDescription))
+                                                                        && (document1ProviderUsername.equals(documentProviderUsername))) {
+
+                                                                    // Getting product ID.
+                                                                    String productID = document1.getId();
+
+
+
+
+
+
+                                                                }
+
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+
 
                                     } else {
                                         // Sending error message if request cannot be found.
