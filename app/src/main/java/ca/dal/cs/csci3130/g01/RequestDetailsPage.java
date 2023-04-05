@@ -102,7 +102,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                                 String document1Title = document1.get("title").toString();
                                                                 String document1Description = document1.get("description").toString();
                                                                 String document1ProviderUsername = document1.get("username").toString();
-                                                                String document1Price = document1.get("price").toString();
+                                                                double document1Price = document1.getDouble("price");
 
                                                                 // Error checking to see if request product matches retrieved product.
                                                                 if ((document1Title.equals(documentProductTitle)) && (document1Description.equals(documentProductDescription))
@@ -115,7 +115,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                                     deleteProductFromFirebase(cloudDatabase, productID);
 
                                                                     // Setting temp user ID in tempProviderUsernameID.
-                                                                    setProviderUserIDFromFirebase(cloudDatabase, document1ProviderUsername);
+                                                                    setProviderUserIDFromFirebase(cloudDatabase, document1ProviderUsername, document1Price);
 
                                                                 }
 
@@ -270,7 +270,7 @@ public class RequestDetailsPage extends AppCompatActivity {
     }
 
     // Method to get provider user id from Firebase.
-    protected void setProviderUserIDFromFirebase(FirebaseFirestore ffInstance, String providerUsername) {
+    protected void setProviderUserIDFromFirebase(FirebaseFirestore ffInstance, String providerUsername, double productPrice) {
 
         // Finding the user id.
         ffInstance.collection("UserList").whereEqualTo("Username", providerUsername).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -286,10 +286,34 @@ public class RequestDetailsPage extends AppCompatActivity {
                         // Error checking to see if given username is same as retrieved username.
                         if (documentProviderUsername.equals(providerUsername)) {
                             tempProviderUsernameID = document.getId();
+                            updateProviderTotalValue(ffInstance, providerUsername, document.getId(), productPrice);
                         }
                     }
                 }
 
+            }
+        });
+
+    }
+
+    // Method to update total value traded on Firebase.
+    protected void updateProviderTotalValue(FirebaseFirestore ffInstance, String providerUsername, String providerID, double productPrice) {
+
+        // Creating a map for updated value.
+        Map<String, Object> newTotalValueMap = new HashMap<>();
+        newTotalValueMap.put("ProviderUsername", providerUsername);
+        newTotalValueMap.put("ProviderUsernameID", providerID);
+        newTotalValueMap.put("ProviderTotalValue", productPrice);
+
+        ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
             }
         });
 
