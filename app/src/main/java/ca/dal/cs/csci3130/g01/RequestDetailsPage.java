@@ -119,20 +119,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                                     String productID = document1.getId();
 
                                                                     // Delete product from the firebase.
-                                                                    cloudDatabase.collection("ProductList").document(productID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                        @Override
-                                                                        public void onSuccess(Void unused) {
-                                                                            // Send a toast message if product is found.
-                                                                            Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT).show();
-                                                                        }
-                                                                    }).addOnFailureListener(new OnFailureListener() {
-                                                                        @Override
-                                                                        public void onFailure(@NonNull Exception e) {
-                                                                            // Send a toast message if product is not found.
-                                                                            Toast.makeText(RequestDetailsPage.this, "Product was not found in app!", Toast.LENGTH_SHORT).show();
-                                                                        }
-                                                                    });
-
+                                                                    deleteProductFromFirebase(cloudDatabase, productID);
 
                                                                 }
 
@@ -140,7 +127,6 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                         }
                                                     }
                                                 });
-
 
 
                                     } else {
@@ -171,20 +157,14 @@ public class RequestDetailsPage extends AppCompatActivity {
                     .whereEqualTo("RequestMessage", RequestMessage).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                             // Checks if task is successful.
                             if (task.isSuccessful()) {
-
                                 // Loops through the documents found by the previous query.
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-
                                     // Calling declineButtonPressed method.
                                     declineButtonPressed(document, cloudDatabase, ProductTitle, ReceiverUsername, ProviderUsername, RequestMessage);
-
                                 }
-
                             }
-
                         }
                     });
 
@@ -224,6 +204,26 @@ public class RequestDetailsPage extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 // Send a toast message if request is not accepted successfully.
                 Toast.makeText(RequestDetailsPage.this, "Did not accept the request successfully!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    // Deleting the product from firebase.
+    protected void deleteProductFromFirebase(FirebaseFirestore ffInstance, String productID) {
+
+        // Delete product from the firebase.
+        ffInstance.collection("ProductList").document(productID).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                // Send a toast message if product is found.
+                Toast.makeText(RequestDetailsPage.this, "Product was deleted successfully", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Send a toast message if product is not found.
+                Toast.makeText(RequestDetailsPage.this, "Product was not found in app!", Toast.LENGTH_SHORT).show();
             }
         });
 
