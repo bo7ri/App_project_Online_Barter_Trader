@@ -148,8 +148,6 @@ public class RequestDetailsPage extends AppCompatActivity {
                                                                     });
 
 
-
-
                                                                 }
 
                                                             }
@@ -172,14 +170,8 @@ public class RequestDetailsPage extends AppCompatActivity {
                     });
 
             // Sending the user back to the request list page.
-            Intent moveBackToProfilePage = new Intent(RequestDetailsPage.this, Profile.class);
-            moveBackToProfilePage.putExtra("ReceiverUsername", ReceiverUsername);
-            moveBackToProfilePage.putExtra("username", ProviderUsername);
-            moveBackToProfilePage.putExtra("ProductTitle", ProductTitle);
-            moveBackToProfilePage.putExtra("ProductDescription", ProductDescription);
-            moveBackToProfilePage.putExtra("RequestMessage", RequestMessage);
-            moveBackToProfilePage.putExtra("usertype", "Provider");
-            startActivity(moveBackToProfilePage);
+            moveRequestPageToProfilePage(ReceiverUsername, ProviderUsername, ProductTitle, ProductDescription, RequestMessage);
+
         });
 
 
@@ -241,16 +233,24 @@ public class RequestDetailsPage extends AppCompatActivity {
                     });
 
             // Sending the user back to the profile page.
-            Intent moveBackToProfilePage = new Intent(RequestDetailsPage.this, Profile.class);
-            moveBackToProfilePage.putExtra("ReceiverUsername", ReceiverUsername);
-            moveBackToProfilePage.putExtra("username", ProviderUsername);
-            moveBackToProfilePage.putExtra("ProductTitle", ProductTitle);
-            moveBackToProfilePage.putExtra("ProductDescription", ProductDescription);
-            moveBackToProfilePage.putExtra("RequestMessage", RequestMessage);
-            moveBackToProfilePage.putExtra("usertype", "Provider");
-            startActivity(moveBackToProfilePage);
+            moveRequestPageToProfilePage(ReceiverUsername, ProviderUsername, ProductTitle, ProductDescription, RequestMessage);
+
         });
 
+    }
+
+    // Method to move user back to profile page.
+    protected void moveRequestPageToProfilePage(String receiverUsername, String providerUsername, String productTitle,
+                                                String productDescription, String requestMessage) {
+        // Sending the user back to the profile page.
+        Intent moveBackToProfilePage = new Intent(RequestDetailsPage.this, Profile.class);
+        moveBackToProfilePage.putExtra("ReceiverUsername", receiverUsername);
+        moveBackToProfilePage.putExtra("username", providerUsername);
+        moveBackToProfilePage.putExtra("ProductTitle", productTitle);
+        moveBackToProfilePage.putExtra("ProductDescription", productDescription);
+        moveBackToProfilePage.putExtra("RequestMessage", requestMessage);
+        moveBackToProfilePage.putExtra("usertype", "Provider");
+        startActivity(moveBackToProfilePage);
     }
 
 }
