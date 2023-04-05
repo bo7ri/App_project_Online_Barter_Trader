@@ -2,10 +2,7 @@ package ca.dal.cs.csci3130.g01;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +13,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -286,7 +285,7 @@ public class RequestDetailsPage extends AppCompatActivity {
                         // Error checking to see if given username is same as retrieved username.
                         if (documentProviderUsername.equals(providerUsername)) {
                             tempProviderUsernameID = document.getId();
-                            updateProviderTotalValue(ffInstance, providerUsername, document.getId(), productPrice);
+                            setTotalValueTraded(ffInstance, providerUsername, document.getId(), productPrice);
                         }
                     }
                 }
@@ -314,6 +313,64 @@ public class RequestDetailsPage extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+    // Method to get total value traded from firebase.
+    protected void setTotalValueTraded(FirebaseFirestore ffInstance, String providerUsername, String providerID, double productPrice) {
+
+        // Getting total value from TotalValue collection.
+        DocumentReference documentRef = ffInstance.collection("TotalValue").document(providerID);
+        documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        double currTotalValue = document.getDouble("ProviderTotalValue");
+                        // Creating a map for updated value.
+                        Map<String, Object> newTotalValueMap = new HashMap<>();
+                        newTotalValueMap.put("ProviderUsername", providerUsername);
+                        newTotalValueMap.put("ProviderUsernameID", providerID);
+                        newTotalValueMap.put("ProviderTotalValue", productPrice + currTotalValue);
+
+                        ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                    } else {
+
+                        // Creating a map for updated value.
+                        Map<String, Object> newTotalValueMap = new HashMap<>();
+                        newTotalValueMap.put("ProviderUsername", providerUsername);
+                        newTotalValueMap.put("ProviderUsernameID", providerID);
+                        newTotalValueMap.put("ProviderTotalValue", productPrice);
+
+                        ffInstance.collection("TotalValue").document(providerID).set(newTotalValueMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(RequestDetailsPage.this, "Price successfully added!", Toast.LENGTH_LONG).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RequestDetailsPage.this, "Price was not added!", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                    }
+                }
             }
         });
 
