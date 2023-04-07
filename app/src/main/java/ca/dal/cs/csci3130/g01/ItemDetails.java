@@ -149,6 +149,8 @@ public class ItemDetails extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             // transfer to home pahe
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            home.putExtra("username", username);
+            home.putExtra("usertype", usertype);
             startActivity(home);
         }
         else if(item.getItemId() == R.id.profile){
@@ -160,6 +162,8 @@ public class ItemDetails extends AppCompatActivity {
         else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            savedPage.putExtra("username", username);
+            savedPage.putExtra("usertype", usertype);
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){
