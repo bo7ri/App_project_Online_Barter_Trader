@@ -24,7 +24,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ProviderPage extends AppCompatActivity {
 
     private Product product;
-    private String userType;
     FirebaseFirestore database;
 
     Toolbar toolbar;
@@ -53,6 +52,11 @@ public class ProviderPage extends AppCompatActivity {
 
     }
 
+    /**
+     * A method that gets data from database and set the provider's firstname
+     * lastname and rating
+     * @param username The provider's username
+     */
     private void getUserDataDBAndRating(String username){
         // Declaration of DocumentReference variables
         database.collection("UserList")
@@ -81,6 +85,10 @@ public class ProviderPage extends AppCompatActivity {
                 }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show());
     }
 
+    /**
+     * A method that gets data from database and set the number of request the provider has
+     * @param username provider's username
+     */
     private void getRequestCount(String username){
 
 
@@ -105,11 +113,12 @@ public class ProviderPage extends AppCompatActivity {
                     requestCounter.setText(text);
 
                 }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show());
-
-
-
     }
 
+    /**
+     * A method that get data from database and set the total value the provider traded
+     * @param username provider's username
+     */
     private void getTotalValue(String username){
 
         database.collection("TotalValue").whereEqualTo("ProviderUsername", username)
