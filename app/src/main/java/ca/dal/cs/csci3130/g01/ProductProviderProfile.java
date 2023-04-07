@@ -7,7 +7,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,22 +19,36 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProductProviderProfile extends AppCompatActivity {
-
     Toolbar toolbar;
+
     FirebaseFirestore database;
-    String username;
-    float userRating;
+
     TextView providerUsername;
     TextView providerRating;
+    String providerRatingString;
+    TextView providerRatingTotal;
+    RatingBar ratingBar;
+    int ratingHeldInBar;
+    float ratingSubmitted;
+    int totalRatings;
+    String totalRatingsString;
+    Button ratingSubmitButton;
+    String username;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,17 +56,149 @@ public class ProductProviderProfile extends AppCompatActivity {
         setContentView(R.layout.activity_product_provider);
 
         toolbar = findViewById(R.id.toolBar);
-
         // Get the instance of the Firebase
         database = FirebaseFirestore.getInstance();
-        username = getIntent().getStringExtra("username");
+
+        ratingSubmitButton = findViewById(R.id.rate_button);
 
         // Setting the providers username through intent from ItemDetails class.
         providerUsername = findViewById(R.id.provider_username);
+        username = getIntent().getStringExtra("username").trim();
         providerUsername.setText(username);
 
+        // Setting the rating and number of ratings by calling the getRating and get totalRatings methods
+        // which searches through firebase for the fields
         providerRating = findViewById(R.id.provider_rating);
+        getRating();
+        providerRatingTotal = findViewById(R.id.provider_rating_number);
+        getTotalRatings();
 
+        // Setting rating bar listener and capturing the rating set by the user
+        ratingBar = findViewById(R.id.rating_bar);
+        ratingBar.setOnRatingBarChangeListener((ratingBar, v, b) -> {
+            String message = null;
+            ratingHeldInBar = (int) ratingBar.getRating();
+            switch (ratingHeldInBar) {
+                case 1:
+                    message = "Extremely Unpleasant";
+                    ratingSubmitted = 1;
+                    break;
+                case 2:
+                    message = "Unpleasant";
+                    ratingSubmitted = 2;
+                    break;
+                case 3:
+                    message = "Neutral";
+                    ratingSubmitted = 3;
+                    break;
+                case 4:
+                    message = "Pleasant";
+                    ratingSubmitted = 4;
+                    break;
+                case 5:
+                    message = "Extremely Pleasant";
+                    ratingSubmitted = 5;
+                    break;
+            }
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        });
+
+        // Setting the rating submit button which updates the rating based on the users input
+        // from the rating bar
+        ratingSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateTotalRatings();
+                updateRating();
+            }
+        });
+    }
+
+    /**
+     * Gets the rating set from firebase and sets the text view on the app layout.
+     */
+    public void getRating(){
+//        database.collection("UserList").get().addOnCompleteListener(task ->{
+//            for (QueryDocumentSnapshot document : task.getResult()) {
+//                if(document.getString("Username").equals(username)) {
+//                    providerRatingString = document.get("Rating").toString();
+//                }
+//            }});
+
+        database.collection("UserList").document("2sE0eWWKOnW4AgS7b8BQ")
+                        .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        providerRatingString = documentSnapshot.getString("Rating");
+                        providerRating.setText(providerRatingString);
+                    }
+                });
+    }
+
+    /**
+     * Calculates new average rating and updates it on firebase
+     */
+    public void updateRating(){
+        float averageOld = Float.parseFloat(providerRatingString);
+        float averageNew = averageOld + (ratingSubmitted - averageOld)/totalRatings;
+        String newRatingString = String.format("%.1f", averageNew);
+        Map<String, Object> ratingUpdate = new HashMap<>();
+        ratingUpdate.put("Rating", newRatingString);
+
+        database.collection("UserList").whereEqualTo("Rating", newRatingString).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        database.collection("UserList").document("2sE0eWWKOnW4AgS7b8BQ").update(ratingUpdate);
+                    }
+                });
+        getRating();
+    }
+
+    /**
+     *  Gets the total rating set from firebase and sets the text view on the app layout.
+     */
+    public void getTotalRatings(){
+//        database.collection("UserList").whereEqualTo("Username", username)
+//                .get().addOnCompleteListener(task ->{
+//                    if (task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                            if(document.getString("Username").equals(username)) {
+//                                totalRatingsString = "(" + document.get("numberOfRatings").toString() + ")";
+//                            }
+//                        }
+//                    }
+//                });
+//        providerRatingTotal.setText(totalRatingsString);
+
+        database.collection("UserList").document("2sE0eWWKOnW4AgS7b8BQ")
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        totalRatingsString = "(" + documentSnapshot.getString("numberOfRatings") + ")";
+                        providerRatingTotal.setText(totalRatingsString);
+                    }
+                });
+    }
+
+    /**
+     * Updates the total ratings in firebase database after a user submits a rating on a provider.
+     */
+    public void updateTotalRatings(){
+        totalRatings = Integer.parseInt(totalRatingsString.substring(1, totalRatingsString.length() - 1));
+        totalRatings++;
+        totalRatingsString = Integer.toString(totalRatings);
+        Map<String, Object> ratingUpdate = new HashMap<>();
+        ratingUpdate.put("numberOfRatings", totalRatingsString);
+
+        database.collection("UserList").whereEqualTo("numberOfRatings", totalRatingsString).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        database.collection("UserList").document("2sE0eWWKOnW4AgS7b8BQ").update(ratingUpdate);
+                    }
+                });
+        getTotalRatings();
     }
 
     /**

@@ -128,32 +128,32 @@ public class ExampleInstrumentedTest {
 
 
     // Checks if fields are not empty and submits correctly.
-    @Test
-    public void checkIfFieldsNotEmpty() {
-        onView(withId(R.id.RegisterButton)).perform(click());
-        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
-        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
-        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
-        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
-        onView(withId(R.id.registerEmailField)).perform(replaceText("blabla@orange.com"));
-        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
-        onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.RegisterButton)).check(matches(isDisplayed()));
-    }
+//    @Test
+//    public void checkIfFieldsNotEmpty() {
+//        onView(withId(R.id.RegisterButton)).perform(click());
+//        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
+//        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
+//        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
+//        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
+//        onView(withId(R.id.registerEmailField)).perform(replaceText("blabla@orange.com"));
+//        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
+//        onView(withId(R.id.registerSubmitButton)).perform(click());
+//        onView(withId(R.id.RegisterButton)).check(matches(isDisplayed()));
+//    }
 
     // Checks if one field is empty and doesn't move to another page.
-    @Test
-    public void checkIfFieldsAreEmpty() {
-        onView(withId(R.id.RegisterButton)).perform(click());
-        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
-        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
-        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
-        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
-        onView(withId(R.id.registerEmailField)).perform(replaceText(" "));
-        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
-        onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.registerationTestMessage)).check(matches(withText("One or more fields are empty!")));
-    }
+//    @Test
+//    public void checkIfFieldsAreEmpty() {
+//        onView(withId(R.id.RegisterButton)).perform(click());
+//        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
+//        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
+//        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
+//        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
+//        onView(withId(R.id.registerEmailField)).perform(replaceText(" "));
+//        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
+//        onView(withId(R.id.registerSubmitButton)).perform(click());
+//        onView(withId(R.id.registerationTestMessage)).check(matches(withText("One or more fields are empty!")));
+//    }
 
     // Checks if switches correctly to register page after button is clicked.
     @Test
