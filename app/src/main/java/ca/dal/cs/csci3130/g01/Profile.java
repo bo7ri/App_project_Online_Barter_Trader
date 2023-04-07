@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,6 +80,14 @@ public class Profile extends AppCompatActivity{
             // this button will open send email activity
             Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
             startActivity(sendEmailIntent);
+        });
+
+        // GO TO EDIT PAGE
+        Button ProfileEditPageButton = findViewById(R.id.EditProfile);
+        ProfileEditPageButton.setOnClickListener(view -> {
+            Intent movingToEditPage = new Intent(getApplicationContext(), EditProfile.class);;
+            movingToEditPage.putExtra("username", username);
+            startActivity(movingToEditPage);
         });
     }
 
