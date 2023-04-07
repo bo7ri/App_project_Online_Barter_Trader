@@ -13,6 +13,7 @@ import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtP
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.isNotEnabled;
@@ -256,6 +257,46 @@ public class ExampleInstrumentedTest {
 
         onView(withId(R.id.providerProfilePage)).check(matches(isNotEnabled()));
 
+    }
+
+    @Test
+    public void testSwitchToRequestPageAsReceiver() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.sendRequestSubmitBtn)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testSwitchToRequestPageAsProvider() {
+        onView(withId(R.id.Username)).perform(typeText("providerAdmin"));
+        onView(withId(R.id.Password)).perform(typeText("password123"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.toolBar)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testRequestButtonSend() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.sendRequestSubmitBtn)).check(matches(isClickable()));
+    }
+
+    @Test
+    public void testRequestButtonReject() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.sendRequestCancelBtn)).check(matches(isClickable()));
     }
 
 }
