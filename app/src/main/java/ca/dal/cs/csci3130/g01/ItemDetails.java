@@ -113,7 +113,7 @@ public class ItemDetails extends AppCompatActivity {
             if(usertype.equals("Receiver")){
                 Intent moveToProviderPage = new Intent(getApplicationContext(), ProviderPage.class);
                 moveToProviderPage.putExtra("product", product);
-                moveToProviderPage.putExtra("lastName", lastName);
+                moveToProviderPage.putExtra("username", username);
                 startActivity(moveToProviderPage);
             } else {
                 Toast.makeText(getApplicationContext(), "Only Receiver can view Provider's page!", Toast.LENGTH_LONG).show();

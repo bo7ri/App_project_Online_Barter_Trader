@@ -175,7 +175,8 @@ public class ProviderPage extends AppCompatActivity {
         else if(item.getItemId() == R.id.profile){
             // transfer to profile activity
             Intent profilePage = new Intent(getApplicationContext(), Profile.class);
-            if(product != null) profilePage.putExtra("product", product);
+            String username = getIntent().getStringExtra("username");
+            profilePage.putExtra("username", username);
             startActivity(profilePage);
         }
         else if(item.getItemId() == R.id.savedItems){
