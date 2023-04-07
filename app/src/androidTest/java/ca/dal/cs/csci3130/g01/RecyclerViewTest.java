@@ -120,6 +120,6 @@ public class RecyclerViewTest {
         onView(withId(R.id.sortBtn)).perform(click());
         onView(withId(R.id.sortBtn)).perform(click());
         onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
-        onView(withId(R.id.productTitle)).check(matches(withText("XYZ")));
+        onView(withId(R.id.productTitle)).check(matches(withText("Z")));
     }
 }

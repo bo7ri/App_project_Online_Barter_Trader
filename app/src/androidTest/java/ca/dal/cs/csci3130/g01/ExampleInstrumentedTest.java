@@ -15,6 +15,7 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
+import static androidx.test.espresso.matcher.ViewMatchers.isNotEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -230,4 +231,31 @@ public class ExampleInstrumentedTest {
 
         onView(withId(R.id.btn_send)).perform(ViewActions.click());
     }
+
+    @Test
+    public void providerPageAsReceiverUser(){
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.providerProfilePage)).perform(click());
+
+        intended(hasComponent(ProviderPage.class.getName()));
+    }
+
+    @Test
+    public void providerPageAsProviderUser(){
+
+        onView(withId(R.id.Username)).perform(typeText("providerAdmin"));
+        onView(withId(R.id.Password)).perform(typeText("password123"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.providerProfilePage)).check(matches(isNotEnabled()));
+
+    }
+
 }

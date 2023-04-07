@@ -115,10 +115,10 @@ public class ItemDetails extends AppCompatActivity {
                 moveToProviderPage.putExtra("product", product);
                 moveToProviderPage.putExtra("username", username);
                 startActivity(moveToProviderPage);
-            } else {
-                Toast.makeText(getApplicationContext(), "Only Receiver can view Provider's page!", Toast.LENGTH_LONG).show();
             }
         });
+
+        if (usertype.equals("Provider")) providerPageBtn.setEnabled(false);
 
 
 
