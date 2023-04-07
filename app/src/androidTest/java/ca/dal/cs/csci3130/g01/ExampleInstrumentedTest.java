@@ -203,31 +203,59 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
     }
 
+//    @Test
+//    public void testSendEmail() {
+//        String senderEmail = "test12appproject@gmail.com";
+//        String senderPassword = "wlkhkntczgufmqlh";
+//
+//        // enter any email u wish to check
+//        String receiverEmail = "monther.s122@gmail.com";
+//        String subject = "Test 2";
+//        String message = "This is a massage from the app";
+//
+//        onView(withId(R.id.Username)).perform(replaceText("admin"));
+//        onView(withId(R.id.Password)).perform(replaceText("1234"));
+//        closeSoftKeyboard();
+//        onView(withId(R.id.Login)).perform(click());
+//
+//        onView(withId(R.id.profile)).perform(click());
+//
+//        onView(withId(R.id.send_email)).perform(click());
+//
+//        onView(withId(R.id.et_from_email)).perform(clearText(), typeText(senderEmail), closeSoftKeyboard());
+//        onView(withId(R.id.et_password)).perform(clearText(), typeText(senderPassword), closeSoftKeyboard());
+//        onView(withId(R.id.et_to_email)).perform(clearText(), typeText(receiverEmail), closeSoftKeyboard());
+//        onView(withId(R.id.et_subject)).perform(clearText(), typeText(subject), closeSoftKeyboard());
+//        onView(withId(R.id.et_message)).perform(clearText(), typeText(message), closeSoftKeyboard());
+//
+//        onView(withId(R.id.btn_send)).perform(ViewActions.click());
+//    }
     @Test
-    public void testSendEmail() {
-        String senderEmail = "test12appproject@gmail.com";
-        String senderPassword = "wlkhkntczgufmqlh";
-
-        // enter any email u wish to check
-        String receiverEmail = "monther.s122@gmail.com";
-        String subject = "Test 2";
-        String message = "This is a massage from the app";
-
-        onView(withId(R.id.Username)).perform(replaceText("admin"));
-        onView(withId(R.id.Password)).perform(replaceText("1234"));
+    public void testInboxAndSendEmail() {
+        // Login
+        onView(withId(R.id.Username)).perform(replaceText("maaar"));
+        onView(withId(R.id.Password)).perform(replaceText("nicepassword"));
         closeSoftKeyboard();
         onView(withId(R.id.Login)).perform(click());
-
         onView(withId(R.id.profile)).perform(click());
-
         onView(withId(R.id.send_email)).perform(click());
-
-        onView(withId(R.id.et_from_email)).perform(clearText(), typeText(senderEmail), closeSoftKeyboard());
-        onView(withId(R.id.et_password)).perform(clearText(), typeText(senderPassword), closeSoftKeyboard());
-        onView(withId(R.id.et_to_email)).perform(clearText(), typeText(receiverEmail), closeSoftKeyboard());
-        onView(withId(R.id.et_subject)).perform(clearText(), typeText(subject), closeSoftKeyboard());
-        onView(withId(R.id.et_message)).perform(clearText(), typeText(message), closeSoftKeyboard());
-
-        onView(withId(R.id.btn_send)).perform(ViewActions.click());
+        onView(withId(R.id.recipient_edit_text)).perform(replaceText("blabla@orange.com"));
+        onView(withId(R.id.subject_edit_text)).perform(replaceText("Test Subject"));
+        onView(withId(R.id.body_edit_text)).perform(replaceText("Test Body"));
+        closeSoftKeyboard();
+        onView(withId(R.id.send_button)).perform(click());
+    }
+    @Test
+    public void testInbox() {
+        // Login
+        onView(withId(R.id.Username)).perform(replaceText("maaar"));
+        onView(withId(R.id.Password)).perform(replaceText("nicepassword"));
+        closeSoftKeyboard();
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.profile)).perform(click());
+        onView(withId(R.id.view_inbox)).perform(click());
+        onView(withId(R.id.recyclerView)).check(matches(isDisplayed()));
+        onView(withId(R.id.recyclerView))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
     }
 }

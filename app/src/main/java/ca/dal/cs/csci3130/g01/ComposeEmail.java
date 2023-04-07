@@ -9,8 +9,11 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+/**
+ * This activity for writing and sending a new email
+ */
 public class ComposeEmail extends AppCompatActivity {
-
+    // Declare variables
     private EditText recipientEditText;
     private EditText subjectEditText;
     private EditText bodyEditText;
@@ -22,6 +25,7 @@ public class ComposeEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose_email);
 
+        // Initialize the fields
         recipientEditText = findViewById(R.id.recipient_edit_text);
         subjectEditText = findViewById(R.id.subject_edit_text);
         bodyEditText = findViewById(R.id.body_edit_text);
@@ -37,7 +41,7 @@ public class ComposeEmail extends AppCompatActivity {
             String body = bodyEditText.getText().toString();
 
             // Create an Email object
-            Email email = new Email(senderEmail, recipientEmail, subject, body);
+            Email email = new Email(body, recipientEmail, senderEmail, subject);
 
             // Store the email in Firestore
             firestore.collection("Emails").add(email)
