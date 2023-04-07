@@ -12,21 +12,19 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.Source;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class ProviderPage extends AppCompatActivity {
 
     private Product product;
-    private String lastName;
+//    private String lastName;
     FirebaseFirestore database;
 
     Toolbar toolbar;
@@ -41,21 +39,20 @@ public class ProviderPage extends AppCompatActivity {
         // Get custom toolbar
         toolbar = findViewById(R.id.providerPageToolBar);
 
-        // get last name
-        lastName = getIntent().getStringExtra("lastName").trim();
+
         // get product
         product = getIntent().getParcelableExtra("product");
         if(product != null) {
             String username = product.getUsername().trim();
-            getUserDataDB(username, lastName);
-            getRequestCount(username, lastName);
-//            getTotalValue(product.getUsername());
-            getRating(username, lastName);
+            getUserDataDBAndRating(username);
+            getRequestCount(username);
+            getTotalValue(username);
+
         }
 
     }
 
-    private void getUserDataDB(String username, String lastName){
+    private void getUserDataDBAndRating(String username){
         // Declaration of DocumentReference variables
         database.collection("UserList")
                 .whereEqualTo("Username", username)
@@ -67,25 +64,27 @@ public class ProviderPage extends AppCompatActivity {
                     // List of documents from the database
                     List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
 
-                    for (DocumentSnapshot document : snapshotList){
+                    DocumentSnapshot document = snapshotList.get(0);
 
-                        String lastnameDocument = document.get("LastName").toString();
-                        if(lastnameDocument.equals(lastName)){
-                            TextView firstName = findViewById(R.id.providerFirstName);
-                            firstName.setText(document.get("FirstName").toString());
+                    TextView firstName = findViewById(R.id.providerFirstName);
+                    firstName.setText(document.get("FirstName").toString());
 
-                            TextView lastNameText =findViewById(R.id.providerLastName);
-                            lastNameText.setText(lastnameDocument);
-                        }
+                    TextView lastNameText =findViewById(R.id.providerLastName);
+                    lastNameText.setText(document.get("LastName").toString());
 
-                    }
+                    TextView userRating = findViewById(R.id.providerRating);
+                    String rating = document.get("Rating").toString();
+                    userRating.setText(String.format("Rating: %s", rating));
+
+
                 }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show());
     }
 
-    private void getRequestCount(String username, String lastName){
+    private void getRequestCount(String username){
 
-        AtomicInteger counter = new AtomicInteger();
-        database.collection("RequestList").whereEqualTo("ProviderUsername", username)
+
+        database.collection("RequestList")
+                .whereEqualTo("ProviderUsername", username)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
 
@@ -94,37 +93,25 @@ public class ProviderPage extends AppCompatActivity {
                     // List of documents from the database
                     List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
 
-                    for (DocumentSnapshot document : snapshotList){
-                        String lastnameDocument = document.get("LastName").toString();
-                        if(lastnameDocument.equals(lastName)){
-                            counter.incrementAndGet();
-                        }
-                    }
-                });
+                    int counter = 0;
 
-        TextView requestCounter = findViewById(R.id.totalRequest);
-        requestCounter.setText(String.format("Total Requests: %d", counter.intValue()));
+                    for (int i = 0; i < snapshotList.size(); i++) {
+                        counter++;
+                    }
+
+                    TextView requestCounter = findViewById(R.id.totalRequest);
+                    String text = "Total Requests: " + counter;
+                    requestCounter.setText(text);
+
+                }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show());
+
+
 
     }
 
     private void getTotalValue(String username){
-//        AtomicLong counter = new AtomicLong();
-//        database.collection("RequestList").whereEqualTo("ProviderUsername", username)
-//                .get()
-//                .addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()){
-//                        for (QueryDocumentSnapshot document : task.getResult()){
-//                            counter.incrementAndGet();
-//                        }
-//                    }
-//                });
-//        TextView requestCounter = findViewById(R.id.totalValue);
-//        requestCounter.setText(String.format("Total Value: $%.2f", counter.doubleValue()));
-    }
 
-    private void getRating(String username, String lastName){
-        database.collection("UserList")
-                .whereEqualTo("UserName", username)
+        database.collection("TotalValue").whereEqualTo("ProviderUsername", username)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
 
@@ -133,17 +120,20 @@ public class ProviderPage extends AppCompatActivity {
                     // List of documents from the database
                     List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
 
+                    double totalValue = 0;
                     for (DocumentSnapshot document : snapshotList){
-                        String lastNameDocument = document.get("LastName").toString();
-                        if(lastNameDocument.equals(lastName)){
-                            TextView userRating = findViewById(R.id.providerRating);
-                            String rating = document.get("Rating").toString();
-                            userRating.setText(String.format("Rating: %s", rating));
-                        }
+                        double value = Double.parseDouble(document.get("ProviderTotalValue").toString());
+                        totalValue += value;
                     }
-                });
+
+                    TextView requestCounter = findViewById(R.id.totalValue);
+                    String text = "Total Value: $" + totalValue;
+                    requestCounter.setText(text);
+
+                }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show());
 
     }
+
 
     /**
      * Inflates the toolbar with items
