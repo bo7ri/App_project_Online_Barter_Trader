@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class ItemDetails extends AppCompatActivity {
     FirebaseFirestore database;
     private String username;
 
-    Button providerPage;
+    Button providerPageBtn;
 
     private String usertype;
     private String lastName;
@@ -108,14 +107,21 @@ public class ItemDetails extends AppCompatActivity {
             startActivity(movingToEditPage);
         });
 
-        providerPage = findViewById(R.id.providerProfilePage);
-        providerPage.setOnClickListener(view -> {
-            Intent moveToProviderPage = new Intent(getApplicationContext(), ProviderPage.class);
-            moveToProviderPage.putExtra("product", product);
-            moveToProviderPage.putExtra("lastName", lastName);
-
-            startActivity(moveToProviderPage);
+        // Got provider page
+        providerPageBtn = findViewById(R.id.providerProfilePage);
+        providerPageBtn.setOnClickListener(view -> {
+            if(usertype.equals("Receiver")){
+                Intent moveToProviderPage = new Intent(getApplicationContext(), ProviderPage.class);
+                moveToProviderPage.putExtra("product", product);
+                moveToProviderPage.putExtra("lastName", lastName);
+                startActivity(moveToProviderPage);
+            } else {
+                Toast.makeText(getApplicationContext(), "Only Receiver can view Provider's page!", Toast.LENGTH_LONG).show();
+            }
         });
+
+
+
     }
 
     /**

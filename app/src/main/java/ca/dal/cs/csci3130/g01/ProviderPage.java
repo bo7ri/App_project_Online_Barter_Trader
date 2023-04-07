@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ProviderPage extends AppCompatActivity {
 
     private Product product;
-//    private String lastName;
+    private String userType;
     FirebaseFirestore database;
 
     Toolbar toolbar;
@@ -42,6 +42,7 @@ public class ProviderPage extends AppCompatActivity {
 
         // get product
         product = getIntent().getParcelableExtra("product");
+
         if(product != null) {
             String username = product.getUsername().trim();
             getUserDataDBAndRating(username);
