@@ -4,8 +4,7 @@ package ca.dal.cs.csci3130.g01;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-
+import android.widget.Spinner;
 
 
 import androidx.annotation.NonNull;
@@ -27,6 +26,8 @@ public class Product implements Parcelable {
     private String username;
     private double price;
 
+    private String province;
+    private String city;
     /**
      * A basic product constructor
      * @param title The title of the product
@@ -50,7 +51,7 @@ public class Product implements Parcelable {
      * @param favStatus
      * @param imageResource
      */
-    public Product(String title, String description, String key_id, String favStatus, int imageResource, String username, double price) {
+    public Product(String title, String description, String key_id, String favStatus, int imageResource, String username, double price, String province, String city) {
         this.title = title;
         this.description = description;
         this.key_id = key_id;
@@ -58,6 +59,8 @@ public class Product implements Parcelable {
         this.imageResource = imageResource;
         this.username = username;
         this.price = price;
+        this.province = province;
+        this.city = city;
     }
 
     // This is part of Parcelable interface
@@ -69,6 +72,8 @@ public class Product implements Parcelable {
         key_id = in.readString();
         title = in.readString();
         price = in.readDouble();
+        province = in.readString();
+        city = in.readString();
     }
 
     // This is part of Parcelable interface
@@ -81,6 +86,8 @@ public class Product implements Parcelable {
         parcel.writeString(key_id);
         parcel.writeString(title);
         parcel.writeDouble(price);
+        parcel.writeString(province);
+        parcel.writeString(city);
     }
 
     // This is part of Parcelable interface
@@ -160,4 +167,22 @@ public class Product implements Parcelable {
         this.price = price;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+
+
 }
+

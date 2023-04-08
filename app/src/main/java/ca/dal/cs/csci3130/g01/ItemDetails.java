@@ -29,8 +29,11 @@ public class ItemDetails extends AppCompatActivity {
     private String username;
 
 
+
     private String usertype;
     private float rating;
+
+    private float distance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class ItemDetails extends AppCompatActivity {
         // Get the TextView
         TextView productTitle = findViewById(R.id.productTitle);
         TextView productDescription = findViewById(R.id.productDesp);
+        TextView provinceProduct = findViewById(R.id.provinceProduct);
+        TextView cityProduct = findViewById(R.id.cityProduct);
 
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
@@ -57,6 +62,11 @@ public class ItemDetails extends AppCompatActivity {
         if(product != null){
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
+            if(product.getProvince() != null && product.getCity() != null){
+                provinceProduct.setText(product.getProvince());
+                cityProduct.setText(product.getCity());
+            }
+
         }
 
         rateButton = findViewById(R.id.rating);
@@ -76,6 +86,36 @@ public class ItemDetails extends AppCompatActivity {
         // For example, you can display the rating in a TextView
         TextView ratingTextView = findViewById(R.id.rating_text_view);
         ratingTextView.setText("Rating: " + rating);
+
+        //display distance
+        distance = 0;
+
+        //display the distance in a TextView
+        TextView distanceTextView = findViewById(R.id.distanceTextView);
+        if (product.getCity() != null) {
+            if(product.getCity().equals("Halifax")){
+                distance = 2;
+                Toast.makeText(ItemDetails.this,"This Item is in your local area!", Toast.LENGTH_LONG).show();
+            }
+            if(product.getCity().equals("Dartmouth")){
+                distance = 5;
+                Toast.makeText(ItemDetails.this,"This Item is in your local area!", Toast.LENGTH_LONG).show();
+            }
+            if(product.getCity().equals("Sydney")){
+                distance = 400;
+            }
+            if(product.getCity().equals("Truro")){
+                distance = 95;
+            }
+            if(product.getCity().equals("Lower Sackville")){
+                distance = 19;
+            }
+        }
+        else{
+            Toast.makeText(ItemDetails.this,"This Item is in your local area!", Toast.LENGTH_LONG).show();
+        }
+        distanceTextView.setText("Distance: " + distance);
+
 
 
         // Setting up the sendRequestButton.
@@ -156,3 +196,6 @@ public class ItemDetails extends AppCompatActivity {
 
 
 }
+
+
+

@@ -13,6 +13,7 @@
         <item>Nova Scotia</item>
         <item>Ontario</item>
         <item>Quebec</item>
+        <item>Alberta</item>
     </string-array>
 
     <string-array name="cities_list">
@@ -21,16 +22,21 @@
         <item>Dartmouth</item>
         <item>Truro</item>
         <item>New Glasgow</item>
+        <item>Bedford</item>
+        <item>Lower Sackville</item>
     </string-array>
 
     <string-array name="ontario_cities_list">
         <item>Toronto</item>
+        <item>Ottawa</item>
+        <item>Niagara</item>
     </string-array>
 
     <string-array name="quebec_cities_list">
+        <item>Montreal</item>
+        <item>Quebec</item>
         <item>Ottawa</item>
     </string-array>
-
 
 
     <string name="messages">Messages</string>

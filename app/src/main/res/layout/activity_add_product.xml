@@ -6,6 +6,33 @@
     android:layout_height="match_parent">
 
 
+    <Spinner
+        android:id="@+id/provinces_spinner1"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:entries="@array/cities_list"
+        android:scrollbarSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductPrice"
+        app:layout_constraintVertical_bias="0.128"
+        tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/cities_spinner1"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:entries="@array/cities_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/provinces_spinner1"
+        app:layout_constraintVertical_bias="0.268"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/addProduct"
         android:layout_width="306dp"
@@ -32,10 +59,10 @@
 
     <EditText
         android:id="@+id/addProductDescription"
-        android:layout_width="384dp"
-        android:layout_height="213dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="382dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Product Description"
         android:inputType="text"
@@ -46,8 +73,8 @@
         android:id="@+id/addProductPrice"
         android:layout_width="385dp"
         android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Product Price"
         android:inputType="number|text|numberDecimal"
@@ -56,22 +83,27 @@
 
     <Button
         android:id="@+id/submitAddProduct"
-        android:layout_width="218dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="162dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="44dp"
         android:text="Add Product"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addProductDescription" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cancelAddProduct"
+        app:layout_constraintTop_toBottomOf="@+id/cities_spinner1"
+        app:layout_constraintVertical_bias="0.785" />
 
     <Button
         android:id="@+id/cancelAddProduct"
-        android:layout_width="238dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="148dp"
+        android:layout_height="55dp"
         android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/cities_spinner1"
+        app:layout_constraintVertical_bias="0.785" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

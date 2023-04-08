@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,7 +41,19 @@ public class AddProduct extends AppCompatActivity {
     private String username;
     private Product product;
     private String usertype;
+
+    private Spinner provincesSpinner;
+    private Spinner citiesSpinner;
+
+    private String selectedProvince;
+
+    private String selectedCity;
+
+    //Array to adapt the changes of the values
+    private ArrayAdapter<String> provincesAdapter;
+    private ArrayAdapter<String> citiesAdapter;
     FirebaseFirestore cloudDatabase;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -57,6 +72,43 @@ public class AddProduct extends AppCompatActivity {
         CancelPrdct = findViewById(R.id.cancelAddProduct);
 
 
+        //location details
+        //setContentView(R.layout.activity_add_product);
+        provincesSpinner = findViewById(R.id.provinces_spinner1);
+        citiesSpinner = findViewById(R.id.cities_spinner1);
+
+        provincesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.provinces_list));
+        provincesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        provincesSpinner.setAdapter(provincesAdapter);
+
+        citiesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.cities_list));
+        citiesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        citiesSpinner.setAdapter(citiesAdapter);
+
+        provincesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                selectedProvince = (String) adapterView.getItemAtPosition(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //Doing nothing
+            }
+        });
+
+        citiesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                selectedCity = (String) adapterView.getItemAtPosition(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //Doing nothing
+            }
+        });
+
+
+
         // Get Extra username
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
@@ -72,13 +124,16 @@ public class AddProduct extends AppCompatActivity {
     }
 
     /** Adding product data */
-    private String ProductName, ProductDescription, ProductPrice, currentUsername;
+
+    private String ProductName, ProductDescription, ProductPrice, currentUsername, ProductProvince, ProductCity;
     private void addProductData(){
         ProductName = PrdctTitle.getText().toString().trim();
         ProductDescription = PrdctDescription.getText().toString().trim();
         ProductPrice = PrdctPrice.getText().toString().trim();
         price = Double.parseDouble(ProductPrice);
         currentUsername = username.trim();
+        ProductProvince = provincesAdapter.toString().trim();
+        ProductCity = citiesAdapter.toString().trim();
 
         /** Validating The Data */
         if (TextUtils.isEmpty(ProductName)){
@@ -93,6 +148,14 @@ public class AddProduct extends AppCompatActivity {
             Toast.makeText(this, "Product Price is required!", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (TextUtils.isEmpty(ProductProvince)){
+            Toast.makeText(this, "Product Province is required!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(ProductCity)){
+            Toast.makeText(this, "Product City is required!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
         // DB
@@ -101,7 +164,7 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
-        Product newProduct = new Product(ProductName, ProductDescription, keyCountString, "0", R.drawable.no_image_found_default, username, price);
+        Product newProduct = new Product(ProductName, ProductDescription, keyCountString, "0", R.drawable.no_image_found_default, username, price, selectedProvince, selectedCity);
         product = newProduct;
 
         updateKeys();
