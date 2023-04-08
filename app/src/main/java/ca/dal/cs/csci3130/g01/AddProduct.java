@@ -45,6 +45,10 @@ public class AddProduct extends AppCompatActivity {
     private Spinner provincesSpinner;
     private Spinner citiesSpinner;
 
+    private String selectedProvince;
+
+    private String selectedCity;
+
     //Array to adapt the changes of the values
     private ArrayAdapter<String> provincesAdapter;
     private ArrayAdapter<String> citiesAdapter;
@@ -84,13 +88,25 @@ public class AddProduct extends AppCompatActivity {
         provincesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                String selectedProvince = (String) adapterView.getItemAtPosition(position);
+                selectedProvince = (String) adapterView.getItemAtPosition(position);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 //Doing nothing
             }
         });
+
+        citiesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                selectedCity = (String) adapterView.getItemAtPosition(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //Doing nothing
+            }
+        });
+
 
 
         // Get Extra username
@@ -148,7 +164,7 @@ public class AddProduct extends AppCompatActivity {
 
     private void addProductToDB() {
         // Sending the data to firebase.
-        Product newProduct = new Product(ProductName, ProductDescription, keyCountString, "0", R.drawable.no_image_found_default, username, price);
+        Product newProduct = new Product(ProductName, ProductDescription, keyCountString, "0", R.drawable.no_image_found_default, username, price, selectedProvince, selectedCity);
         product = newProduct;
 
         updateKeys();

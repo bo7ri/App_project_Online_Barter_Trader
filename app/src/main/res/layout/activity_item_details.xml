@@ -87,15 +87,36 @@
 
     <TextView
         android:id="@+id/textViewLocation"
-        android:layout_width="153dp"
-        android:layout_height="32dp"
-        android:text="Location: NS, Halifax"
+        android:layout_width="79dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="316dp"
+        android:text="Location: "
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/productDesp"
-        app:layout_constraintTop_toBottomOf="@+id/productTitle"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/productDesp"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <TextView
+        android:id="@+id/provinceProduct"
+        android:layout_width="97dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:text="Nova Scotia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewLocation"
+        app:layout_constraintTop_toBottomOf="@+id/productDesp"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/cityProduct"
+        android:layout_width="92dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:text="Halifax"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/provinceProduct"
+        app:layout_constraintTop_toBottomOf="@+id/productDesp"
+        app:layout_constraintVertical_bias="0.028" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
