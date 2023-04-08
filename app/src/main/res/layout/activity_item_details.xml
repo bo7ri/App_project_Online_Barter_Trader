@@ -66,13 +66,12 @@
         android:id="@+id/rating_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginBottom="104dp"
         android:text="Rating: 0.0"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/rating"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -96,39 +95,58 @@
         app:layout_constraintBottom_toTopOf="@+id/EditPrdct"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewLocation"
-        android:layout_width="79dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="316dp"
-        android:text="Location: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productDesp"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <TextView
-        android:id="@+id/provinceProduct"
-        android:layout_width="97dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:text="Nova Scotia"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewLocation"
-        app:layout_constraintTop_toBottomOf="@+id/productDesp"
-        app:layout_constraintVertical_bias="0.028" />
 
     <TextView
         android:id="@+id/cityProduct"
-        android:layout_width="92dp"
-        android:layout_height="27dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginBottom="52dp"
         android:text="Halifax"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/provinceProduct"
-        app:layout_constraintTop_toBottomOf="@+id/productDesp"
-        app:layout_constraintVertical_bias="0.028" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/provinceProduct" />
 
+    <TextView
+        android:id="@+id/provinceProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="52dp"
+        android:text="Nova Scotia"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/textViewLocation" />
+
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="52dp"
+        android:text="Location: "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Distance: 0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="176dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
