@@ -162,6 +162,16 @@ public class ExampleInstrumentedTest {
         intended(hasComponent(RegisterPage.class.getName()));
     }
 
+    // Checks if switches correctly to providers profile page after button is clicked.
+    @Test
+    public void checkIfSwitchedToProvidersProfile() {
+        onView(withId(R.id.RegisterButton)).perform(click());
+        intended(hasComponent(RegisterPage.class.getName()));
+        onView(withId(R.id.Username)).perform(typeText("ProviderAdmin"));
+        onView(withId(R.id.Password)).perform(typeText("admin4321"));
+        onView(withId(R.id.Login)).perform(click());
+    }
+
     @Test
     public void switchToAddProduct() {
         onView(withId(R.id.Username)).perform(replaceText("admin"));

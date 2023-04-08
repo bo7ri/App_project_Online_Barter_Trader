@@ -39,20 +39,17 @@ import java.util.Map;
 
 public class ProductProviderProfile extends AppCompatActivity {
     Toolbar toolbar;
-
     FirebaseFirestore database;
-
+    String username;
     TextView providerUsername;
     TextView providerRating;
     String providerRatingString;
     TextView providerRatingTotal;
     RatingBar ratingBar;
-    int ratingHeldInBar;
     float ratingSubmitted;
+
     int totalRatings;
     String totalRatingsString;
-    Button ratingSubmitButton;
-    String username;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,11 +60,9 @@ public class ProductProviderProfile extends AppCompatActivity {
         // Get the instance of the Firebase
         database = FirebaseFirestore.getInstance();
 
-        ratingSubmitButton = findViewById(R.id.rate_button);
-
         // Setting the providers username through intent from ItemDetails class.
-        providerUsername = findViewById(R.id.provider_username);
         username = getIntent().getStringExtra("username").trim();
+        providerUsername = findViewById(R.id.provider_username);
         providerUsername.setText(username);
 
         // Setting the rating and number of ratings by calling the getRating and get totalRatings methods
@@ -81,7 +76,7 @@ public class ProductProviderProfile extends AppCompatActivity {
         ratingBar = findViewById(R.id.rating_bar);
         ratingBar.setOnRatingBarChangeListener((ratingBar, v, b) -> {
             String message = null;
-            ratingHeldInBar = (int) ratingBar.getRating();
+            int ratingHeldInBar = (int) ratingBar.getRating();
             switch (ratingHeldInBar) {
                 case 1:
                     message = "Extremely Unpleasant";
@@ -109,6 +104,7 @@ public class ProductProviderProfile extends AppCompatActivity {
 
         // Setting the rating submit button which updates the rating based on the users input
         // from the rating bar
+        Button ratingSubmitButton = findViewById(R.id.rate_button);
         ratingSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
