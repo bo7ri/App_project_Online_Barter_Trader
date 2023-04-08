@@ -87,6 +87,7 @@ public class Profile extends AppCompatActivity{
         ProfileEditPageButton.setOnClickListener(view -> {
             Intent movingToEditPage = new Intent(getApplicationContext(), EditProfile.class);;
             movingToEditPage.putExtra("username", username);
+            movingToEditPage.putExtra("usertype",usertype);
             startActivity(movingToEditPage);
         });
     }

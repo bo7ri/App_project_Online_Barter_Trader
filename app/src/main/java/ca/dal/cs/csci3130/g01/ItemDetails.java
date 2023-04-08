@@ -97,15 +97,20 @@ public class ItemDetails extends AppCompatActivity {
         });
 
         // GO TO EDIT PAGE
-        ImageButton ProductEditPageButton = findViewById(R.id.EditPrdct);
-        ProductEditPageButton.setOnClickListener(view -> {
-            Intent movingToEditPage = new Intent(getApplicationContext(), EditProduct.class);
-            movingToEditPage.putExtra("product",product);
-            movingToEditPage.putExtra("username", username);
-            startActivity(movingToEditPage);
-        });
 
-    }
+            ImageButton ProductEditPageButton = findViewById(R.id.EditPrdct);
+            ProductEditPageButton.setOnClickListener(view -> {
+                if (username.equals(product.getUsername())) {
+                    Intent movingToEditPage = new Intent(ItemDetails.this, EditProduct.class);
+                    movingToEditPage.putExtra("product", product);
+                    movingToEditPage.putExtra("username", username);
+                    startActivity(movingToEditPage);
+                }
+                else {
+                    Toast.makeText(this, "You do not own the product. You cannot edit the product", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
     /**
      * Inflates the toolbar with items
