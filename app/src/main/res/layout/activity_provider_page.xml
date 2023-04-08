@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#673AB7"
     tools:context=".ProviderPage">
 
     <TextView
@@ -88,5 +89,36 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalRequest" />
+
+    <TextView
+        android:id="@+id/listed_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:text="Rate This User?"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerRating" />
+
+    <TextView
+        android:id="@+id/listed_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="#673AB7"
+        android:backgroundTint="#673AB7"
+        android:clickable="true"
+        android:padding="10dp"
+        android:text="@string/username"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/listed_by"
+        app:layout_constraintTop_toBottomOf="@+id/providerRating" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

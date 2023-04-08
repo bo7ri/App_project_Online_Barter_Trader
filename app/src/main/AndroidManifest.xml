@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- &lt;!&ndash;Permissions for internet&ndash;&gt; -->
-    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
-    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+
     <!-- Permissions for internet -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
@@ -35,6 +33,10 @@
         <activity android:name=".AddProduct" />
         <activity android:name=".SavedItems" />
         <activity android:name=".RegisterPage" />
+        <activity
+            android:name=".Rate"/>
+        <activity
+            android:name=".ProductProviderProfile"/>
         <activity
             android:name=".SendRequestPage"
             android:exported="false" />

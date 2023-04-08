@@ -50,6 +50,16 @@ public class ProviderPage extends AppCompatActivity {
 
         }
 
+        TextView productProvider = findViewById(R.id.listed_username);
+        // Goes to the product's provider profile page.
+        productProvider.setOnClickListener(view -> {
+            Intent goToProductProvider = new Intent(getApplicationContext(), ProductProviderProfile.class);
+            goToProductProvider.putExtra("username", product.getUsername());
+            startActivity(goToProductProvider);
+        });
+
+        productProvider.setText(product.getUsername());
+
     }
 
     /**

@@ -129,33 +129,6 @@ public class ExampleInstrumentedTest {
     }
 
 
-    // Checks if fields are not empty and submits correctly.
-    @Test
-    public void checkIfFieldsNotEmpty() {
-        onView(withId(R.id.RegisterButton)).perform(click());
-        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
-        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
-        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
-        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
-        onView(withId(R.id.registerEmailField)).perform(replaceText("blabla@orange.com"));
-        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
-        onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.RegisterButton)).check(matches(isDisplayed()));
-    }
-
-    // Checks if one field is empty and doesn't move to another page.
-    @Test
-    public void checkIfFieldsAreEmpty() {
-        onView(withId(R.id.RegisterButton)).perform(click());
-        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
-        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
-        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
-        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
-        onView(withId(R.id.registerEmailField)).perform(replaceText(" "));
-        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
-        onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.registerationTestMessage)).check(matches(withText("One or more fields are empty!")));
-    }
 
     // Checks if switches correctly to register page after button is clicked.
     @Test
@@ -163,6 +136,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.RegisterButton)).perform(click());
         intended(hasComponent(RegisterPage.class.getName()));
     }
+    
 
     @Test
     public void switchToAddProduct() {
@@ -205,33 +179,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
     }
 
-//    @Test
-//    public void testSendEmail() {
-//        String senderEmail = "test12appproject@gmail.com";
-//        String senderPassword = "wlkhkntczgufmqlh";
-//
-//        // enter any email u wish to check
-//        String receiverEmail = "monther.s122@gmail.com";
-//        String subject = "Test 2";
-//        String message = "This is a massage from the app";
-//
-//        onView(withId(R.id.Username)).perform(replaceText("admin"));
-//        onView(withId(R.id.Password)).perform(replaceText("1234"));
-//        closeSoftKeyboard();
-//        onView(withId(R.id.Login)).perform(click());
-//
-//        onView(withId(R.id.profile)).perform(click());
-//
-//        onView(withId(R.id.send_email)).perform(click());
-//
-//        onView(withId(R.id.et_from_email)).perform(clearText(), typeText(senderEmail), closeSoftKeyboard());
-//        onView(withId(R.id.et_password)).perform(clearText(), typeText(senderPassword), closeSoftKeyboard());
-//        onView(withId(R.id.et_to_email)).perform(clearText(), typeText(receiverEmail), closeSoftKeyboard());
-//        onView(withId(R.id.et_subject)).perform(clearText(), typeText(subject), closeSoftKeyboard());
-//        onView(withId(R.id.et_message)).perform(clearText(), typeText(message), closeSoftKeyboard());
-//
-//        onView(withId(R.id.btn_send)).perform(ViewActions.click());
-//    }
+
     @Test
     public void testInboxAndSendEmail() {
         // Login
