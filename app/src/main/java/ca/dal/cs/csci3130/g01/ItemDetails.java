@@ -31,6 +31,7 @@ public class ItemDetails extends AppCompatActivity {
 
     Button providerPageBtn;
 
+
     private String usertype;
     private String lastName;
     private float rating;
@@ -46,6 +47,8 @@ public class ItemDetails extends AppCompatActivity {
         // Get the TextView
         TextView productTitle = findViewById(R.id.productTitle);
         TextView productDescription = findViewById(R.id.productDesp);
+        TextView provinceProduct = findViewById(R.id.provinceProduct);
+        TextView cityProduct = findViewById(R.id.cityProduct);
 
 
         // Get custom toolbar
@@ -62,6 +65,9 @@ public class ItemDetails extends AppCompatActivity {
         if(product != null){
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
+
+            provinceProduct.setText(product.getProvince());
+            cityProduct.setText(product.getCity());
 
         }
 

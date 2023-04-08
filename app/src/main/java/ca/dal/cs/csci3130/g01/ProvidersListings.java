@@ -135,11 +135,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-        productList.add(new Product("Wooden Table", "Sample text.", "0", "0", R.drawable.table, username, 100));
-        productList.add(new Product("Couch", "Sample text.", "1", "0", R.drawable.couch, username, 100));
-        productList.add(new Product("Painting", "Sample text.", "2", "0", R.drawable.painting, username, 100));
-        productList.add(new Product("Bed", "Sample text.", "2", "0", R.drawable.bed, username, 100));
-        productList.add(new Product("Wooden Chair", "Sample text.", "4", "0", R.drawable.chair, username, 100));
+        productList.add(new Product("Wooden Table", "Sample text.", "0", "0", R.drawable.table, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Couch", "Sample text.", "1", "0", R.drawable.couch, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Painting", "Sample text.", "2", "0", R.drawable.painting, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Bed", "Sample text.", "2", "0", R.drawable.bed, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Wooden Chair", "Sample text.", "4", "0", R.drawable.chair, username, 100, "Nova Scotia", "Halifax"));
     }
 
     /**
