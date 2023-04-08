@@ -20,7 +20,12 @@
         android:theme="@style/Theme.CSCI3130Project"
         tools:targetApi="s">
         <activity
-            android:name=".ProviderPage"
+            android:name=".ProviderPage"/>
+        <activity
+            android:name=".Inbox"
+            android:exported="false" />
+        <activity
+            android:name=".ComposeEmail"
             android:exported="false" />
         <activity
             android:name=".ProvidersListings"
@@ -41,7 +46,7 @@
             android:exported="false" />
         <activity android:name=".EditProduct" />
         <activity android:name=".Location" />
-        <activity android:name=".SendEmails" />
+        <activity android:name=".JavaMail" />
         <activity
             android:name=".LoginPage"
             android:exported="true">

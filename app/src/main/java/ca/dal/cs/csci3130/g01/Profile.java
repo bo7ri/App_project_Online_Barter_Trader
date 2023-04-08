@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,22 +14,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class Profile extends AppCompatActivity{
 
     Toolbar toolbar;
-    Button sendEmailButton;
+    Button sendEmailButton, viewInboxButton;
     FirebaseFirestore database;
     String username;
     String usertype;
-
+    String firstName, lastName, userName, userType, email;
 
 
     @Override
@@ -79,10 +73,24 @@ public class Profile extends AppCompatActivity{
         sendEmailButton = findViewById(R.id.send_email);
         sendEmailButton.setOnClickListener(view -> {
             // this button will open send email activity
-            Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
+            TextView emailLabel = findViewById(R.id.email_edit_text);
+            Intent sendEmailIntent = new Intent(Profile.this, ComposeEmail.class);
+            sendEmailIntent.putExtra("senderEmail", email);
             startActivity(sendEmailIntent);
         });
+
+
+        viewInboxButton = findViewById(R.id.view_inbox);
+        viewInboxButton.setOnClickListener(view -> {
+            TextView emailLabel = findViewById(R.id.email_edit_text);
+            String recipientEmail = emailLabel.getText().toString();
+            Intent inboxIntent = new Intent(Profile.this, Inbox.class);
+            inboxIntent.putExtra("recipientEmail", recipientEmail);
+            startActivity(inboxIntent);
+        });
+
     }
+
 
     /**
      * Inflates the toolbar with items
@@ -138,13 +146,12 @@ public class Profile extends AppCompatActivity{
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-
                             // retrieve the data from firebase
-                            String firstName = document.get("FirstName").toString();
-                            String lastName = document.get("LastName").toString();
-                            String userName = document.get("Username").toString();
-                            String userType = document.get("UserType").toString();
-                            String email = document.get("EmailAddress").toString();
+                            firstName = document.get("FirstName").toString();
+                            lastName = document.get("LastName").toString();
+                            userName = document.get("Username").toString();
+                            userType = document.get("UserType").toString();
+                            email = document.get("EmailAddress").toString();
 
                             // set the profile labels
                             TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
