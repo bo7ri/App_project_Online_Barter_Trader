@@ -24,16 +24,13 @@
         <activity
             android:name=".ComposeEmail"
             android:exported="false" />
-        <activity
-            android:name=".ProvidersListings"
-            android:exported="true" />
+        <activity android:name=".ProvidersListings" />
         <activity android:name=".ItemDetails" />
         <activity android:name=".Profile" />
         <activity android:name=".AddProduct" />
         <activity android:name=".SavedItems" />
         <activity android:name=".RegisterPage" />
-        <activity
-            android:name=".Rate"/>
+        <activity android:name=".Rate"/>
         <activity
             android:name=".ProductProviderProfile"/>
         <activity
@@ -48,6 +45,8 @@
         <activity android:name=".EditProduct" />
         <activity android:name=".Location" />
         <activity android:name=".JavaMail" />
+        <activity android:name=".EditProfile"/>
+
         <activity
             android:name=".LoginPage"
             android:exported="true">

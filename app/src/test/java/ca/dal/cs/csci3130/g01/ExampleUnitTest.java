@@ -203,14 +203,14 @@ public class ExampleUnitTest {
     @Test
     public void testProductGetPrice() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         assertEquals(100, tempProduct.getPrice(), 0);
     }
 
     @Test
     public void testProductSetPrice() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         tempProduct.setPrice(88.1);
         assertEquals(88.1, tempProduct.getPrice(), 0);
     }
@@ -218,14 +218,14 @@ public class ExampleUnitTest {
     @Test
     public void testProductGetKeyID() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         assertEquals("0", tempProduct.getKey_id());
     }
 
     @Test
     public void testProductSetKeyID() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         tempProduct.setKey_id("1521");
         assertEquals("1521", tempProduct.getKey_id());
     }
@@ -233,14 +233,14 @@ public class ExampleUnitTest {
     @Test
     public void testProductGetFav() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         assertEquals("0", tempProduct.getFavStatus());
     }
 
     @Test
     public void testProductSetFav() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         tempProduct.setFavStatus("1");
         assertEquals("1", tempProduct.getFavStatus());
     }
@@ -248,14 +248,14 @@ public class ExampleUnitTest {
     @Test
     public void testProductGetImage() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         assertEquals(1234, tempProduct.getImageResource());
     }
 
     @Test
     public void testProductSetImage() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         tempProduct.setImageResource(4321);
         assertEquals(4321, tempProduct.getImageResource());
     }
@@ -263,14 +263,14 @@ public class ExampleUnitTest {
     @Test
     public void testProductGetName() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         assertEquals("coolAdmin", tempProduct.getUsername());
     }
 
     @Test
     public void tempProductSetName() {
         Product tempProduct = new Product("Wooden Table", "Sample text.", "0",
-                "0", 1234, "coolAdmin", 100);
+                "0", 1234, "coolAdmin", 100, "Nova Scotia", "Halifax");
         tempProduct.setUsername("TheCoolAdmin");
         assertEquals("TheCoolAdmin", tempProduct.getUsername());
     }

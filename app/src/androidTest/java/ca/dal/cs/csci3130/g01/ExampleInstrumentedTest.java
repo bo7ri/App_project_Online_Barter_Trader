@@ -7,12 +7,15 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
@@ -273,6 +276,102 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
         onView(withId(R.id.sendRequestBtn)).perform(click());
         onView(withId(R.id.sendRequestCancelBtn)).check(matches(isClickable()));
+    }
+
+    @Test
+    public void searchGoodByNameIsAvailable(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Chair"), pressImeActionButton());
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
+    }
+
+    @Test
+    public void searchGoodByNameIsNotAvailable(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Wooden table"), pressImeActionButton());
+
+        onView(withId(R.id.recyclerView)).check(matches(hasChildCount(0)));
+    }
+
+    /**
+     * This Tests if the recyclers contents are displayed
+     */
+    @Test
+    public void testContentsAreDisplayed(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
+    }
+
+    /**
+     * This tests if the button on recycler view works and transfers to ItemDetails.class
+     */
+    @Test
+    public void testItemDetails(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.productTitle)).check(matches(isDisplayed()));
+        onView(withId(R.id.productDesp)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void SearchSortItems(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Chair"), pressImeActionButton());
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.productTitle)).check(matches(withText("Chair")));
+    }
+
+
+    @Test
+    public void sortItemsAscending(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.productTitle)).check(matches(withText("ABC")));
+    }
+
+    @Test
+    public void sortItemsDescending(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.productTitle)).check(matches(withText("Z")));
     }
 
 }

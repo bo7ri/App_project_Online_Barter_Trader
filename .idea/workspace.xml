@@ -9,13 +9,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="22900944-7d99-4467-9059-cfd538b34fd6" name="Changes" comment="" />
+=======
+    <list default="true" id="22900944-7d99-4467-9059-cfd538b34fd6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/EditProfile.java" afterDir="false" />
+    </list>
+>>>>>>> origin/IT3-US7-Saleh
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\mrmad\.android\avd\Pixel_6_Pro_API_33.avd]" />
+=======
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Akram\.android\avd\8_Fold-out_API_30.avd]" />
+>>>>>>> origin/IT3-US7-Saleh
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -62,6 +72,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="layoutResourceFile" />
+>>>>>>> origin/IT3-US7-Saleh
         <option value="Class" />
       </list>
     </option>
@@ -80,6 +94,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DEBUGGABLE_DEVICE&quot;: &quot;Pixel_6_Pro_API_33 [emulator-5554]&quot;,
@@ -99,6 +114,18 @@
       <recent name="ca.dal.cs.csci3130.g01" />
     </key>
   </component>
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "D:/csci3130-w23-g01-project",
+    "memory.settings.postsync.last.time.stamp": "1679586186247"
+  }
+}]]></component>
+>>>>>>> origin/IT3-US7-Saleh
   <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="CSCI3130Project.app.main" />
@@ -306,6 +333,7 @@
     </task>
     <servers />
   </component>
+<<<<<<< HEAD
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -326,5 +354,17 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+>>>>>>> origin/IT3-US7-Saleh
   </component>
 </project>

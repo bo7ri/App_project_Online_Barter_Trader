@@ -1,17 +1,19 @@
 
-l
-java:S1192"IDefine a constant instead of duplicating this literal "Username" 3 times.(Ω«φΈϊÿÿÿÿ8ΐΎόρυ0
 f
-java:S1192+"IDefine a constant instead of duplicating this literal "usertype" 6 times.(‘Όε8ΑΎόρυ0
+java:S1192,"IDefine a constant instead of duplicating this literal "usertype" 7 times.(‘Όε8Ϊί½›φ0
 f
-java:S1192*"IDefine a constant instead of duplicating this literal "username" 6 times.(ΙΉσς8ΑΎόρυ0
+java:S1192+"IDefine a constant instead of duplicating this literal "username" 7 times.(ΙΉσς8άί½›φ0
+m	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª“¤8έί½›φ0
 q
-java:S1845"TRename field "userName" to prevent any misunderstanding/clash with field "username".(ήκι«8Ώόρυ0
+java:S1845"TRename field "userName" to prevent any misunderstanding/clash with field "username".(ήκι«8‰β½›φ0
 q
-java:S1845"TRename field "userType" to prevent any misunderstanding/clash with field "usertype".(ήκι«8Ώόρυ0
+java:S1845"TRename field "userType" to prevent any misunderstanding/clash with field "usertype".(ήκι«8β½›φ0
 O
-java:S1659"-Declare "viewInboxButton" on a separate line.(€Α­Εÿÿÿÿÿ8Ώόρυ0
+java:S1659"-Declare "viewInboxButton" on a separate line.(€Α­Εÿÿÿÿÿ8β½›φ0
 b
-java:S1659"EDeclare "lastName" and all following declarations on a separate line.(ήκι«8Ώόρυ0
+java:S1659"EDeclare "lastName" and all following declarations on a separate line.(ήκι«8β½›φ0
 Q
-java:S1481L"/Remove this unused "emailLabel" local variable.(„»Βώÿÿÿÿ8¤Ώόρυ0
+java:S1481M"/Remove this unused "emailLabel" local variable.(„»Βώÿÿÿÿ8Ρβ½›φ0
+9
+java:S1116`"Remove this empty statement.(χί‹Φ8ΰβ½›φ0
+Y	java:S125·"<This block of commented-out lines of code should be removed.(ªΌ†Ώ8‰γ½›φ0
