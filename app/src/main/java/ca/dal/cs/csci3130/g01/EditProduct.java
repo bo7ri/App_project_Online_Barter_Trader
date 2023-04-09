@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
@@ -25,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,74 +64,57 @@ public class EditProduct extends AppCompatActivity {
             PrdctDescription.setText(product.getDescription());
         }
 
-        ArrayList<String> ref = new ArrayList<String>();
+        UpdateProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        final String[] NewPrdctTitle = new String[1];
-        final String[] NewPrdctDesc = new String[1];
-
-
-        UpdateProduct.setOnClickListener(view -> {
-//            cloudDatabase.collection("ProductList").get().addOnSuccessListener(queryDocumentSnapshots -> {
-//                List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
-//
-//                for (DocumentSnapshot document: snapshotList) {
-//                    Product editProduct = document.toObject(Product.class);
-//
-//                    if (editProduct != null) {
-//                        String userName = editProduct.getUsername();
-//                        String productTitle = editProduct.getTitle();
-//                        if(productTitle.equals(product.getTitle())){
-//                            ref.add(document.getId());
-//
-//                        }
-//                    }
-//                }
-//
-//                NewPrdctTitle[0] = PrdctTitle.getText().toString().trim();
-//                NewPrdctDesc[0] = PrdctDescription.getText().toString().trim();
-//
-//                // update database
-//                cloudDatabase.collection("ProductList").document(ref.get(0)).update(
-//                        "title", NewPrdctTitle[0],
-//                        "description", NewPrdctDesc[0]);
-//
-//                Toast.makeText(this, "Updated Successfully!", Toast.LENGTH_SHORT).show();
-//            });
+                Map<String, Object> UpdatedProductMap = new HashMap<>();
+                UpdatedProductMap.put("title", PrdctTitle.getText().toString());
+                UpdatedProductMap.put("description", PrdctDescription.getText().toString());
 
 
+                    cloudDatabase.collection("ProductList").whereEqualTo("title",product.getTitle())
+                            .whereEqualTo("username",username).whereEqualTo("description",product.getDescription())
+                            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()){
+                                        for(QueryDocumentSnapshot document : task.getResult()){
+                                            String productID = document.getId();
+                                            cloudDatabase.collection("ProductList").document(productID)
+                                                    .set(UpdatedProductMap, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void unused) {
+                                                            Toast.makeText(EditProduct.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                                                            switchToProviderListings();
+                                                        }
+                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Toast.makeText(EditProduct.this, "Did not update", Toast.LENGTH_SHORT).show();
+                                                            switchToProviderListings();
+                                                        }
+                                                    });
+                                        }
+                                    }
+                                }
+                            });
 
-            switchToProviderListings();
+
+
+
+            }
         });
+
     }
 
 
 
-//    public void updateProduct(Product product){
-//
-//
-//        String username  = product.getUsername();
-//
-//        ArrayList<String> ref = new ArrayList<String>();
-//
-//        cloudDatabase.collection("ProductList").get().addOnSuccessListener(queryDocumentSnapshots -> {
-//            List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
-//
-//            for (DocumentSnapshot document: snapshotList) {
-//                Product editProduct = document.toObject(Product.class);
-//
-//                if (editProduct != null) {
-//                    if(editProduct.getTitle().equals(product.getTitle())){
-//                        ref.add(document.getId());
-//                    }
-//                }
-//            }
-//        });
-//
-//
-//    }
+
     protected void switchToProviderListings() {
         Intent switchToProvidersListings = new Intent(getApplicationContext(), ProvidersListings.class);
         switchToProvidersListings.putExtra("username", username);
+        switchToProvidersListings.putExtra("usertype", "Provider");
         startActivity(switchToProvidersListings);
     }
 

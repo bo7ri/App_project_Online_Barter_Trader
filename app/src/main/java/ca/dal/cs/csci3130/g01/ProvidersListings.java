@@ -46,6 +46,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
     List<Product> databaseListProduct;
     private String username;
     private String usertype;
+    private String lastName;
 
     private boolean sortAscending = true;
 
@@ -84,6 +85,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         // Get Extra username
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
+        lastName = getIntent().getStringExtra("lastName");
 
         // Add product btn
         ImageButton productAddPageButton = findViewById(R.id.productAddBtn);
@@ -133,11 +135,11 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
      * Hard coded data
      */
     protected void setData() {
-        productList.add(new Product("Wooden Table", "Sample text.", "0", "0", R.drawable.table, username, 100));
-        productList.add(new Product("Couch", "Sample text.", "1", "0", R.drawable.couch, username, 100));
-        productList.add(new Product("Painting", "Sample text.", "2", "0", R.drawable.painting, username, 100));
-        productList.add(new Product("Bed", "Sample text.", "2", "0", R.drawable.bed, username, 100));
-        productList.add(new Product("Wooden Chair", "Sample text.", "4", "0", R.drawable.chair, username, 100));
+        productList.add(new Product("Wooden Table", "Sample text.", "0", "0", R.drawable.table, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Couch", "Sample text.", "1", "0", R.drawable.couch, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Painting", "Sample text.", "2", "0", R.drawable.painting, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Bed", "Sample text.", "2", "0", R.drawable.bed, username, 100, "Nova Scotia", "Halifax"));
+        productList.add(new Product("Wooden Chair", "Sample text.", "4", "0", R.drawable.chair, username, 100, "Nova Scotia", "Halifax"));
     }
 
     /**
@@ -170,6 +172,8 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
         itemDetails.putExtra("product", product);
         itemDetails.putExtra("username", username);
         itemDetails.putExtra("usertype", usertype);
+        itemDetails.putExtra("lastName", lastName);
+
         startActivity(itemDetails);
     }
 
@@ -229,6 +233,7 @@ public class ProvidersListings extends AppCompatActivity implements RecyclerAdap
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
             if(username != null) savedPage.putExtra("username", username);
+
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){

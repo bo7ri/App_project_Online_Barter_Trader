@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,20 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class Profile extends AppCompatActivity{
 
     Toolbar toolbar;
-    Button sendEmailButton;
+    Button sendEmailButton, viewInboxButton;
     FirebaseFirestore database;
-
+    String username;
+    String usertype;
+    String firstName, lastName, userName, userType, email;
 
 
     @Override
@@ -43,8 +40,8 @@ public class Profile extends AppCompatActivity{
         database = FirebaseFirestore.getInstance();
 
         // Getting intents.
-        String username = getIntent().getStringExtra("username");
-        String usertype = getIntent().getStringExtra("usertype");
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         if(username != null) {
             getDataDB(username);
@@ -77,10 +74,32 @@ public class Profile extends AppCompatActivity{
         sendEmailButton = findViewById(R.id.send_email);
         sendEmailButton.setOnClickListener(view -> {
             // this button will open send email activity
-            Intent sendEmailIntent = new Intent(Profile.this, SendEmails.class);
+            TextView emailLabel = findViewById(R.id.email_edit_text);
+            Intent sendEmailIntent = new Intent(Profile.this, ComposeEmail.class);
+            sendEmailIntent.putExtra("senderEmail", email);
             startActivity(sendEmailIntent);
         });
+
+
+        viewInboxButton = findViewById(R.id.view_inbox);
+        viewInboxButton.setOnClickListener(view -> {
+            TextView emailLabel = findViewById(R.id.email_edit_text);
+            String recipientEmail = emailLabel.getText().toString();
+            Intent inboxIntent = new Intent(Profile.this, Inbox.class);
+            inboxIntent.putExtra("recipientEmail", recipientEmail);
+            startActivity(inboxIntent);
+        });
+
+        // GO TO EDIT PAGE
+        Button ProfileEditPageButton = findViewById(R.id.EditProfile);
+        ProfileEditPageButton.setOnClickListener(view -> {
+            Intent movingToEditPage = new Intent(getApplicationContext(), EditProfile.class);;
+            movingToEditPage.putExtra("username", username);
+            movingToEditPage.putExtra("usertype",usertype);
+            startActivity(movingToEditPage);
+        });
     }
+
 
     /**
      * Inflates the toolbar with items
@@ -107,16 +126,22 @@ public class Profile extends AppCompatActivity{
         if(item.getItemId() == R.id.homeButton){
             // transfer to home page
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            home.putExtra("username", username);
+            home.putExtra("usertype", usertype);
             startActivity(home);
         }
         else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            savedPage.putExtra("username", username);
+            savedPage.putExtra("usertype", usertype);
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
+            logout.putExtra("username", username);
+            logout.putExtra("usertype", usertype);
             startActivity(logout);
         }
 
@@ -130,42 +155,12 @@ public class Profile extends AppCompatActivity{
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-
                             // retrieve the data from firebase
-                            String firstName = document.get("FirstName").toString();
-                            String lastName = document.get("LastName").toString();
-                            String userName = document.get("Username").toString();
-                            String userType = document.get("UserType").toString();
-                            String email = document.get("EmailAddress").toString();
-
-                            // set the profile labels
-                            TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
-                            firstNameLabel.setText(firstName.trim());
-
-                            TextView lastNameLabel = findViewById(R.id.last_name_edit_text);
-                            lastNameLabel.setText(lastName.trim());
-
-                            TextView userNameLabel = findViewById(R.id.username_edit_text);
-                            userNameLabel.setText(userName.trim());
-
-                            TextView userTypeLabel = findViewById(R.id.user_type_edit_text);
-                            userTypeLabel.setText(userType.trim());
-
-                            TextView emailLabel = findViewById(R.id.email_edit_text);
-                            emailLabel.setText(email.trim());
-                        }
-                    }
-                })
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-
-                            // retrieve the data from firebase
-                            String firstName = document.get("FirstName").toString();
-                            String lastName = document.get("LastName").toString();
-                            String userName = document.get("Username").toString();
-                            String userType = document.get("UserType").toString();
-                            String email = document.get("EmailAddress").toString();
+                            firstName = document.get("FirstName").toString();
+                            lastName = document.get("LastName").toString();
+                            userName = document.get("Username").toString();
+                            userType = document.get("UserType").toString();
+                            email = document.get("EmailAddress").toString();
 
                             // set the profile labels
                             TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
@@ -185,6 +180,35 @@ public class Profile extends AppCompatActivity{
                         }
                     }
                 });
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//
+//                            // retrieve the data from firebase
+//                            String firstName = document.get("FirstName").toString();
+//                            String lastName = document.get("LastName").toString();
+//                            String userName = document.get("Username").toString();
+//                            String userType = document.get("UserType").toString();
+//                            String email = document.get("EmailAddress").toString();
+//
+//                            // set the profile labels
+//                            TextView firstNameLabel = findViewById(R.id.first_name_edit_text);
+//                            firstNameLabel.setText(firstName.trim());
+//
+//                            TextView lastNameLabel = findViewById(R.id.last_name_edit_text);
+//                            lastNameLabel.setText(lastName.trim());
+//
+//                            TextView userNameLabel = findViewById(R.id.username_edit_text);
+//                            userNameLabel.setText(userName.trim());
+//
+//                            TextView userTypeLabel = findViewById(R.id.user_type_edit_text);
+//                            userTypeLabel.setText(userType.trim());
+//
+//                            TextView emailLabel = findViewById(R.id.email_edit_text);
+//                            emailLabel.setText(email.trim());
+//                        }
+//                    }
+//                });
     }
 
 }

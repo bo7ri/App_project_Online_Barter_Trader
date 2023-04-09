@@ -9,13 +9,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+
+
 
 /**
  * @author Mohamed Al-Maimani
@@ -28,9 +29,15 @@ public class ItemDetails extends AppCompatActivity {
     FirebaseFirestore database;
     private String username;
 
+    Button providerPageBtn;
+
+
 
     private String usertype;
+    private String lastName;
     private float rating;
+
+    private float distance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,8 @@ public class ItemDetails extends AppCompatActivity {
         // Get the TextView
         TextView productTitle = findViewById(R.id.productTitle);
         TextView productDescription = findViewById(R.id.productDesp);
+        TextView provinceProduct = findViewById(R.id.provinceProduct);
+        TextView cityProduct = findViewById(R.id.cityProduct);
 
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
@@ -52,11 +61,18 @@ public class ItemDetails extends AppCompatActivity {
         Product product = getIntent().getParcelableExtra("product");
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
+        lastName = getIntent().getStringExtra("lastName");
 
         // set product title and desc.
         if(product != null){
             productTitle.setText(product.getTitle());
             productDescription.setText(product.getDescription());
+
+            if(product.getProvince() != null && product.getCity() != null){
+                provinceProduct.setText(product.getProvince());
+                cityProduct.setText(product.getCity());
+            }
+
         }
 
         rateButton = findViewById(R.id.rating);
@@ -77,6 +93,36 @@ public class ItemDetails extends AppCompatActivity {
         TextView ratingTextView = findViewById(R.id.rating_text_view);
         ratingTextView.setText("Rating: " + rating);
 
+        //display distance
+        distance = 0;
+
+        //display the distance in a TextView
+        TextView distanceTextView = findViewById(R.id.distanceTextView);
+        if (product.getCity() != null) {
+            if(product.getCity().equals("Halifax")){
+                distance = 2;
+                Toast.makeText(ItemDetails.this,"This Item is in your local area!", Toast.LENGTH_LONG).show();
+            }
+            if(product.getCity().equals("Dartmouth")){
+                distance = 5;
+                Toast.makeText(ItemDetails.this,"This Item is in your local area!", Toast.LENGTH_LONG).show();
+            }
+            if(product.getCity().equals("Sydney")){
+                distance = 400;
+            }
+            if(product.getCity().equals("Truro")){
+                distance = 95;
+            }
+            if(product.getCity().equals("Lower Sackville")){
+                distance = 19;
+            }
+        }
+        else{
+            Toast.makeText(ItemDetails.this,"This Item is in your local area!", Toast.LENGTH_LONG).show();
+        }
+        distanceTextView.setText("Distance: " + distance);
+
+
 
         // Setting up the sendRequestButton.
         Button sendRequestButton = findViewById(R.id.sendRequestBtn);
@@ -96,16 +142,38 @@ public class ItemDetails extends AppCompatActivity {
             }
         });
 
+
+        // Got provider page
+        providerPageBtn = findViewById(R.id.providerProfilePage);
+        providerPageBtn.setOnClickListener(view -> {
+            if(usertype.equals("Receiver")){
+                Intent moveToProviderPage = new Intent(getApplicationContext(), ProviderPage.class);
+                moveToProviderPage.putExtra("product", product);
+                moveToProviderPage.putExtra("username", username);
+                startActivity(moveToProviderPage);
+            }
+        });
+
+        if (usertype.equals("Provider")) providerPageBtn.setEnabled(false);
+
+
         // GO TO EDIT PAGE
         ImageButton ProductEditPageButton = findViewById(R.id.EditPrdct);
         ProductEditPageButton.setOnClickListener(view -> {
-            Intent movingToEditPage = new Intent(getApplicationContext(), EditProduct.class);
-            movingToEditPage.putExtra("product",product);
-            movingToEditPage.putExtra("username", username);
-            startActivity(movingToEditPage);
+            if (username.equals(product.getUsername())) {
+                Intent movingToEditPage = new Intent(ItemDetails.this, EditProduct.class);
+                movingToEditPage.putExtra("product", product);
+                movingToEditPage.putExtra("username", username);
+                startActivity(movingToEditPage);
+            }
+            else {
+                Toast.makeText(this, "You do not own the product. You cannot edit the product", Toast.LENGTH_SHORT).show();
+            }
         });
-
     }
+
+
+
 
     /**
      * Inflates the toolbar with items
@@ -132,6 +200,8 @@ public class ItemDetails extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             // transfer to home pahe
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            home.putExtra("username", username);
+            home.putExtra("usertype", usertype);
             startActivity(home);
         }
         else if(item.getItemId() == R.id.profile){
@@ -143,6 +213,8 @@ public class ItemDetails extends AppCompatActivity {
         else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            savedPage.putExtra("username", username);
+            savedPage.putExtra("usertype", usertype);
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){
@@ -156,3 +228,6 @@ public class ItemDetails extends AppCompatActivity {
 
 
 }
+
+
+

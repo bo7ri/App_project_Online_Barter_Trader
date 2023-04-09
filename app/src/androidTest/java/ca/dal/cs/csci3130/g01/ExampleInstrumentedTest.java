@@ -7,14 +7,19 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
+import static androidx.test.espresso.matcher.ViewMatchers.isNotEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -127,33 +132,6 @@ public class ExampleInstrumentedTest {
     }
 
 
-    // Checks if fields are not empty and submits correctly.
-    @Test
-    public void checkIfFieldsNotEmpty() {
-        onView(withId(R.id.RegisterButton)).perform(click());
-        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
-        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
-        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
-        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
-        onView(withId(R.id.registerEmailField)).perform(replaceText("blabla@orange.com"));
-        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
-        onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.RegisterButton)).check(matches(isDisplayed()));
-    }
-
-    // Checks if one field is empty and doesn't move to another page.
-    @Test
-    public void checkIfFieldsAreEmpty() {
-        onView(withId(R.id.RegisterButton)).perform(click());
-        onView(withId(R.id.registerUsernameField)).perform(replaceText("BLAbla"));
-        onView(withId(R.id.registerPasswordField)).perform(replaceText("password333"));
-        onView(withId(R.id.registerFirstNameField)).perform(replaceText("Blae"));
-        onView(withId(R.id.registerLastNameField)).perform(replaceText("Orange"));
-        onView(withId(R.id.registerEmailField)).perform(replaceText(" "));
-        onView(withId(R.id.registerUserTypeField)).perform(replaceText("Provider"));
-        onView(withId(R.id.registerSubmitButton)).perform(click());
-        onView(withId(R.id.registerationTestMessage)).check(matches(withText("One or more fields are empty!")));
-    }
 
     // Checks if switches correctly to register page after button is clicked.
     @Test
@@ -161,6 +139,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.RegisterButton)).perform(click());
         intended(hasComponent(RegisterPage.class.getName()));
     }
+    
 
     @Test
     public void switchToAddProduct() {
@@ -203,31 +182,196 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.submitAddProduct)).check(matches(isDisplayed()));
     }
 
+
     @Test
-    public void testSendEmail() {
-        String senderEmail = "test12appproject@gmail.com";
-        String senderPassword = "wlkhkntczgufmqlh";
-
-        // enter any email u wish to check
-        String receiverEmail = "monther.s122@gmail.com";
-        String subject = "Test 2";
-        String message = "This is a massage from the app";
-
-        onView(withId(R.id.Username)).perform(replaceText("admin"));
-        onView(withId(R.id.Password)).perform(replaceText("1234"));
+    public void testInboxAndSendEmail() {
+        // Login
+        onView(withId(R.id.Username)).perform(replaceText("maaar"));
+        onView(withId(R.id.Password)).perform(replaceText("nicepassword"));
         closeSoftKeyboard();
         onView(withId(R.id.Login)).perform(click());
-
         onView(withId(R.id.profile)).perform(click());
-
         onView(withId(R.id.send_email)).perform(click());
-
-        onView(withId(R.id.et_from_email)).perform(clearText(), typeText(senderEmail), closeSoftKeyboard());
-        onView(withId(R.id.et_password)).perform(clearText(), typeText(senderPassword), closeSoftKeyboard());
-        onView(withId(R.id.et_to_email)).perform(clearText(), typeText(receiverEmail), closeSoftKeyboard());
-        onView(withId(R.id.et_subject)).perform(clearText(), typeText(subject), closeSoftKeyboard());
-        onView(withId(R.id.et_message)).perform(clearText(), typeText(message), closeSoftKeyboard());
-
-        onView(withId(R.id.btn_send)).perform(ViewActions.click());
+        onView(withId(R.id.recipient_edit_text)).perform(replaceText("blabla@orange.com"));
+        onView(withId(R.id.subject_edit_text)).perform(replaceText("Test Subject"));
+        onView(withId(R.id.body_edit_text)).perform(replaceText("Test Body"));
+        closeSoftKeyboard();
+        onView(withId(R.id.send_button)).perform(click());
     }
+    @Test
+    public void testInbox() {
+        // Login
+        onView(withId(R.id.Username)).perform(replaceText("maaar"));
+        onView(withId(R.id.Password)).perform(replaceText("nicepassword"));
+        closeSoftKeyboard();
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.profile)).perform(click());
+        onView(withId(R.id.view_inbox)).perform(click());
+        onView(withId(R.id.recyclerView)).check(matches(isDisplayed()));
+        onView(withId(R.id.recyclerView))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+    }
+
+    @Test
+    public void providerPageAsReceiverUser(){
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.providerProfilePage)).perform(click());
+
+        intended(hasComponent(ProviderPage.class.getName()));
+    }
+
+    @Test
+    public void providerPageAsProviderUser(){
+
+        onView(withId(R.id.Username)).perform(typeText("providerAdmin"));
+        onView(withId(R.id.Password)).perform(typeText("password123"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.providerProfilePage)).check(matches(isNotEnabled()));
+
+    }
+
+    @Test
+    public void testSwitchToRequestPageAsReceiver() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.sendRequestSubmitBtn)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testSwitchToRequestPageAsProvider() {
+        onView(withId(R.id.Username)).perform(typeText("providerAdmin"));
+        onView(withId(R.id.Password)).perform(typeText("password123"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.toolBar)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testRequestButtonSend() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.sendRequestSubmitBtn)).check(matches(isClickable()));
+    }
+
+    @Test
+    public void testRequestButtonReject() {
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.sendRequestBtn)).perform(click());
+        onView(withId(R.id.sendRequestCancelBtn)).check(matches(isClickable()));
+    }
+
+    @Test
+    public void searchGoodByNameIsAvailable(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Chair"), pressImeActionButton());
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
+    }
+
+    @Test
+    public void searchGoodByNameIsNotAvailable(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Wooden table"), pressImeActionButton());
+
+        onView(withId(R.id.recyclerView)).check(matches(hasChildCount(0)));
+    }
+
+    /**
+     * This Tests if the recyclers contents are displayed
+     */
+    @Test
+    public void testContentsAreDisplayed(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+        onView(withId(R.id.recyclerView)).check(matches(hasMinimumChildCount(1)));
+    }
+
+    /**
+     * This tests if the button on recycler view works and transfers to ItemDetails.class
+     */
+    @Test
+    public void testItemDetails(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.productTitle)).check(matches(isDisplayed()));
+        onView(withId(R.id.productDesp)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void SearchSortItems(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.search)).perform(click());
+        onView(withId(androidx.appcompat.R.id.search_src_text))
+                .perform(typeText("Chair"), pressImeActionButton());
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.productTitle)).check(matches(withText("Chair")));
+    }
+
+
+    @Test
+    public void sortItemsAscending(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.productTitle)).check(matches(withText("ABC")));
+    }
+
+    @Test
+    public void sortItemsDescending(){
+
+        onView(withId(R.id.Username)).perform(typeText("admin"));
+        onView(withId(R.id.Password)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.Login)).perform(click());
+
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.sortBtn)).perform(click());
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.productTitle)).check(matches(withText("Z")));
+    }
+
 }

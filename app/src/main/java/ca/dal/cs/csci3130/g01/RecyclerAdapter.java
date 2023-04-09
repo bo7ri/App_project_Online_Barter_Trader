@@ -203,7 +203,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         Product product = productList.get(position);
 
         readCursorData(product, holder);
-        holder.itemImage.setImageResource(R.drawable.no_image_found_default);
+        holder.itemImage.setImageResource(R.drawable.whitebox);
         holder.itemName.setText(product.getTitle());
 
         holder.favBtn.setOnClickListener(v -> {

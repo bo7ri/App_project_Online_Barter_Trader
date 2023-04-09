@@ -24,6 +24,8 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
     private List<FavItem> favItemList;
     private FavDB favDB;
 
+    //test
+
 
     /**
      * Constructor for Favorite Adapter

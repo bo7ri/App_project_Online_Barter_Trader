@@ -1,0 +1,19 @@
+
+f
+java:S1192,"IDefine a constant instead of duplicating this literal "usertype" 7 times.(‘¼å8Úß½›ö0
+f
+java:S1192+"IDefine a constant instead of duplicating this literal "username" 7 times.(É¹óò8Üß½›ö0
+m	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šª“¤8İß½›ö0
+q
+java:S1845"TRename field "userName" to prevent any misunderstanding/clash with field "username".(Şêé«8‰â½›ö0
+q
+java:S1845"TRename field "userType" to prevent any misunderstanding/clash with field "usertype".(Şêé«8Šâ½›ö0
+O
+java:S1659"-Declare "viewInboxButton" on a separate line.(€Á­Åÿÿÿÿÿ8â½›ö0
+b
+java:S1659"EDeclare "lastName" and all following declarations on a separate line.(Şêé«8â½›ö0
+Q
+java:S1481M"/Remove this unused "emailLabel" local variable.(„»šÂşÿÿÿÿ8Ñâ½›ö0
+9
+java:S1116`"Remove this empty statement.(÷ß‹Ö8àâ½›ö0
+Y	java:S125·"<This block of commented-out lines of code should be removed.(ª¼†¿8‰ã½›ö0
