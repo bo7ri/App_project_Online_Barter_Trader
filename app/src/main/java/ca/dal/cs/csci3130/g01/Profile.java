@@ -77,6 +77,8 @@ public class Profile extends AppCompatActivity{
             TextView emailLabel = findViewById(R.id.email_edit_text);
             Intent sendEmailIntent = new Intent(Profile.this, ComposeEmail.class);
             sendEmailIntent.putExtra("senderEmail", email);
+            sendEmailIntent.putExtra("username", username);
+            sendEmailIntent.putExtra("usertype",usertype);
             startActivity(sendEmailIntent);
         });
 
@@ -87,6 +89,8 @@ public class Profile extends AppCompatActivity{
             String recipientEmail = emailLabel.getText().toString();
             Intent inboxIntent = new Intent(Profile.this, Inbox.class);
             inboxIntent.putExtra("recipientEmail", recipientEmail);
+            inboxIntent.putExtra("username", username);
+            inboxIntent.putExtra("usertype",usertype);
             startActivity(inboxIntent);
         });
 

@@ -1,0 +1,17 @@
+
+„
+java:S1488˜"aImmediately return this expression instead of assigning it to the temporary variable "emptyFlag".(áığ£ûÿÿÿÿ8Ğ¸Êö0
+[
+java:S2589³"8Remove this expression which always evaluates to "false"(ªÙùÔûÿÿÿÿ8§Éö0
+I
+java:S1125<"'Remove the unnecessary boolean literal.(á Ôçøÿÿÿÿ8¬Éö0
+I
+java:S1125@"'Remove the unnecessary boolean literal.(ëÓıØûÿÿÿÿ8­Éö0
+I
+java:S1125F"'Remove the unnecessary boolean literal.(è„ƒˆşÿÿÿÿ8­Éö0
+E
+java:S1125¬"'Remove the unnecessary boolean literal.(Ñó 8¹Éö0
+J
+java:S1125³"'Remove the unnecessary boolean literal.(ªÙùÔûÿÿÿÿ8¹Éö0
+J
+java:S1125³"'Remove the unnecessary boolean literal.(ªÙùÔûÿÿÿÿ8¹Éö0

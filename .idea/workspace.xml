@@ -14,66 +14,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/0712df971a99ac4d2fccb8e0fb19f377f3374cca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/2153d72a01e1c5b0ea386e53bba8e9396c624552" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/4/34e8103f6f567f14c1fc8aa45d299605e216d93f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3bc3f38479a613bcffce2dcd8905194ccd70771c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/1/417dc9502c50f77bac3faaf778b160fccbae9eb1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/9/49219cdc80ce21d97b58b633df1d5e9d0349c1bd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/651c244931e406b5b3786fab876dc13e3106112a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/b/6bd63266cdf75fec58948b82fbb7778166c588e8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/f/7f2b6844e8b03a1d1c655b5e3745f8b231559a15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/88f9988e4e159a8bde732b07ca180a0eb467046c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/0/90ab8bed3bfefadd16b5d867fc323ed6f16716ef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/b/abebca3659e4b676d96fdae111dbecd71d3d8885" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2eb85a36a8253050157b90b5eef3d7920d865be" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/9/f9f63d1ab3782176879021dd1cec41b43d2fb8bb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/7/0712df971a99ac4d2fccb8e0fb19f377f3374cca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/1/2153d72a01e1c5b0ea386e53bba8e9396c624552" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/4/34e8103f6f567f14c1fc8aa45d299605e216d93f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/b/3bc3f38479a613bcffce2dcd8905194ccd70771c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/1/417dc9502c50f77bac3faaf778b160fccbae9eb1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/9/49219cdc80ce21d97b58b633df1d5e9d0349c1bd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/5/651c244931e406b5b3786fab876dc13e3106112a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/b/6bd63266cdf75fec58948b82fbb7778166c588e8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/f/7f2b6844e8b03a1d1c655b5e3745f8b231559a15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/8/88f9988e4e159a8bde732b07ca180a0eb467046c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/0/90ab8bed3bfefadd16b5d867fc323ed6f16716ef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/b/abebca3659e4b676d96fdae111dbecd71d3d8885" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/2/b2eb85a36a8253050157b90b5eef3d7920d865be" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/9/f9f63d1ab3782176879021dd1cec41b43d2fb8bb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/AddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/EditProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ComposeEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ComposeEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/EditProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/FavDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/FavDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Inbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Inbox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ItemDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ItemDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/JavaMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/JavaMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ProductProviderProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ProductProviderProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ProviderPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/ProviderPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/Rate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/RegisterPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/RequestDetailsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/RequestDetailsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/RequestListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/g01/RequestListPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_product.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_product.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_compose_email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_compose_email.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/email_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/email_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/mazin/.android/avd/Pixel_6_Pro_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/mazin/.android/avd/Pixel_4_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -152,7 +114,8 @@
     &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mrmad/git/CSCI3130/Project/csci3130-w23-g01-project&quot;,
-    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1679586186247&quot;
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1679586186247&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;emulator&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -365,7 +328,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="22900944-7d99-4467-9059-cfd538b34fd6" name="Changes" comment="" />
+      <changelist id="ba6d727e-3da7-4e04-8493-08c86f705973" name="Changes" comment="" />
       <created>1679586172862</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

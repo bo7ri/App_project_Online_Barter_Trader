@@ -1,0 +1,32 @@
+
+o	java:S116#"URename this field "PrdctTitle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤úüÿÿÿÿ
+u	java:S116#"[Rename this field "PrdctDescription" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤úüÿÿÿÿ
+o	java:S116#"URename this field "PrdctPrice" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤úüÿÿÿÿ
+p	java:S116$"VRename this field "SubmitPrdct" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¶øıúÿÿÿÿ
+p	java:S116$"VRename this field "CancelPrdct" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¶øıúÿÿÿÿ
+n	java:S116'"TRename this field "key_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¢—íûÿÿÿÿ
+l	java:S116"VRename this field "ProductName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÊç’
+s	java:S116"]Rename this field "ProductDescription" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÊç’
+m	java:S116"WRename this field "ProductPrice" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÊç’
+p	java:S116"ZRename this field "ProductProvince" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÊç’
+l	java:S116"VRename this field "ProductCity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÊç’
+h
+java:S1659#"MDeclare "PrdctDescription" and all following declarations on a separate line.(­¤úüÿÿÿÿ
+D
+java:S1659$")Declare "CancelPrdct" on a separate line.(Â¶øıúÿÿÿÿ
+f
+java:S1659"ODeclare "ProductDescription" and all following declarations on a separate line.(ÏÊç’
+u
+java:S1450$"ZRemove the "CancelPrdct" field and declare it as a local variable in the relevant methods.(Â¶øıúÿÿÿÿ
+q
+java:S1450"ZRemove the "ProductCity" field and declare it as a local variable in the relevant methods.(ÏÊç’
+r
+java:S1450"[Remove the "ProductPrice" field and declare it as a local variable in the relevant methods.(ÏÊç’
+u
+java:S1450"^Remove the "ProductProvince" field and declare it as a local variable in the relevant methods.(ÏÊç’
+u
+java:S1450$"ZRemove the "SubmitPrdct" field and declare it as a local variable in the relevant methods.(Â¶øıúÿÿÿÿ
+r
+java:S1450."\Remove the "citiesSpinner" field and declare it as a local variable in the relevant methods.(ã¶×Û
+t
+java:S1450-"_Remove the "provincesSpinner" field and declare it as a local variable in the relevant methods.(şÇr

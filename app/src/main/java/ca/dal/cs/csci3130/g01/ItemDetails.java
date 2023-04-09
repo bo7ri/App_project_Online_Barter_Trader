@@ -55,6 +55,7 @@ public class ItemDetails extends AppCompatActivity {
         // Get custom toolbar
         toolbar = findViewById(R.id.toolBar);
         username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");

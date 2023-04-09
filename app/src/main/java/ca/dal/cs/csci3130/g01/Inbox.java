@@ -1,10 +1,14 @@
 package ca.dal.cs.csci3130.g01;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +25,8 @@ public class Inbox extends AppCompatActivity {
     private RecyclerView recyclerView;
     private EmailAdapter emailAdapter;
     private List<Email> emails;
+    private String username;
+    private String usertype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,8 @@ public class Inbox extends AppCompatActivity {
         // Get the email address of the recipient from the profile page
         Intent intent = getIntent();
         String recipientEmail = intent.getStringExtra("recipientEmail");
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         // Retrieve the emails from Firestore
         if (recipientEmail != null) {
@@ -70,4 +78,53 @@ public class Inbox extends AppCompatActivity {
             Toast.makeText(Inbox.this, "Error: Recipient email not found.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    /**
+     * Inflates the toolbar with items
+     * @param menu the menu that has the items
+     * @return super onCreateOptionsMenu result
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.profile_menu, menu);
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * When clicked on item in the toolbar go to desired activity
+     * @param item item in the toolbar
+     * @return super onCreateOptionsMenu result
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.homeButton){
+            // transfer to home page
+            Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            home.putExtra("username", username);
+            home.putExtra("usertype", usertype);
+            startActivity(home);
+        }
+        else if(item.getItemId() == R.id.savedItems){
+            // transfer to saved items page
+            Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            savedPage.putExtra("username", username);
+            savedPage.putExtra("usertype", usertype);
+            startActivity(savedPage);
+        }
+        else if(item.getItemId() == R.id.logout){
+            // transfer to login page
+            Intent logout = new Intent(getApplicationContext(), LoginPage.class);
+            logout.putExtra("username", username);
+            logout.putExtra("usertype", usertype);
+            startActivity(logout);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    
 }

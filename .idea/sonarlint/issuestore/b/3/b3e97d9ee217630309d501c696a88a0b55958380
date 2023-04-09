@@ -1,0 +1,9 @@
+
+k	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ν”³ÿÿÿÿÿ
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ρφά‘ύÿÿÿÿ
+f	java:S116"QRename this field "key_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ΫΧ
+[	java:S1076"AConstructor has 9 parameters, which is greater than 7 authorized.(ν”³ÿÿÿÿÿ
+d	java:S100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ςΥ…
+i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ρφά‘ύÿÿÿÿ
+N
+java:S1128"3Remove this unused import 'android.widget.Spinner'.(Έ£ΓΨόÿÿÿÿ

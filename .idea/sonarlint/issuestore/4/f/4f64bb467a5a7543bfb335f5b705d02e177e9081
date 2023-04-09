@@ -1,0 +1,9 @@
+
+d
+java:S2259S"IA "NullPointerException" could be thrown; "favItemList" is nullable here.(“àğ…üÿÿÿÿ
+M
+java:S2589V"7Remove this expression which always evaluates to "true"(´ÿ‘©
+o
+java:S1450*"YRemove the "favAdapter" field and declare it as a local variable in the relevant methods.(®ŸŞ
+U
+java:S11613":Add the "@Override" annotation above this method signature(¨Œşÿÿÿÿ

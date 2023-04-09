@@ -29,6 +29,9 @@ public class Rate extends AppCompatActivity {
         button = findViewById(R.id.button);
         ratingStars = findViewById(R.id.ratingBar);
 
+        // Getting intents.
+        username = getIntent().getStringExtra("username");
+        usertype = getIntent().getStringExtra("usertype");
 
         ratingStars.setOnRatingBarChangeListener((ratingBar, v, b) -> {
 
@@ -104,21 +107,21 @@ public class Rate extends AppCompatActivity {
             // transfer to home page
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
             home.putExtra("username", username);
-            home.putExtra("usertype", "Receiver");
+            home.putExtra("usertype", usertype);
             startActivity(home);
         }
         else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
             savedPage.putExtra("username", username);
-            savedPage.putExtra("usertype", "Receiver");
+            savedPage.putExtra("usertype", usertype);
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){
             // transfer to login page
             Intent logout = new Intent(getApplicationContext(), LoginPage.class);
             logout.putExtra("username", username);
-            logout.putExtra("usertype", "Receiver");
+            logout.putExtra("usertype", usertype);
             startActivity(logout);
         }
 
