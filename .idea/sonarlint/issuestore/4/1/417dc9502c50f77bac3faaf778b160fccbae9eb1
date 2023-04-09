@@ -1,0 +1,49 @@
+
+f
+java:S1192r"IDefine a constant instead of duplicating this literal "usertype" 3 times.(‘¼å8æú¶”ö0
+i
+java:S1192Ä"MDefine a constant instead of duplicating this literal "numberOfKeys" 3 times.(¥À×¯øÿÿÿÿ
+b
+java:S1192À"KDefine a constant instead of duplicating this literal "NumberKeys" 3 times.(¿’ˆ³
+f
+java:S1192q"IDefine a constant instead of duplicating this literal "username" 3 times.(É¹óò8Ã¶”ö0
+?
+java:S1604Á"(Make this anonymous inner class a lambda(Ï—§ü
+D
+java:S1604Ñ"(Make this anonymous inner class a lambda(¯‘àçúÿÿÿÿ
+o	java:S116#"URename this field "PrdctTitle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤úüÿÿÿÿ
+u	java:S116#"[Rename this field "PrdctDescription" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤úüÿÿÿÿ
+o	java:S116#"URename this field "PrdctPrice" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤úüÿÿÿÿ
+p	java:S116$"VRename this field "SubmitPrdct" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¶øıúÿÿÿÿ
+p	java:S116$"VRename this field "CancelPrdct" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¶øıúÿÿÿÿ
+n	java:S116'"TRename this field "key_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¢—íûÿÿÿÿ
+l	java:S116‚"VRename this field "ProductName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¡Ë
+s	java:S116‚"]Rename this field "ProductDescription" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¡Ë
+m	java:S116‚"WRename this field "ProductPrice" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¡Ë
+p	java:S116‚"ZRename this field "ProductProvince" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¡Ë
+l	java:S116‚"VRename this field "ProductCity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¡Ë
+h
+java:S1659#"MDeclare "PrdctDescription" and all following declarations on a separate line.(­¤úüÿÿÿÿ
+D
+java:S1659$")Declare "CancelPrdct" on a separate line.(Â¶øıúÿÿÿÿ
+f
+java:S1659‚"ODeclare "ProductDescription" and all following declarations on a separate line.(”¡Ë
+u
+java:S1450$"ZRemove the "CancelPrdct" field and declare it as a local variable in the relevant methods.(Â¶øıúÿÿÿÿ
+q
+java:S1450‚"ZRemove the "ProductCity" field and declare it as a local variable in the relevant methods.(”¡Ë
+r
+java:S1450‚"[Remove the "ProductPrice" field and declare it as a local variable in the relevant methods.(”¡Ë
+u
+java:S1450‚"^Remove the "ProductProvince" field and declare it as a local variable in the relevant methods.(”¡Ë
+u
+java:S1450$"ZRemove the "SubmitPrdct" field and declare it as a local variable in the relevant methods.(Â¶øıúÿÿÿÿ
+r
+java:S1450."\Remove the "citiesSpinner" field and declare it as a local variable in the relevant methods.(ã¶×Û
+u
+java:S1450‚"^Remove the "currentUsername" field and declare it as a local variable in the relevant methods.(”¡Ë
+t
+java:S1450-"_Remove the "provincesSpinner" field and declare it as a local variable in the relevant methods.(şÇr
+Q	java:S125L"<This block of commented-out lines of code should be removed.(û±˜§
+J
+java:S1068‚"3Remove this unused "currentUsername" private field.(”¡Ë
