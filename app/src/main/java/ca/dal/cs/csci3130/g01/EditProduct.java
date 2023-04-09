@@ -35,7 +35,7 @@ import java.util.Map;
 
 
 public class EditProduct extends AppCompatActivity {
-    private EditText PrdctTitle, PrdctDescription, PrdctPrice;
+    private EditText PrdctTitle, PrdctDescription;
     private Button UpdateProduct;
 
     String username;
@@ -48,10 +48,13 @@ public class EditProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_product);
 
+        // Getting firebase instance.
         cloudDatabase = FirebaseFirestore.getInstance();
 
+        // Getting intent.
         username = getIntent().getStringExtra("username");
 
+        // Getting edit text views.
         PrdctTitle = findViewById(R.id.productName);
         PrdctDescription = findViewById(R.id.productDescription);
         UpdateProduct = findViewById(R.id.updateProduct);
@@ -59,58 +62,46 @@ public class EditProduct extends AppCompatActivity {
         // Get parcel from ProvidersList
         Product product = getIntent().getParcelableExtra("product");
 
+        // Checking if product not null, then setting text.
         if(product != null){
             PrdctTitle.setText(product.getTitle());
             PrdctDescription.setText(product.getDescription());
         }
 
-        UpdateProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        // Setting onClickListener to update button.
+        UpdateProduct.setOnClickListener(view -> {
 
-                Map<String, Object> UpdatedProductMap = new HashMap<>();
-                UpdatedProductMap.put("title", PrdctTitle.getText().toString());
-                UpdatedProductMap.put("description", PrdctDescription.getText().toString());
+            Map<String, Object> UpdatedProductMap = new HashMap<>();
+            UpdatedProductMap.put("title", PrdctTitle.getText().toString());
+            UpdatedProductMap.put("description", PrdctDescription.getText().toString());
 
 
-                    cloudDatabase.collection("ProductList").whereEqualTo("title",product.getTitle())
-                            .whereEqualTo("username",username).whereEqualTo("description",product.getDescription())
-                            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()){
-                                        for(QueryDocumentSnapshot document : task.getResult()){
-                                            String productID = document.getId();
-                                            cloudDatabase.collection("ProductList").document(productID)
-                                                    .set(UpdatedProductMap, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void unused) {
-                                                            Toast.makeText(EditProduct.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
-                                                            switchToProviderListings();
-                                                        }
-                                                    }).addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            Toast.makeText(EditProduct.this, "Did not update", Toast.LENGTH_SHORT).show();
-                                                            switchToProviderListings();
-                                                        }
-                                                    });
-                                        }
-                                    }
+                cloudDatabase.collection("ProductList").whereEqualTo("title",product.getTitle())
+                        .whereEqualTo("username",username).whereEqualTo("description",product.getDescription())
+                        .get().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()){
+                                for(QueryDocumentSnapshot document : task.getResult()){
+                                    String productID = document.getId();
+                                    cloudDatabase.collection("ProductList").document(productID)
+                                            .set(UpdatedProductMap, SetOptions.merge()).addOnSuccessListener(unused -> {
+                                                Toast.makeText(EditProduct.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                                                switchToProviderListings();
+                                            }).addOnFailureListener(e -> {
+                                                Toast.makeText(EditProduct.this, "Did not update", Toast.LENGTH_SHORT).show();
+                                                switchToProviderListings();
+                                            });
                                 }
-                            });
+                            }
+                        });
 
 
 
 
-            }
         });
 
     }
 
-
-
-
+    // Sending user back to product list page.
     protected void switchToProviderListings() {
         Intent switchToProvidersListings = new Intent(getApplicationContext(), ProvidersListings.class);
         switchToProvidersListings.putExtra("username", username);

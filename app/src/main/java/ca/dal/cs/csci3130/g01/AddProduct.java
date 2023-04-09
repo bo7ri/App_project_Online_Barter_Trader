@@ -72,8 +72,7 @@ public class AddProduct extends AppCompatActivity {
         CancelPrdct = findViewById(R.id.cancelAddProduct);
 
 
-        //location details
-        //setContentView(R.layout.activity_add_product);
+        // location details
         provincesSpinner = findViewById(R.id.provinces_spinner1);
         citiesSpinner = findViewById(R.id.cities_spinner1);
 
@@ -127,13 +126,12 @@ public class AddProduct extends AppCompatActivity {
 
     /** Adding product data */
 
-    private String ProductName, ProductDescription, ProductPrice, currentUsername, ProductProvince, ProductCity;
+    private String ProductName, ProductDescription, ProductPrice, ProductProvince, ProductCity;
     private void addProductData(){
         ProductName = PrdctTitle.getText().toString().trim();
         ProductDescription = PrdctDescription.getText().toString().trim();
         ProductPrice = PrdctPrice.getText().toString().trim();
         price = Double.parseDouble(ProductPrice);
-        currentUsername = username.trim();
         ProductProvince = provincesAdapter.toString().trim();
         ProductCity = citiesAdapter.toString().trim();
 
@@ -190,12 +188,7 @@ public class AddProduct extends AppCompatActivity {
 
     public void getKeys(){
         DocumentReference documentReference = cloudDatabase.collection("NumberKeys").document("XokHk1KXtd8RlTSvZGGN");
-        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                keyCountString = documentSnapshot.getString("numberOfKeys");
-            }
-        });
+        documentReference.get().addOnSuccessListener(documentSnapshot -> keyCountString = documentSnapshot.getString("numberOfKeys"));
     }
 
     public void updateKeys(){
@@ -206,12 +199,6 @@ public class AddProduct extends AppCompatActivity {
         keyUpdate.put("numberOfKeys", keyCountString);
 
         cloudDatabase.collection("NumberKeys").whereEqualTo("numberOfKeys", keyCountString).get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        cloudDatabase.collection("NumberKeys").document("XokHk1KXtd8RlTSvZGGN").update(keyUpdate);
-
-                    }
-                });
+                .addOnCompleteListener(task -> cloudDatabase.collection("NumberKeys").document("XokHk1KXtd8RlTSvZGGN").update(keyUpdate));
     }
 }

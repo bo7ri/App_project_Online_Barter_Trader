@@ -1,8 +1,0 @@
-
-l	java:S117ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®Ö£õýÿÿÿÿ
-y
-java:S1488D"^Immediately return this expression instead of assigning it to the temporary variable "filter".(¿«Ëåþÿÿÿÿ
-S
-java:S2589ƒ"7Remove this expression which always evaluates to "true"(ÿ¤Èéùÿÿÿÿ
-V
-java:S1874œ":Remove this use of "getAdapterPosition"; it is deprecated.(à±™¾ÿÿÿÿÿ

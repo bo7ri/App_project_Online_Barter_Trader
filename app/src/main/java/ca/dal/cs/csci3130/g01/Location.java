@@ -43,19 +43,7 @@ public class Location extends AppCompatActivity {
         provincesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                String selectedProvince = (String) adapterView.getItemAtPosition(position);
-//                if (selectedProvince.equals("Nova Scotia")) {
-////                    citiesAdapter.clear();
-//                    citiesAdapter.addAll(getResources().getStringArray(R.array.cities_list));
-//                } else if (selectedProvince.equals("Ontario")) {
-//                    citiesAdapter.clear();
-//                    citiesAdapter.addAll(getResources().getStringArray(R.array.ontario_cities_list));
-//                } else if (selectedProvince.equals("Quebec")) {
-//                    citiesAdapter.clear();
-//                    citiesAdapter.addAll(getResources().getStringArray(R.array.quebec_cities_list));
-//                }
-//
-//                citiesAdapter.notifyDataSetChanged();
+                // Doing nothing.
             }
 
             @Override

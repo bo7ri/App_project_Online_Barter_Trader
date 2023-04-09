@@ -40,7 +40,6 @@ public class RequestListPage extends AppCompatActivity {
 
         // Getting intents.
         String username = getIntent().getStringExtra("username");
-        String usertype = getIntent().getStringExtra("usertype");
 
         // Initializing variables.
         requestItemListView = findViewById(R.id.listViewOfRequests);

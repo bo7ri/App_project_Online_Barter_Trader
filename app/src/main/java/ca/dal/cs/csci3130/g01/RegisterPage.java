@@ -149,20 +149,7 @@ public class RegisterPage extends AppCompatActivity {
                                             String lastName, String emailAddress, String userType) {
 
         // Checking each of the field to be empty or not.
-        boolean emptyFlag = false;
-        if (username.isEmpty()) {
-            emptyFlag = true;
-        } else if (password.isEmpty()) {
-            emptyFlag = true;
-        } else if (firstName.isEmpty()) {
-            emptyFlag = true;
-        } else if (lastName.isEmpty()) {
-            emptyFlag = true;
-        } else if (emailAddress.isEmpty()) {
-            emptyFlag = true;
-        } else if (userType.isEmpty()) {
-            emptyFlag = true;
-        }
+        boolean emptyFlag = username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || emailAddress.isEmpty() || userType.isEmpty();
         return emptyFlag;
 
     }

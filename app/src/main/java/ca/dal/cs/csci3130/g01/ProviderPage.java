@@ -55,6 +55,7 @@ public class ProviderPage extends AppCompatActivity {
         productProvider.setOnClickListener(view -> {
             Intent goToProductProvider = new Intent(getApplicationContext(), ProductProviderProfile.class);
             goToProductProvider.putExtra("username", product.getUsername());
+            goToProductProvider.putExtra("usertype", "Receiver");
             startActivity(goToProductProvider);
         });
 
@@ -180,6 +181,9 @@ public class ProviderPage extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             // transfer to home pahe
             Intent home = new Intent(getApplicationContext(), ProvidersListings.class);
+            String username = getIntent().getStringExtra("username");
+            home.putExtra("username", username);
+            home.putExtra("usertype", "Receiver");
             startActivity(home);
         }
         else if(item.getItemId() == R.id.profile){
@@ -187,11 +191,15 @@ public class ProviderPage extends AppCompatActivity {
             Intent profilePage = new Intent(getApplicationContext(), Profile.class);
             String username = getIntent().getStringExtra("username");
             profilePage.putExtra("username", username);
+            profilePage.putExtra("usertype", "Receiver");
             startActivity(profilePage);
         }
         else if(item.getItemId() == R.id.savedItems){
             // transfer to saved items page
             Intent savedPage = new Intent(getApplicationContext(), SavedItems.class);
+            String username = getIntent().getStringExtra("username");
+            savedPage.putExtra("username", username);
+            savedPage.putExtra("usertype", "Receiver");
             startActivity(savedPage);
         }
         else if(item.getItemId() == R.id.logout){

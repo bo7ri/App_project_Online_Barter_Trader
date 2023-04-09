@@ -77,6 +77,7 @@ public class JavaMail extends AppCompatActivity {
                 properties.put("mail.smtp.starttls.enable", "true");
 
                 Authenticator auth = new Authenticator() {
+                    @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(fromEmail, fromPassword);
                     }

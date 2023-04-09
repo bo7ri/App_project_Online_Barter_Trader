@@ -34,7 +34,6 @@ public class ItemDetails extends AppCompatActivity {
 
 
     private String usertype;
-    private String lastName;
     private float rating;
 
     private float distance;
@@ -61,7 +60,6 @@ public class ItemDetails extends AppCompatActivity {
         Product product = getIntent().getParcelableExtra("product");
         username = getIntent().getStringExtra("username");
         usertype = getIntent().getStringExtra("usertype");
-        lastName = getIntent().getStringExtra("lastName");
 
         // set product title and desc.
         if(product != null){

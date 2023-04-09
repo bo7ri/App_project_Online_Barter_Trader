@@ -24,10 +24,6 @@ import java.util.Map;
 
 public class RequestDetailsPage extends AppCompatActivity {
 
-    private String username;
-    private String usertype;
-    private String tempProviderUsernameID;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -234,7 +230,6 @@ public class RequestDetailsPage extends AppCompatActivity {
                     String documentProviderUsername = document.get("Username").toString();
                     // Error checking to see if given username is same as retrieved username.
                     if (documentProviderUsername.equals(providerUsername)) {
-                        tempProviderUsernameID = document.getId();
                         setTotalValueTraded(ffInstance, providerUsername, document.getId(), productPrice);
                     }
                 }

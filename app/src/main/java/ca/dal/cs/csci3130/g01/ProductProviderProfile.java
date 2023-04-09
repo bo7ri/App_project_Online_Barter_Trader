@@ -107,12 +107,13 @@ public class ProductProviderProfile extends AppCompatActivity {
         // Setting the rating submit button which updates the rating based on the users input
         // from the rating bar
         Button ratingSubmitButton = findViewById(R.id.rate_button);
-        ratingSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateTotalRatings();
-                updateRating();
-            }
+        ratingSubmitButton.setOnClickListener(v -> {
+            updateTotalRatings();
+            updateRating();
+            Intent sendBackToProviderListPage = new Intent(getApplicationContext(), ProvidersListings.class);
+            sendBackToProviderListPage.putExtra("username", username);
+            sendBackToProviderListPage.putExtra("usertype", "Receiver");
+            startActivity(sendBackToProviderListPage);
         });
     }
 
@@ -123,26 +124,20 @@ public class ProductProviderProfile extends AppCompatActivity {
         CollectionReference users = database.collection("UserList");
         Query query = users.whereEqualTo("Username", username);
 
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                                database.collection("UserList").document(document.getId())
-                                        .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                            @Override
-                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                               providerRatingString = documentSnapshot.getString("Rating");
-                                                providerRating.setText(providerRatingString);
-                                         }
-                                        });
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Log.d(TAG, document.getId() + " => " + document.getData());
+                    database.collection("UserList").document(document.getId())
+                            .get().addOnSuccessListener(documentSnapshot -> {
+                               providerRatingString = documentSnapshot.getString("Rating");
+                                providerRating.setText(providerRatingString);
+                         });
+                }
+            } else {
+                Log.d(TAG, "Error getting documents: ", task.getException());
+            }
+        });
     }
 
     /**
@@ -158,22 +153,15 @@ public class ProductProviderProfile extends AppCompatActivity {
         CollectionReference users = database.collection("UserList");
         Query query = users.whereEqualTo("Username", username);
 
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d(TAG, document.getId() + " => " + document.getData());
-                        database.collection("UserList").whereEqualTo("Rating", newRatingString).get()
-                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        database.collection("UserList").document(document.getId()).update(ratingUpdate);
-                                    }
-                                });
-                    }
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Log.d(TAG, document.getId() + " => " + document.getData());
+                    database.collection("UserList").whereEqualTo("Rating", newRatingString).get()
+                            .addOnCompleteListener(task1 -> database.collection("UserList").document(document.getId()).update(ratingUpdate));
                 }
-            }});
+            }
+        });
     }
 
     /**
@@ -183,24 +171,18 @@ public class ProductProviderProfile extends AppCompatActivity {
         CollectionReference users = database.collection("UserList");
         Query query = users.whereEqualTo("Username", username);
 
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d(TAG, document.getId() + " => " + document.getData());
-                        database.collection("UserList").document(document.getId())
-                                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                        totalRatingsString = "(" + documentSnapshot.getString("numberOfRatings") + ")";
-                                        providerRatingTotal.setText(totalRatingsString);
-                                    }
-                                });
-                    }
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Log.d(TAG, document.getId() + " => " + document.getData());
+                    database.collection("UserList").document(document.getId())
+                            .get().addOnSuccessListener(documentSnapshot -> {
+                                totalRatingsString = "(" + documentSnapshot.getString("numberOfRatings") + ")";
+                                providerRatingTotal.setText(totalRatingsString);
+                            });
                 }
+            } else {
+                Log.d(TAG, "Error getting documents: ", task.getException());
             }
         });
     }
@@ -218,24 +200,17 @@ public class ProductProviderProfile extends AppCompatActivity {
         CollectionReference users = database.collection("UserList");
         Query query = users.whereEqualTo("Username", username);
 
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d(TAG, document.getId() + " => " + document.getData());
-                        database.collection("UserList").whereEqualTo("numberOfRatings", totalRatingsString).get()
-                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        database.collection("UserList").document(document.getId()).update(ratingUpdate);
-                                    }
-                                });
-                    }
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Log.d(TAG, document.getId() + " => " + document.getData());
+                    database.collection("UserList").whereEqualTo("numberOfRatings", totalRatingsString).get()
+                            .addOnCompleteListener(task1 -> database.collection("UserList").document(document.getId()).update(ratingUpdate));
                 }
-            }});
+            } else {
+                Log.d(TAG, "Error getting documents: ", task.getException());
+            }
+        });
 
     }
 
